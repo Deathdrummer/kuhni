@@ -1,0 +1,130 @@
+.contacts-section {
+  @include resp(
+    margin-bottom,
+    (
+      md-down: 60px,
+    )
+  );
+  .br-left-before {
+    @include resp(
+      padding-left,
+      (
+        xl: 45px,
+      )
+    );
+    &:before {
+      left: 15px;
+      top: 0;
+      height: calc(100% - 30px);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='512' viewBox='0 0 2 512' fill='none'%3E%3Cpath d='M1 1L1 511' stroke='%23969696' stroke-linecap='round'/%3E%3C/svg%3E");
+      @include resp(
+        display,
+        (
+          lg-down: none,
+        )
+      );
+    }
+  }
+  .section {
+    // .section__block-title
+
+    &__block-title {
+      margin-top: -9px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  // .contacts-section__item
+
+  &__item {
+    line-height: normal;
+    a:hover {
+      color: var(--color-red);
+    }
+  }
+
+  // .contacts-section__item-title
+
+  &__item-title {
+    font-weight: 700;
+
+    display: inline-flex;
+    @include flex-v-center;
+    gap: 11px;
+    @include resp(
+      font-size,
+      (
+        sm-down: 16px,
+        md: 20px,
+      )
+    );
+  }
+
+  // .contacts-section__item-text
+
+  &__item-text {
+    margin-top: 5px;
+    margin-left: 38px;
+  }
+  .contacts-section {
+    // .contacts-section__sosials
+
+    &__sosials {
+      margin-top: 30px;
+      @include resp(
+        margin-left,
+        (
+          md: 38px,
+        )
+      );
+
+      .sosials {
+        justify-content: flex-start;
+        gap: 5px;
+        .sosial-link {
+          transition: all 0.2s linear;
+          &:hover {
+            stroke: var(--color-red);
+          }
+          .icon-sosial {
+            @include resp(
+              width,
+              (
+                sm-down: 41px,
+                md: 35px,
+              )
+            );
+            @include resp(
+              height,
+              (
+                sm-down: 41px,
+                md: 35px,
+              )
+            );
+            svg {
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.map {
+  @include resp(
+    height,
+    (
+      sm-down: 300px,
+      md: 505px,
+    )
+  );
+}
+
+.icon-contacts {
+  width: 26px;
+  height: 26px;
+}

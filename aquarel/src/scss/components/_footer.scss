@@ -1,0 +1,139 @@
+.footer {
+  background-color: var(--color-text);
+  @include resp(
+    padding,
+    (
+      sm-down: 40px 0 70px,
+      md: 75px 0 130px,
+    )
+  );
+  .logo {
+    width: 128px;
+    height: 28px;
+  }
+  &__desc {
+    color: var(--color-light-white);
+    font-weight: 500;
+    max-width: 254px;
+    line-height: normal;
+    @include resp(
+      margin-top,
+      (
+        sm-down: 11px,
+        md: 24px,
+      )
+    );
+    @include resp(
+      font-size,
+      (
+        sm-down: 12px,
+      )
+    );
+  }
+
+  // .footer__menu-block
+  &__menu-block {
+    display: flex;
+
+    @include resp(
+      flex-direction,
+      (
+        sm-down: column,
+      )
+    );
+    @include resp(
+      gap,
+      (
+        sm-down: 48px,
+        md: 34px,
+      )
+    );
+    @include resp(
+      margin-top,
+      (
+        sm-down: 52px,
+      )
+    );
+    // .menu-block__item
+    .menu-block {
+      &__item {
+        nav {
+          ul {
+            display: flex;
+            flex-direction: column;
+            @include resp(
+              gap,
+              (
+                sm-down: 10px,
+                md: 16px,
+              )
+            );
+          }
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+
+      // .menu-block__title
+
+      &__title {
+        color: var(--color-light-white);
+        font-size: 20px !important;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+      &__link-pc-none {
+        @include resp(
+          display,
+          (
+            md: none,
+          )
+        );
+      }
+    }
+  }
+
+  .block-button {
+    flex-direction: column;
+
+    @include resp(
+      align-items,
+      (
+        lg: flex-end,
+      )
+    );
+    @include resp(
+      gap,
+      (
+        sm-down: 15px,
+        md: 10px,
+      )
+    );
+    @include resp(
+      margin-top,
+      (
+        md-down: 55px,
+      )
+    );
+    .button {
+      width: 100%;
+
+      @include resp(
+        max-width,
+        (
+          sm-down: 250px,
+          md: 200px,
+        )
+      );
+      &--number {
+        font-size: 20px;
+      }
+      &--red {
+        font-size: 16px;
+      }
+    }
+  }
+}

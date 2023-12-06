@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+  @include('partials/head.html')
+
+  <body class="page__body">
+    <div class="site-container shadow">
+      @include('partials/header.html')
+      <main class="card">
+        <section class="mt-80 mt-md-115 mt-lg-145 mb-25 mb-lg-60">
+          <div class="container-xxl g-2 g-lg-4">
+            <nav aria-label="breadcrumb ">
+              <ol class="breadcrumb mb-30">
+                <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                <li class="breadcrumb-item"><a href="/">Каталог Кухни</a></li>
+                <li class="breadcrumb-item" aria-current="page">Кухня Athena</li>
+              </ol>
+            </nav>
+            <div class="row g-0 gx-3 mb-0">
+              <div class="col-12 col-lg-8 col-xll-7 col-card-swiper">
+                <div class="swiper swiper-card overflow-hidden">
+                  <div class="swiper-wrapper">
+                    <a data-fancybox="gallery" data-src="./img/card/1.png" class="swiper-slide">
+                      <img src="./img/card/1.png" />
+                    </a>
+                    <a data-fancybox="gallery" data-src="./img/card/2.jpeg" class="swiper-slide">
+                      <img src="./img/card/2.jpeg" />
+                    </a>
+                    <a data-fancybox="gallery" data-src="./img/card/3.jpeg" class="swiper-slide">
+                      <img src="./img/card/3.jpeg" />
+                    </a>
+                    <a data-fancybox="gallery" data-src="./img/card/4.jpeg" class="swiper-slide">
+                      <img src="./img/card/4.jpeg" />
+                    </a>
+                    <a data-fancybox="gallery" data-src="./img/card/5.jpeg" class="swiper-slide">
+                      <img src="./img/card/5.jpeg" />
+                    </a>
+                    <a data-fancybox="gallery" data-src="./img/card/6.jpeg" class="swiper-slide">
+                      <img src="./img/card/6.jpeg" />
+                    </a>
+                  </div>
+
+                  <div class="swiper-prev"></div>
+                  <div class="swiper-next"></div>
+                </div>
+                <div class="swiper swiper-card-thumbs overflow-hidden mt-10 mt-md-15">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="./img/card/1.png" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/card/2.jpeg" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/card/3.jpeg" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/card/4.jpeg" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/card/5.jpeg" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="./img/card/6.jpeg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column mt-24 mt-lg-0 col-12 col-lg-4 col-xll-5 col-card-content">
+                <div class="order-0">
+                  <div class="card__title">Athena</div>
+                  <div class="card__subtitle mb-10">Кухня в современном стиле</div>
+                </div>
+                <div class="order-2 order-lg-1">
+                  <ul class="property-list d-flex flex-column border-light-white pb-15 pb-md-30">
+                    <li><span class="property-info">Стиль:</span> <span>современная кухня</span></li>
+                    <li><span class="property-info">Производитель:</span> <span>Акварель</span></li>
+                    <li><span class="property-info">Изготовление:</span> <span>на заказ</span></li>
+                    <li><span class="property-info">Модель:</span> <span>СЛ 062</span></li>
+                    <li><span class="property-info">Цвет:</span> <span>комбинированный</span></li>
+                    <li><span class="property-info">Корпус:</span> <span>ЛДСП</span></li>
+                    <li><span class="property-info">Столешница:</span> <span>кварц</span></li>
+                    <li><span class="property-info">Фасады:</span> <span>МДФ эмаль</span></li>
+                    <li><span class="property-info">Фурнитура:</span> <span>Salice</span></li>
+                  </ul>
+                  <ul class="property-list d-flex flex-column border-light-white pb-15 pb-md-10 pt-10">
+                    <li><span class="property-info">Стоимость:</span> <span>без учёта столешницы за метр погонный от 42 400 ₽</span></li>
+                  </ul>
+                  <ul class="property-list d-flex flex-column border-md-none pb-0 pb-md-35 pt-20">
+                    <li>Доставка и установка по Москве и М.О.</li>
+                  </ul>
+                </div>
+                <div class="order-1 order-lg-2 mb-20 mb-lg-0 d-flex">
+                  <button class="button button--black" data-bs-toggle="modal" data-bs-target="#modalraschet">Заказать расчет</button>
+                  <button class="ms-5 d-block d-lg-none button-share" data-bs-toggle="modal" data-bs-target="#modalshare"><img src="./img/icon-share.svg" alt="share" /></button>
+                </div>
+                <div class="modal fade" id="modalraschet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-w-custom modal-dialog-centered">
+                    <div class="modal-content bg-transparent">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+
+                      <div class="row g-0 gap-10">
+                        <div class="col-12 bcg--white-v1 order-0 p-20 d-none d-md-block text-center modal-title-custom">Заказать расчет</div>
+                        <div class="col-12 col-messages bcg--white-v1 col-md-auto order-2 order-md-1">
+                          <div class="col-12 col-message d-flex flex-column align-items-center gap-10 gap-md-25">
+                            <div class="col-message__title">Написать в Whatsapp</div>
+                            <div class="col-message__icon">
+                              <a href="https://wa.me/" class="icon-sosial">
+                                <img src="./img/icon-whatsapp.svg" alt="whatsapp" />
+                              </a>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-message d-flex flex-column align-items-center gap-10 gap-md-25">
+                            <div class="col-message__title">Написать в Telegram</div>
+                            <div class="col-message__icon">
+                              <a href="https://t.me/" class="icon-sosial">
+                                <img src="./img/icon-telegram.svg" alt="telegram" />
+                              </a>
+                            </div>
+                          </div>
+                          <div class="col-12 col-message d-flex flex-column align-items-center gap-10 gap-md-25">
+                            <div class="col-message__title">Позвонить 8 495 120-18-66</div>
+                            <div class="col-message__icon">
+                              <a href="https://tel:+74951201866" class="icon-sosial">
+                                <img src="./img/icon-phone.svg" alt="phone" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 d-flex flex-column justify-content-center bcg--white-v1 col-md-auto order-1 order-md-2 ps-10 pe-10 pb-25 ps-md-33 pe-md-33 pt-25 pt-md-0">
+                          <div class="text-center modal-form-title mb-24 mb-lg-35">Заказать расчет</div>
+                          <form action="" class="sect-form--white-theme">
+                            <div class="mb-1">
+                              <input type="text" class="form-control" placeholder="Имя" />
+                            </div>
+                            <div class="mb-20">
+                              <input type="tel" class="form-control phone" placeholder="Телефон" />
+                            </div>
+                            <div class="row g-0 justify-content-center mb-20 mb-md-15">
+                              <button class="button button--black">Отправить</button>
+                            </div>
+                            <div class="text-center corp-form">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal fade" id="modalshare" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content share-card">
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                      <div class="p-11 pb-15">
+                        <div class="mb-1 share-title d-flex justify-content-center align-items-center">
+                          <img class="me-10" src="./img/icon-share.svg" alt="" style="width: 27px; height: 27px" />
+                          Поделиться
+                        </div>
+                        <div class="share-text mb-25 text-center">Кухня в современном стиле Athena</div>
+                        <div class="sosials d-flex justify-content-center gap-10">
+                          <a href="https://t.me/" class="sosial-link">
+                            <img class="icon-sosial ic-telegram" src="./img/icon-telegram.svg" alt="telegram" />
+                          </a>
+                          <a href="https://wa.me/" class="sosial-link">
+                            <img class="icon-sosial ic-whatsapp" src="./img/icon-whatsapp.svg" alt="whatsapp" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mt-0 mt-lg-10">
+                <div class="p-11 pb-15 share-card bcg--grey-v1 d-none d-lg-block">
+                  <div class="mb-1 mb-lg-10 share-title">
+                    <img class="me-10" src="./img/icon-share.svg" alt="" style="width: 27px; height: 27px" />
+                    Поделиться
+                  </div>
+                  <div class="share-text mb-25 mb-lg-17">Кухня в современном стиле Athena</div>
+                  <div class="sosials d-flex justify-content-lg-start gap-10">
+                    <a href="https://t.me/" class="sosial-link">
+                      <img class="icon-sosial ic-telegram" src="./img/icon-telegram.svg" alt="telegram" />
+                    </a>
+                    <a href="https://wa.me/" class="sosial-link">
+                      <img class="icon-sosial ic-whatsapp" src="./img/icon-whatsapp.svg" alt="whatsapp" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section mb-100">
+          <div class="container-xxl g-2 g-lg-4">
+            <div class="row g-0 gx-60 border-row-card">
+              <div class="col-12">
+                <div class="row g-0 gx-md-3 flex-column-reverse flex-md-nowrap flex-md-row">
+                  <div class="col-12 col-md-6">
+                    <div class="photo">
+                      <img src="./img/kitchen/photo-k-1.png" alt="" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex flex-column justify-content-center pb-17 pb-md-0">
+                    <div class="col-title mb-15 mb-md-20">Керамическая столешница</div>
+                    <div class="story">
+                      <p>
+                        Керамическое покрытие практически невозможно поцарапать или испачкать. Керамическая столешница не впитывает воду и другие жидкие вещества, не нуждается в химической чистке, устойчива к агрессивным растворам, легка в чистке обычными средствами для мытья посуды, не реагирует на
+                        резкую смену температур.
+                      </p>
+                      <p>Сложно найти более гигиеничный и прочный материал для кухонной поверхности, который был бы лучше керамики!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row g-0 gx-md-3 d-flex flex-column-reverse flex-md-nowrap flex-md-row-reverse flex-md-row">
+                  <div class="col-12 col-md-6">
+                    <div class="photo">
+                      <img src="./img/kitchen/photo-k-1.png" alt="" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex flex-column justify-content-center pb-17 pb-md-0">
+                    <div class="col-title mb-15 mb-md-20">Керамическая столешница</div>
+                    <div class="story">
+                      <p>
+                        Керамическое покрытие практически невозможно поцарапать или испачкать. Керамическая столешница не впитывает воду и другие жидкие вещества, не нуждается в химической чистке, устойчива к агрессивным растворам, легка в чистке обычными средствами для мытья посуды, не реагирует на
+                        резкую смену температур.
+                      </p>
+                      <p>Сложно найти более гигиеничный и прочный материал для кухонной поверхности, который был бы лучше керамики!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row g-0 gx-md-3 flex-column-reverse flex-md-nowrap flex-md-row">
+                  <div class="col-12 col-md-6 g-0">
+                    <div class="photo">
+                      <img src="./img/kitchen/photo-k-1.png" alt="" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex flex-column justify-content-center pb-17 pb-md-0">
+                    <div class="col-title mb-15 mb-md-20">Керамическая столешница</div>
+                    <div class="story">
+                      <p>
+                        Керамическое покрытие практически невозможно поцарапать или испачкать. Керамическая столешница не впитывает воду и другие жидкие вещества, не нуждается в химической чистке, устойчива к агрессивным растворам, легка в чистке обычными средствами для мытья посуды, не реагирует на
+                        резкую смену температур.
+                      </p>
+                      <p>Сложно найти более гигиеничный и прочный материал для кухонной поверхности, который был бы лучше керамики!</p>
+                      <ul>
+                        <li>Верхнее открытие подъемных механизмов обеспечивает удобство доступа ко всем участкам шкафа.</li>
+                        <li>Все механизмы бесшумны и обеспечивают мягкое закрывание.</li>
+                        <li>Есть возможность регулировки угла открытия двери.</li>
+                        <li>Механизмы с доводчиками имеют систему амортизации-закрываются мягко, несмотря на вес.</li>
+                        <li>Петли монтируются легко, необходимости использовать специальные инструменты, нет.</li>
+                        <li>Фурнитура долговечна и имеет высокое качество исполнения.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row g-0 gx-md-3 d-flex flex-column-reverse flex-md-nowrap flex-md-row-reverse flex-md-row">
+                  <div class="col-12 col-md-6">
+                    <div class="photo">
+                      <img src="./img/kitchen/photo-k-1.png" alt="" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex flex-column justify-content-center pb-17 pb-md-0">
+                    <div class="col-title mb-15 mb-md-20">Керамическая столешница</div>
+                    <div class="story">
+                      <p>
+                        Керамическое покрытие практически невозможно поцарапать или испачкать. Керамическая столешница не впитывает воду и другие жидкие вещества, не нуждается в химической чистке, устойчива к агрессивным растворам, легка в чистке обычными средствами для мытья посуды, не реагирует на
+                        резкую смену температур.
+                      </p>
+                      <p>Сложно найти более гигиеничный и прочный материал для кухонной поверхности, который был бы лучше керамики!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row g-0 gx-md-3 flex-column-reverse flex-md-nowrap flex-md-row">
+                  <div class="col-12 col-md-6">
+                    <div class="photo">
+                      <img src="./img/kitchen/photo-k-1.png" alt="" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex flex-column justify-content-center pb-17 pb-md-0">
+                    <div class="col-title mb-15 mb-md-20">Керамическая столешница</div>
+                    <div class="story">
+                      <p>
+                        Керамическое покрытие практически невозможно поцарапать или испачкать. Керамическая столешница не впитывает воду и другие жидкие вещества, не нуждается в химической чистке, устойчива к агрессивным растворам, легка в чистке обычными средствами для мытья посуды, не реагирует на
+                        резкую смену температур.
+                      </p>
+                      <p>Сложно найти более гигиеничный и прочный материал для кухонной поверхности, который был бы лучше керамики!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row g-0 gx-md-3 d-flex flex-column-reverse flex-md-nowrap flex-md-row-reverse flex-md-row">
+                  <div class="col-12 col-md-6">
+                    <div class="photo">
+                      <img src="./img/kitchen/photo-k-1.png" alt="" />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 d-flex flex-column justify-content-center pb-17 pb-md-0">
+                    <div class="col-title mb-15 mb-md-20">Керамическая столешница</div>
+                    <div class="story">
+                      <p>
+                        Керамическое покрытие практически невозможно поцарапать или испачкать. Керамическая столешница не впитывает воду и другие жидкие вещества, не нуждается в химической чистке, устойчива к агрессивным растворам, легка в чистке обычными средствами для мытья посуды, не реагирует на
+                        резкую смену температур.
+                      </p>
+                      <p>Сложно найти более гигиеничный и прочный материал для кухонной поверхности, который был бы лучше керамики!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        @include('partials/sect-form/main-form.html') @include('partials/contacts-section.html')
+      </main>
+      @include('partials/footer.html')
+    </div>
+  </body>
+</html>

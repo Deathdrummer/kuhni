@@ -1,0 +1,457 @@
+.header {
+  box-shadow: 0px 8px 10px 0px rgba(38, 38, 38, 0.12);
+  padding: 10px 0;
+  @include resp(
+    padding,
+    (
+      sm-down: 6px 0,
+      md: 10px 0,
+    )
+  );
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  top: 0;
+
+  &__block {
+    display: flex;
+    @include flex-all-sb;
+
+    @include resp(
+      gap,
+      (
+        xl-down: 30px,
+        xll: 75px,
+      )
+    );
+    @include resp(
+      position,
+      (
+        lg-down: static,
+      )
+    );
+    &-col {
+      display: flex;
+      @include flex-all-sb;
+      width: 100%;
+      &--pcMenu {
+        @include resp(
+          justify-content,
+          (
+            lg-down: flex-end,
+          )
+        );
+      }
+
+      &--mobileMenu {
+        @include resp(
+          display,
+          (
+            lg-dowm: flex,
+            xl: none,
+          )
+        );
+
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        right: -100%;
+
+        top: -10px;
+        width: 220px;
+        z-index: 3;
+        padding: 40px 24px 23px;
+        background: var(--color-black);
+        transition: all 0.3s linear;
+
+        overflow: scroll;
+        height: 100vh;
+        min-height: 100vh;
+        &.menu--active {
+          right: 0;
+        }
+        &::-webkit-scrollbar {
+          width: 0px;
+          height: 0px;
+          background: transparent;
+        }
+        .header__contacts {
+          display: none;
+          @include resp(
+            margin,
+            (
+              lg-down: 0 -8px,
+            )
+          );
+        }
+      }
+    }
+  }
+  &__contacts {
+    @include flex-all-sb;
+    display: flex;
+    @include resp(
+      flex-direction,
+      (
+        md-down: column,
+      )
+    );
+    @include resp(
+      gap,
+      (
+        sm-down: 25px,
+        md: 30px,
+      )
+    );
+  }
+  .block-button {
+    @include resp(
+      flex-direction,
+      (
+        sm-down: column,
+      )
+    );
+    .button {
+      @include resp(
+        width,
+        (
+          sm-down: auto,
+        )
+      );
+      @include resp(
+        height,
+        (
+          sm-down: auto,
+        )
+      );
+      @include resp(
+        font-size,
+        (
+          sm-down: 14px,
+        )
+      );
+      @include resp(
+        padding,
+        (
+          sm-down: 13px 34px,
+        )
+      );
+    }
+  }
+}
+.nav {
+  &__header {
+    .pc-none {
+      @include resp(
+        display,
+        (
+          lg-down: block,
+          xl: none,
+        )
+      );
+    }
+    > ul {
+      display: flex;
+      @include resp(
+        gap,
+        (
+          lg-down: 15px,
+          xl: 30px,
+        )
+      );
+      @include resp(
+        flex-direction,
+        (
+          lg-down: column,
+        )
+      );
+    }
+  }
+
+  &__menu-item {
+    &:hover {
+      & > .nav__sub-menu {
+        opacity: 1;
+        visibility: visible;
+        @include resp(
+          margin-top,
+          (
+            xxl-down: 5px,
+          )
+        );
+
+        @include resp(
+          height,
+          (
+            xxl-down: auto,
+          )
+        );
+      }
+      &:hover .nav__title-link {
+        color: var(--color-red) !important;
+        &:after {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6' viewBox='0 0 9 6' fill='none'%3E%3Cpath d='M4.5 6L0.602886 0H8.39711L4.5 6Z' fill='%23C61516'/%3E%3C/svg%3E") !important;
+          transform: translateY(20%) rotate(180deg) !important;
+          margin-top: -1px !important;
+        }
+      }
+    }
+
+    & > .nav__sub-menu {
+      z-index: 1;
+    }
+    & > .nav__sub-menu {
+      @include resp(
+        opacity,
+        (
+          xl: 0,
+        )
+      );
+
+      @include resp(
+        visibility,
+        (
+          xl: hidden,
+        )
+      );
+
+      @include resp(
+        left,
+        (
+          xl: 0,
+        )
+      );
+      @include resp(
+        width,
+        (
+          xl: max-content,
+        )
+      );
+      @include resp(
+        transition,
+        (
+          lg-down: all 0.5s linear,
+          xl: all 0.2s linear 0.1s,
+        )
+      );
+      @include resp(
+        overflow,
+        (
+          lg-down: hidden,
+        )
+      );
+
+      @include resp(
+        top,
+        (
+          lg-down: 0,
+          xl: 100%,
+        )
+      );
+      @include resp(
+        height,
+        (
+          lg-down: 0,
+        )
+      );
+
+      > ul {
+        @include resp(
+          padding,
+          (
+            lg-down: 0,
+          )
+        );
+        @include resp(
+          background,
+          (
+            lg-down: transparent,
+          )
+        );
+        @include resp(
+          box-shadow,
+          (
+            lg-down: 0,
+          )
+        );
+
+        @include resp(
+          backdrop-filter,
+          (
+            lg-down: blur(0px),
+          )
+        );
+      }
+      li:not(:last-child) {
+        @include resp(
+          padding-bottom,
+          (
+            lg-down: 2px,
+          )
+        );
+      }
+      & a {
+        @include resp(
+          font-size,
+          (
+            lg-down: 14px,
+          )
+        );
+      }
+    }
+  }
+
+  &__title-link {
+    display: flex;
+    @include flex-v-center;
+    gap: 2px;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+    &:after {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6' viewBox='0 0 9 6' fill='none'%3E%3Cpath d='M4.5 6L0.602886 0H8.39711L4.5 6Z' fill='%23F6F6F6'/%3E%3C/svg%3E");
+      background-size: 9px 9px;
+      background-repeat: no-repeat;
+      width: 9px;
+      height: 9px;
+      display: block;
+      transform: translateY(20%);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  &__sub-menu {
+    ul > li {
+      display: inline-flex;
+    }
+    ul {
+      padding: 20px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    li:not(:last-child) {
+      border-bottom: 1px solid var(--color-light-white);
+      padding-bottom: 3px;
+    }
+  }
+}
+
+.time {
+  color: var(--color-light-white);
+  border-left: 1px solid var(--color-light-white);
+  border-right: 1px solid var(--color-light-white);
+  @include resp(
+    padding,
+    (
+      md-down: 0px 8px 15px,
+      lg: 6px 30px,
+    )
+  );
+  @include resp(
+    margin-top,
+    (
+      md-down: 30px,
+    )
+  );
+
+  @include resp(
+    border,
+    (
+      md-down: 0px,
+    )
+  );
+  @include resp(
+    width,
+    (
+      md-down: 100%,
+    )
+  );
+  @include resp(
+    border-bottom,
+    (
+      md-down: 1px solid var(--color-light-white),
+    )
+  );
+  &__title {
+    margin-bottom: 5px;
+    @include resp(
+      font-size,
+      (
+        md-down: 9px,
+        lg: 12px,
+      )
+    );
+    @include resp(
+      margin-bottom,
+      (
+        md-down: 1px,
+      )
+    );
+  }
+  &__text {
+    font-weight: 500;
+    @include resp(
+      font-size,
+      (
+        md-down: 13px,
+      )
+    );
+  }
+}
+
+.shadow .header__block-col:not(.menu--active) .nav {
+  a {
+    color: var(--color-text);
+  }
+  &__title-link {
+    color: var(--color-text);
+    &:after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6' viewBox='0 0 9 6' fill='none'%3E%3Cpath d='M4.5 6L0.602886 0H8.39711L4.5 6Z' fill='%23262626'/%3E%3C/svg%3E");
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
+.shadow .header__block-col:not(.menu--active) .time {
+  color: var(--color-text);
+  border-left: 1px solid var(--color-text);
+  border-right: 1px solid var(--color-text);
+}
+.shadow .nav__sub-menu li:not(:last-child) {
+  border-bottom: 1px solid #545454;
+}
+.shadow .burger:not(.burger--active) {
+  color: var(--color-text);
+}
+.shadow .burger__line {
+  color: var(--color-text);
+}
+.burger-block {
+  width: 30px;
+  min-width: 30px;
+  height: 18px;
+
+  justify-content: flex-end;
+}
+.burger {
+  @include burger;
+  z-index: 3;
+}
+
+@include small-tablet {
+  .burger-block {
+    width: 30px;
+    min-width: 30px;
+    height: 18px;
+  }
+  .burger {
+    --burger-width: 30px;
+    --burger-height: 18px;
+    &--active {
+      --burger-width: 18px;
+      --burger-height: 18px;
+    }
+  }
+}

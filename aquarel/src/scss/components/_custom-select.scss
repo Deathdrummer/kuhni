@@ -1,0 +1,105 @@
+.itc-select {
+  position: relative;
+  width: 100%;
+}
+
+.itc-select__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid rgba(246, 246, 246, 0.3137254902);
+  // border: 1px solid rgba(38, 38, 38, 0.5);
+  // @include resp(
+  //   padding,
+  //   (
+  //     sm-down: 19px 10px,
+  //     md: 17px 11px,
+  //   )
+  // );
+  border-radius: 5px;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.itc-select__toggle::after {
+  flex-shrink: 0;
+  width: 10px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='10' viewBox='0 0 13 10' fill='none'%3E%3Cpath d='M6.5 10L12.9952 0.625H0.00480938L6.5 10Z' fill='%23F6F6F6' fill-opacity='0.8'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: "";
+}
+.itc-select__toggle:focus {
+  outline: none;
+}
+
+.itc-select_show .itc-select__toggle::after {
+  transform: rotate(180deg);
+}
+
+.itc-select__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+  max-height: 10rem;
+  overflow-y: auto;
+  background: #262626;
+  border-radius: 3px;
+  border: 1px solid rgba(246, 246, 246, 0.3137254902);
+}
+.itc-select__dropdown {
+  --scrollbar-foreground: #262626;
+  --scrollbar-background: #f6f6f6;
+  --scrollbar-size: 4px;
+  /* плашка-бегунок, фон */
+  scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+}
+.itc-select__dropdown::-webkit-scrollbar {
+  width: var(--scrollbar-size); /* в основном для вертикальных полос прокрутки */
+  height: var(--scrollbar-size); /* в основном для горизонтальных полос прокрутки */
+  border-radius: 3px;
+}
+.itc-select__dropdown::-webkit-scrollbar-thumb {
+  /* плашка-бегунок */
+  background: var(--scrollbar-foreground); /* фон */
+  border-radius: 3px;
+}
+.itc-select__dropdown::-webkit-scrollbar-track {
+  /* фон */
+  background: var(--scrollbar-background);
+  border-radius: 3px;
+}
+.itc-select_show .itc-select__dropdown {
+  display: block;
+}
+
+.itc-select_show .itc-select__backdrop {
+  display: block;
+}
+
+.itc-select__options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding: 4px 0px;
+}
+
+.itc-select__option {
+  padding: 1px 14px;
+  cursor: pointer;
+  transition: 0.2s background-color ease-in-out;
+  color: #c2c2c2;
+}
+
+.itc-select__option_selected,
+.itc-select__option_selected:hover {
+  background: #eaeaea;
+  color: #262626;
+}

@@ -1,0 +1,81 @@
+// fancybox
+.fancybox__backdrop {
+  opacity: 0.75 !important;
+}
+
+.fancybox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  left: 0;
+  right: 0;
+  .f-button svg {
+    display: none;
+  }
+  .f-button {
+    position: relative;
+    right: auto;
+    left: auto;
+
+    @include resp(
+      width,
+      (
+        sm-down: 42px,
+        md: 50px,
+      )
+    );
+    @include resp(
+      height,
+      (
+        sm-down: 31px,
+        md: 37px,
+      )
+    );
+    background-color: var(--color-red);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &::before {
+      content: "";
+      position: static !important;
+      display: block;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='18' viewBox='0 0 19 18' fill='none'%3E%3Cpath d='M17.9412 9H1ZM1 9L9 1ZM1 9L9 17Z' fill='%23C61516'/%3E%3Cpath d='M17.9412 9H1M1 9L9 1M1 9L9 17' stroke='%23F6F6F6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+      @include resp(
+        background-size,
+        (
+          sm-down: 14px 14px,
+          md: 16px 16px,
+        )
+      );
+      @include resp(
+        width,
+        (
+          sm-down: 14px,
+          md: 16px,
+        ),
+        height
+      );
+    }
+    &.is-next {
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.fancybox__nav .f-button:hover {
+  background: var(--color-text);
+  border: 1px solid #f6f6f6;
+}
+
+.fancybox__nav .f-button:active {
+  transition: none;
+  background: var(--color-black);
+}

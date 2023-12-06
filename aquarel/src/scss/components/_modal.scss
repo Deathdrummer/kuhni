@@ -1,0 +1,463 @@
+.modal-dialog-centered {
+  min-height: calc(100% - 75px * 2);
+  margin: 75px auto 0;
+  padding: 0 10px;
+  justify-content: center;
+}
+
+.btn-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  filter: invert(1);
+  opacity: 1;
+  background-size: 25px 25px;
+}
+.btn-close:focus {
+  box-shadow: none;
+}
+.modal-content {
+  border: 0;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+.modal-custom {
+  .bcg--black-v1,
+  .itc-select__dropdown {
+    @include resp(
+      background-color,
+      (
+        md-down: #f6f6f6,
+      )
+    );
+    .itc-select__dropdown {
+      @include resp(
+        border,
+        (
+          md-down: 1px solid #c2c2c2,
+        )
+      );
+      @include resp(
+        color,
+        (
+          md-down: #262626,
+        )
+      );
+      @include resp(
+        box-shadow,
+        (
+          md-down: 2px 2px 4px 0px rgba(0, 0, 0, 0.1),
+        )
+      );
+    }
+  }
+
+  .col-v1__title {
+    font-weight: 500;
+    @include resp(
+      font-size,
+      (
+        md-down: 18px,
+        lg: 22px,
+      )
+    );
+    @include resp(
+      color,
+      (
+        md-down: #262626,
+        lg: #f6f6f6,
+      )
+    );
+    line-height: 1.35;
+  }
+  form {
+    .form-label {
+      @include resp(
+        color,
+        (
+          md-down: #262626,
+          lg: #f6f6f6,
+        )
+      );
+      margin-bottom: 5px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .form-select {
+      border-radius: 5px;
+      @include resp(
+        font-size,
+        (
+          md-down: 12px,
+          lg: 14px,
+        )
+      );
+      font-weight: 500;
+      @include resp(
+        color,
+        (
+          md-down: #262626,
+          lg: #f6f6f6,
+        )
+      );
+      cursor: pointer;
+      option {
+        @include resp(
+          color,
+          (
+            md-down: #262626,
+            lg: rgba(246, 246, 246, 0.5),
+          )
+        );
+        @include resp(
+          background-color,
+          (
+            md-down: #f6f6f6,
+            lg: #262626,
+          )
+        );
+        cursor: pointer;
+        outline: none;
+        &:hover,
+        &:checked {
+          @include resp(
+            color,
+            (
+              md-down: #262626,
+              lg: #f6f6f6,
+            )
+          );
+        }
+      }
+    }
+    .form-control {
+      background: transparent;
+      backdrop-filter: none;
+      @include resp(
+        color,
+        (
+          md-down: #262626,
+          lg: #f6f6f6,
+        )
+      );
+      @include resp(
+        border,
+        (
+          md-down: 1px solid rgba(38, 38, 38, 0.5),
+          lg: 1px solid rgba(246, 246, 246, 0.5),
+        )
+      );
+      &::after {
+        @include resp(
+          background-image,
+          (
+            md-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M4.91309 6L0.582958 0.130435H9.24321L4.91309 6Z' fill='%23262626'/%3E%3C/svg%3E"),
+          )
+        );
+      }
+
+      font-weight: 300;
+
+      &::placeholder {
+        @include resp(
+          color,
+          (
+            md-down: #262626,
+            lg: rgba(246, 246, 246, 0.5),
+          )
+        );
+        font-size: 12px;
+        font-weight: 400;
+      }
+      @include resp(
+        padding,
+        (
+          md-down: 17px,
+          lg: 15px,
+        )
+      );
+    }
+    .button {
+      font-size: 14px;
+      height: 50px;
+      @include resp(
+        background-color,
+        (
+          md-down: #262626,
+        )
+      );
+      @include resp(
+        color,
+        (
+          md-down: #f6f6f6,
+        )
+      );
+    }
+
+    .corp-form {
+      @include resp(
+        color,
+        (
+          md-down: #262626,
+          lg: #f6f6f6,
+        )
+      );
+    }
+  }
+  .btn-close {
+    @include resp(
+      display,
+      (
+        md-down: block,
+        lg: none,
+      )
+    );
+  }
+}
+
+.modal-w-custom {
+  max-width: 880px;
+  width: 100%;
+
+  .button {
+    height: 50px;
+    font-size: 14px;
+    @include resp(
+      width,
+      (
+        sm-down: 100%,
+        md: 220px,
+      )
+    );
+    @include resp(
+      max-width,
+      (
+        sm-down: 480px,
+      )
+    );
+  }
+  // &.modal-dialog {
+  //   margin-top: 0;
+  // }
+
+  .modal-title-custom {
+    font-size: 30px;
+
+    font-weight: 600;
+  }
+  .modal-form-title {
+    font-weight: 500;
+    @include resp(
+      font-size,
+      (
+        sm-down: 18px,
+        md: 22px,
+      )
+    );
+  }
+  .col-md-auto {
+    @include resp(
+      width,
+      (
+        md: calc(50% - 5px),
+      )
+    );
+  }
+}
+#modalraschetPrice {
+  .modal-w-custom {
+    @include resp(
+      width,
+      (
+        sm-down: 310px,
+      )
+    );
+  }
+  .bcg--white-v1 {
+    @include resp(
+      border-radius,
+      (
+        sm-down: 0,
+      )
+    );
+  }
+  .buttons {
+    .button {
+      @include resp(
+        width,
+        (
+          sm-down: 100%,
+          md: 240px,
+        )
+      );
+    }
+  }
+}
+#formPriceKitchen {
+  .itc-select__toggle {
+    @include resp(
+      padding,
+      (
+        sm-down: 5px 14px,
+      )
+    );
+  }
+  .buttons {
+    .button {
+      @include resp(
+        width,
+        (
+          sm-down: 220px,
+          md: 240px,
+        )
+      );
+    }
+  }
+}
+.zayavka-modal {
+  textarea.form-control {
+    font-size: 12px;
+    font-weight: 200;
+  }
+  .modal-w-custom {
+    @include resp(
+      max-width,
+      (
+        sm-down: 320px,
+      )
+    );
+  }
+  .sect-form--white-theme {
+    .form-control {
+      &.h-40 {
+        font-size: 12px !important;
+        padding: 10px !important;
+      }
+      border: 1px solid #8e8e8e;
+    }
+    .itc-select__toggle {
+      border: 1px solid rgba(38, 38, 38, 0.5);
+    }
+    .row-pom .form-check {
+      gap: 5px;
+    }
+    .inactive-label {
+      color: rgba(38, 38, 38, 0.5);
+
+      img {
+        filter: invert(0.5);
+      }
+    }
+
+    .inactive-label .form-check-label {
+      color: rgba(38, 38, 38, 0.5);
+
+      img {
+        filter: invert(0.5);
+      }
+    }
+    .inactive-radio {
+      border: 1px solid rgba(142, 142, 142, 0.5);
+    }
+    .form-check {
+      padding-left: 0px;
+
+      display: flex;
+
+      @include resp(
+        gap,
+        (
+          sm-down: 7px,
+          md: 10px,
+        )
+      );
+      .form-check-label {
+        @include resp(
+          font-size,
+          (
+            sm-down: 12px,
+            md: 16px,
+          )
+        );
+        font-weight: 400;
+        letter-spacing: -0.32px;
+      }
+      &:not(:last-child) {
+        @include resp(
+          margin-bottom,
+          (
+            sm-down: 6px,
+            md: 8px,
+          )
+        );
+      }
+      .form-check-input {
+        margin-left: 0px;
+        top: -5px;
+
+        @include resp(
+          width,
+          (
+            sm-down: 20px,
+            md: 24px,
+          ),
+          height
+        );
+        border-radius: 3px;
+
+        &:checked[type="radio"],
+        &:checked[type="checkbox"] {
+          background-size: 13px 13px;
+          --bs-form-check-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='14' viewBox='0 0 15 14' fill='none'%3E%3Cpath d='M1 5.27778L6.90909 12L14 1' stroke='%23262626' stroke-width='1.5'/%3E%3C/svg%3E");
+        }
+      }
+    }
+    .form-check-image {
+      border: 1px solid #8e8e8e;
+      border-radius: 5px;
+      height: 140px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      .konf-photo {
+        @include resp(
+          width,
+          (
+            sm-down: 100px,
+            md: 140px,
+          )
+        );
+        height: auto;
+        margin: 0 auto;
+      }
+      .form-check-label {
+        @include resp(
+          font-size,
+          (
+            sm-down: 12px,
+            md: 14px,
+          )
+        );
+      }
+    }
+  }
+  .col-title-form {
+    @include resp(
+      font-size,
+      (
+        sm-down: 14px,
+        md: 22px,
+      )
+    );
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    span {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}

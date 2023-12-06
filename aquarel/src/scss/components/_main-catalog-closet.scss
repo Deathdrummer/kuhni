@@ -1,0 +1,29 @@
+.closet-section {
+  .col-closet {
+    .photo {
+      @include resp(
+        padding-bottom,
+        (
+          xs-down: 130%,
+          sm: 404px,
+          lg: 575px,
+        )
+      );
+    }
+
+    &:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      .photo {
+        @include resp(
+          padding-bottom,
+          (
+            xs-down: 130%,
+            sm: 404px,
+            lg: 438px,
+          )
+        );
+      }
+    }
+  }
+}

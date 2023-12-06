@@ -1,0 +1,54 @@
+.statistics {
+  @include resp(
+    margin,
+    (
+      sm-down: 100px 0,
+      md: 60px 0,
+    )
+  );
+  &__item {
+    @include resp(
+      padding,
+      (
+        sm-down: 25px 15px 30px 6px,
+        md: 25px 20px 30px,
+      )
+    );
+
+    @include resp(
+      height,
+      (
+        sm-down: 300px,
+        md: 310px,
+      )
+    );
+    display: flex;
+    @include flex-all-center;
+    flex-direction: column;
+  }
+
+  &__item-title {
+    @include resp(
+      font-size,
+      (
+        sm-down: 18px,
+        md: 30px,
+      )
+    );
+    @include resp(
+      margin-bottom,
+      (
+        sm-down: 30px,
+        md: 20px,
+      )
+    );
+    font-weight: 500;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  &__item-text {
+    text-align: center;
+    max-width: 270px;
+  }
+}
