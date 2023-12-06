@@ -10,7 +10,7 @@
             <div class="section--pb border-light-white">
               <div class="row g-0 gx-lg-3">
                 <div class="col-12 col-lg-4 position-relative">
-                  <div class=" col-l-v1">
+                  <div class="col-l-v1" id="rool">
                     <div class="col modal-custom p-0" id="formPrice">
                       <div>
                         <div class="modal-content content-l-v1 bcg--black-v1">

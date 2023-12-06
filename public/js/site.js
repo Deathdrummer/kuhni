@@ -839,6 +839,8 @@ jQuery(document).ready(function($) {
 	if ($('#cardItemCaption').length && $(window).width() > breakpointMD) $('#cardItemCaption').ddrFloatingBlock(20);
 	
 	
+	
+	
 	$('.contactsnav__item:first').find('[contactsnavtitle]').addClass('contactsnav__title_opened');
 	$('#contactsTabsContent').find('[contactstab]:first').addClass('visible');
 	
@@ -932,7 +934,7 @@ jQuery(document).ready(function($) {
 	
 	
 	
-	
+	$('#rool').ddrFloatingBlock(120);
 	
 	//----------------------------------------------------------- Форма связи
 	
