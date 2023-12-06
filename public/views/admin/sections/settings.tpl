@@ -195,36 +195,35 @@
 			<table class="fieldset">
 				<tbody>
 					<tr>
-						<td class="default">Социальные сети</td>
+						<td class="default">Формы обратной связи</td>
 						<td>
 							<table>
 								<thead>
 									<tr>
-										<td class="w-66px">Иконка</td>
-										<td class="w-30rem">Иконка fontawesome</td>
-										<td class="w-30rem">Иконка sprite</td>
-										<td class="w-40rem">Название</td>
-										<td>Ссылка</td>
-										<td class="w-60px">Сортировка</td>
+										<td class="w-20rem">Идентификатор формы</td>
+										<td class="w-30rem">Текст успешной отправки</td>
+										<td class="w-30rem">Тема письма</td>
+										<td class="w-30rem">Заголовок письма</td>
+										<td></td>
 										<td class="w-60px">Опции</td>
 									</tr>
 								</thead>
-								<tbody id="socList">
-									{% if setting_soc %}
-										{% for index, item in setting_soc %}
+								<tbody id="cbList">
+									{% if setting_callback %}
+										{% for index, item in setting_callback %}
 											{% include 'views/admin/render/common/callback_item.tpl' with {index: index, item: item} %}
 										{% endfor %}
 									{% else %}
 										<tr class="empty">
-											<td colspan="7"><p class="empty center">Нет данных</p></td>
+											<td colspan="6"><p class="empty center">Нет данных</p></td>
 										</tr>
 									{% endif %}
 								</tbody>
 								<tfoot>
 									<tr>
-										<td colspan="7">
+										<td colspan="6">
 											<div class="buttons right notop">
-												<button class="small alt" id="addSocItem">Добавить</button>
+												<button class="small alt" id="addCbItem">Добавить</button>
 											</div>
 										</td>
 									</tr>
@@ -345,7 +344,7 @@
 <script type="text/javascript"><!--
 $(document).ready(function() {
 	
-	
+	// ---------------------------------------- Соц. сети
 	$('#addSocItem').on(tapEvent, function() {
 		let index = $('#socList').find('tr:not(.empty):last').attr('index') || 0;
 		getAjaxHtml('admin/common/get_soc_item', {index: parseInt(index) + 1}, function(html) {
@@ -360,8 +359,32 @@ $(document).ready(function() {
 	});
 	
 	
-	
 	$('#socList').on(tapEvent, '[removesoc]', function() {
+		$(this).closest('tr').remove();
+	});
+	
+	
+	
+	
+	
+	
+	// ---------------------------------------- Формы обр. связи
+	$('#addCbItem').on(tapEvent, function() {
+		let index = $('#cbList').find('tr:not(.empty):last').attr('index') || 0;
+		getAjaxHtml('admin/common/get_cb_item', {index: parseInt(index) + 1}, function(html) {
+			let emptyRow = $('#cbList').find('tr.empty');
+			if (emptyRow.length) {
+				$(emptyRow).remove();
+			}
+			$('#cbList').append(html);
+		}, function() {
+			
+		});
+	});
+	
+	
+	
+	$('#cbList').on(tapEvent, '[removecb]', function() {
 		$(this).closest('tr').remove();
 	});
 	

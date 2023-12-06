@@ -38,9 +38,10 @@
 			font-size: 1rem;	
 			margin-bottom: 10px;
 		}
-			p strong {
-				font-weight: bold;
-			}
+		
+		strong {
+			font-weight: bold;
+		}
 		
 		
 		
@@ -93,29 +94,91 @@
 	<div class="wrap">
 		<h1>{{title}}</h1>
 		
-		{% if fields.name %}<p>Имя: {{fields.name}}</p>{% endif %}
-		{% if fields.phone %}<p>Номер телефона: {{fields.phone}}</p>{% endif %}
-		{% if fields.email %}<p>E-mail: {{fields.email}}</p>{% endif %}
-		{% if fields.city %}<p>Город: {{fields.city}}</p>{% endif %}
-		
-		<br>
-		
-		{% if fields.code %}<p>Промокод: {{fields.code}}</p>{% endif %}
-		
-		<br>
-		<br>
-		
 		{% if fields.product %}
-			<p>Продукт:</p>
-			<a href="{{fields.product.href}}">
-				<div class="product">
-					<div class="product__image">
-						<img src="{{fields.product.image}}" alt="{{fields.product.title}}" title="{{fields.product.title}}">
-					</div>
-					<div class="product__name">{{fields.product.title}}</div>
-				</div>
-			</a>
+			<p><strong>Товар:</strong> {{fields.product}}</p>
 		{% endif %}
+		
+		<br>
+		
+		{% if fields.name %}<p><strong>Имя: </strong>{{fields.name}}</p>{% endif %}
+		{% if fields.phone %}<p><strong>Номер телефона: </strong>{{fields.phone}}</p>{% endif %}
+		{% if fields.email %}<p><strong>E-mail: </strong>{{fields.email}}</p>{% endif %}
+		{% if fields.time %}<p><strong>Удобное время: </strong>{{fields.time}}</p>{% endif %}
+		<br>
+		
+		
+		
+		{% if fields.room_type %}
+			<p><strong>Помещение: </strong>{{fields.room_type}}</p>
+		{% endif %}
+		
+		{% if fields.open_system %}
+			<p><strong>Система открывания: </strong>{{fields.open_system}}</p>
+		{% endif %}
+		
+		{% if fields.furniture %}
+			<p><strong>Фурнитура: </strong>{{fields.furniture}}</p>
+		{% endif %}
+		
+		{% if fields.facades %}
+			<p><strong>Фасады:</strong>{{fields.facades}}</p>
+		{% endif %}
+		
+		{% if fields.total_width %}
+			<p><strong>Общая длина мебели:</strong> {{fields.total_width}}</p>
+		{% endif %}
+		
+		
+		{% if fields.configuration %}
+			<p><strong>Конфигурация:</strong> {{fields.configuration}}</p>
+		{% endif %}
+		
+		{% if fields.side_a %}
+			<p><strong>Сторона A:</strong> {{fields.side_a}}</p>
+		{% endif %}
+		
+		{% if fields.side_b %}
+			<p><strong>Сторона B:</strong> {{fields.side_b}}</p>
+		{% endif %}
+		
+		{% if fields.side_c %}
+			<p><strong>Сторона C:</strong> {{fields.side_c}}</p>
+		{% endif %}
+		
+		{% if fields.height %}
+			<p><strong>Высота:</strong> {{fields.height}}</p>
+		{% endif %}
+		
+		{% if fields.tech %}
+			<p><strong>Техника:</strong> {{fields.tech}}</p>
+		{% endif %}
+		
+		{% if fields.product_type %}
+			<p><strong>Тип изделия:</strong> {{fields.product_type}}</p>
+		{% endif %}
+		
+		{% if fields.price %}
+			<p><strong>Стоимость:</strong> {{fields.price}}</p>
+		{% endif %}
+		
+		<br>
+		
+		{% if fields.comment %}
+			<strong>Комментарий:</strong>
+			<p style="white-space:pre-line;">{{fields.comment}}</p>
+		{% endif %}
+		
+		{% if fields.size_comment %}
+			<strong>Размер и пожелания:</strong>
+			<p style="white-space:pre-line;">{{fields.size_comment}}</p>
+		{% endif %}
+		
+		
+		{% if fields.message %}
+			<strong>Сообщение:</strong>
+			<p style="white-space:pre-line;">{{fields.message}}</p>
+		{% endif %}
+		
 	</div>
 </body>
 </html>

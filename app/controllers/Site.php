@@ -52,6 +52,9 @@ class Site extends MY_Controller {
 		if ($pageData) {
 			$settings = $this->settings->getSettings($preffixes, true) ?: [];
 			
+			// Реструктурирование массива форм обратной связи
+			$settings['callback'] = arrSetKeyFromField($settings['callback'], 'id');
+			
 			if ($settings['page_vars'] && is_array($settings['page_vars'])) {
 				$pagesVarsdata = [];
 				foreach ($settings['page_vars'] as $pageId => $varsData) {

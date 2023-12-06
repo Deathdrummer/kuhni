@@ -54,8 +54,8 @@
 						<li data-block="lists">Списки</li>
 						<li data-block="structure">Структура сайта</li>
 						<li data-block="modifications">Модификации</li>
-						<li data-block="promo">Промо</li>
-						<li data-block="reviews">Отзывы</li>
+						{# <li data-block="promo">Промо</li> #}
+						{# <li data-block="reviews">Отзывы</li> #}
 						<li data-block="filemanager">Менеджер файлов</li>
 						{#<li data-block=""></li>#}
 					</ul>

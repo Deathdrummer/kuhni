@@ -40,6 +40,8 @@ class Sendemail {
 	public function send($d = null) {
 		if (is_null($d)) return 0;
 		
+		$files = $d['files'] ?? null;
+		
 		$this->init();
 		
 		if (count(array_filter($this->smtp)) != 0 && count(array_filter($this->smtp)) != 5) {
@@ -111,6 +113,16 @@ class Sendemail {
 		$this->CI->email->from($from, $fromName);
 		$this->CI->email->to($to);
 		$this->CI->email->subject($subject);
+		
+		if ($files) {
+			foreach ($files as $field => $file) {
+				$this->CI->email->attach($file['tmp_name'], 'inline', $file['name']/* , $file['type'] */);
+			}
+		}
+		
+		//$path = 'C:/Users/deathdrumer/Desktop/download.jpg';
+		//$this->CI->email->attach($path);
+		
 		$this->CI->email->message($this->CI->twig->render($template, $d));
 		
 		if (!$this->CI->email->send()) {

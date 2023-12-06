@@ -1,2 +1,11 @@
 header {
   width: 100vw; }
+
+span.error {
+  position: absolute;
+  font-size: 13px; }
+
+.notifyjs-corner {
+  -webkit-transform: translateY(110px);
+      -ms-transform: translateY(110px);
+          transform: translateY(110px); }

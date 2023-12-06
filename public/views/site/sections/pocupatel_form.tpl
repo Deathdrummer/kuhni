@@ -5,29 +5,32 @@
       <form class="sect-form__form m-auto">
         <div class="row g-10 gy-10">
           <div class="col-12 col-md-4">
-            <input type="text" class="form-control" placeholder="Имя" />
+            <input type="text" name="name" class="form-control" placeholder="Имя" />
           </div>
           <div class="col-12 col-md-4">
-            <input type="text" class="form-control" placeholder="Телефон" />
+            <input type="text" name="phone" class="form-control" placeholder="Телефон" rules="phone|empty" />
           </div>
           <div class="col-12 col-md-4">
-            <input type="text" class="form-control" placeholder="E-mail" />
+            <input type="text" name="email" class="form-control" placeholder="E-mail" rules="email" />
           </div>
         </div>
         <div class="row g-0">
           <div class="col g-0 gy-10 gy-md-20">
-            <textarea class="form-control" placeholder="Введите ваше сообщение" rows="5"></textarea>
+            <textarea class="form-control" name="message" placeholder="Введите ваше сообщение" rows="5"></textarea>
           </div>
         </div>
         <div class="row g-0 mt-15 mb-24 mb-md-8">
           <div class="col">
             <div class="mb-8 text-files">Прикрепить файл</div>
-            <button type="submit" class="button button--black button--small">Загрузить</button>
+            <label class="button button--black btn-sm button--small" role="button">
+              Загрузить
+              <input type="file" name="attach" class="d-none">
+            </label>
           </div>
         </div>
-        <button type="submit" class="button button--black m-auto">Заказать</button>
+        <button type="submit" class="button button--black m-auto" callbackform="sendToDirector">Заказать</button>
         <div class="d-flex mt-15">
-          <label class="form-check-label text-white-custom text-center m-auto"> Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности </label>
+          <label class="form-check-label text-white-custom text-center m-auto">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности </label>
         </div>
       </form>
     </div>

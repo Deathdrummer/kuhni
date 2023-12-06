@@ -936,66 +936,75 @@ jQuery(document).ready(function($) {
 	
 	//----------------------------------------------------------- Форма связи
 	
-	
 	// calcPriceCloset // Заявка на расчёт стоимости мебели
 	// calcPriceKitchen // Заявка на расчёт стоимости кухни
 	// orderProject Заказать проект
 	
+	$('[data-select="option"]').on(tapEvent, function () {
+	    let price = $(this).data('price');
+	    $('[name="price"]').val(price);
+	});
+	
 	$('[callbackform]').on(tapEvent, function() {
-		
-		
 		const form = $(this).closest('form'),
 			formType = $(this).attr('callbackform'),
 			popper = $(this).closest('.modal').find('#callbackFormPopper'),
-			close = $(this).closest('.modal').find('[callbackformclose]');
+			close = $(this).closest('.modal').find('[callbackformclose]'),
+			success = $(this).closest('.modal').find('[success]');
 		
 		let autoCloseTOut;
 		
-		//const formData = $(form).ddrForm({fields: {formType: formType}});
+		const formData = $(form).ddrForm({fields: {formType: formType}});
 		
 		$(form).formSubmit({
 			url: 'admin/common/send_email',
-			fields: {formType: formType},
+			fields: {formType: formType, ...formData},
 			formError: function(error) {
-				console.log(error);
+				$.each(error, function(k, item) {
+					let fieldName = $(item.field).attr('name');
+					if (fieldName == '_agreement') {
+						$.notify('Необходимо согласие на обработку данных!', 'error');
+					}
+				});
 				//callbackWin.wait(false);
 			},
 			success: function() {
-				$(popper).find(':visible').addClass('d-none rool');
-				$(popper).append('<h2 class="text-center" success>Заявка успешно отправлена!</h2>');
-				//callbackWin.setData(, false);
-				//callbackWin.removeButtons();
+				$(popper).find(':visible').addClass('d-none hide_success');
+				$(success).removeClass('d-none');
+
 				//if (yandexReachGoal) yaCounter77386018.reachGoal(yandexReachGoal);
 				autoCloseTOut = setTimeout(function() {
 					$(close).trigger('click');
 					setTimeout(() => {
-						$(popper).find('.rool').removeClass('d-none rool');
-						$(popper).find('[success]').remove();
+						$(popper).find('.hide_success').removeClass('d-none hide_success');
+						$(success).addClass('d-none');
 					}, 300);
 				}, 5000);
 			},
 			complete: function() {
+				$.notify('Заявка успешно отправлена!', 'success');
+				$(form).find('[name]').val('');
+				$(form).find('button[name]').attr('value', null);
+				
 				//callbackWin.wait(false);
 			}
 		});
 		
 		
+		
 		$(close).one(tapEvent, () => {
 			clearTimeout(autoCloseTOut);
 			setTimeout(() => {
-				$(popper).find('.rool').removeClass('d-none rool');
-				$(popper).find('[success]').remove();
+				$(popper).find('.hide_success').removeClass('d-none hide_success');
+				$(success).addClass('d-none');
 			}, 300);
 		});
 		
 		
-		//console.log(formData);
 		
 		
-		return;
 		
-		
-		let type = $(this).hasAttr('cbtype') ? $(this).attr('cbtype').trim() : false,
+		/*let type = $(this).hasAttr('cbtype') ? $(this).attr('cbtype').trim() : false,
 			title = $(this).hasAttr('cbtitle') ? $(this).attr('cbtitle').trim() : false,
 			sendSuccess = $(this).hasAttr('cbsuccess') ? $(this).attr('cbsuccess').trim() : false,
 			prodId = $(this).hasAttr('cbprod') ? $(this).attr('cbprod').trim() : false,
@@ -1067,7 +1076,9 @@ jQuery(document).ready(function($) {
 				}	
 			});
 			
-		});
+		});*/
+		
+		
 	});
 	
 	

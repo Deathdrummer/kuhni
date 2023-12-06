@@ -18,7 +18,7 @@
               <div class="col-12">
                 <div class="itc-select" id="select-pom">
                   <!-- Кнопка для открытия выпадающего списка -->
-                  <button type="button" class="itc-select__toggle" name="select-pom" value="" data-select="toggle" data-index="-1">Выбрать</button>
+                  <button type="button" class="itc-select__toggle" name="room_type" value="" data-select="toggle" data-index="-1">Выбрать</button>
                   <!-- Выпадающий список -->
                   <div class="itc-select__dropdown">
                     <ul class="itc-select__options">
@@ -37,7 +37,7 @@
               <div class="col-12">
                 <div class="itc-select" id="select-otkryvaem">
                   <!-- Кнопка для открытия выпадающего списка -->
-                  <button type="button" class="itc-select__toggle" name="select-otkryvaem" value="" data-select="toggle" data-index="-1">Выбрать</button>
+                  <button type="button" class="itc-select__toggle" name="open_system" value="" data-select="toggle" data-index="-1">Выбрать</button>
                   <!-- Выпадающий список -->
                   <div class="itc-select__dropdown">
                     <ul class="itc-select__options">
@@ -56,7 +56,7 @@
               <div class="col-12">
                 <div class="itc-select" id="select-dlina">
                   <!-- Кнопка для открытия выпадающего списка -->
-                  <button type="button" class="itc-select__toggle" name="select-dlina" value="" data-select="toggle" data-index="-1">Выбрать</button>
+                  <button type="button" class="itc-select__toggle" name="total_width" value="" data-select="toggle" data-index="-1">Выбрать</button>
                   <!-- Выпадающий список -->
                   <div class="itc-select__dropdown">
                     <ul class="itc-select__options">
@@ -76,7 +76,7 @@
                 <div class="col">
                  {% for index, item in list_form_sistem_fasady %}
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="mtp" id="mtp{{index}}" />
+                        <input class="form-check-input" type="checkbox" name="facades[{{item.variant}}]" id="mtp{{index}}" />
                         <label class="form-check-label text-white-custom" for="mtp{{index}}">{{item.variant}} </label>
                       </div>
                   {% endfor %}
@@ -91,7 +91,7 @@
                 <div class="col">
                 {% for index, item in list_form_sistem_furniture %}
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="mpom-furn" id="mpomfurn{{index}}" />
+                        <input class="form-check-input" type="checkbox" name="furniture[{{item.variant}}]" id="mpomfurn{{index}}" />
                         <label class="form-check-label text-white-custom" for="mpomfurn{{index}}">{{item.variant}} </label>
                       </div>
                   {% endfor %}
@@ -100,7 +100,7 @@
             </div>
             <div class="row g-0 gx-5 mt-40 mb-30">
               <div class="col-12">
-                <input type="text" class="form-control" placeholder="Телефон*" />
+                <input type="tel" class="form-control" name="phone" placeholder="Телефон" rules="phone|empty" />
               </div>
             </div>
 
@@ -181,10 +181,10 @@
               </div>
 
               <div class="col-4">
-                <input type="tel" name="phone" class="form-control" phone placeholder="Телефон*" />
+                <input type="tel" name="phone" class="form-control" phone placeholder="Телефон" rules="phone|empty" />
               </div>
               <div class="col-4">
-                <input type="text" name="email" class="form-control" placeholder="E-mail" />
+                <input type="text" name="email" class="form-control" placeholder="E-mail" rules="email" />
               </div>
             </div>
             <div class="row g-0 mt-15 mb-md-60">
@@ -193,7 +193,7 @@
                 
                 <label class="button button--black btn-sm button--small" role="button">
                   Загрузить
-                  <input type="file" class="d-none">
+                  <input type="file" name="attach" class="d-none">
                 </label>
                 
                 {# <label class="form-label" for="formFileMultiple">
@@ -214,6 +214,8 @@
               <button class="button button--black" callbackform="calcPriceCloset">Отправить</button>
             </div>
           </form>
+          
+          <h2 class="text-center fs-1 fw-bold d-none" success>{{callback['calcPriceCloset']['success']}}</h2>
         </div>
       </div>
     </div>

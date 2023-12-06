@@ -1574,18 +1574,24 @@ class Admin extends MY_Controller {
 	*/
 	public function common($action = false) {
 		if (!$this->input->is_ajax_request() || !$action) return false;
+		
 		$post = arrBringTypes($this->input->post());
+		$files = $this->input->files();
 		
 		switch ($action) {
 			case 'get_soc_item':
 				echo $this->twig->render($this->viewsPath.'render/common/soc_item.tpl', ['index' => $post['index']]);
 				break;
 			
+			case 'get_cb_item':
+				echo $this->twig->render($this->viewsPath.'render/common/callback_item.tpl', ['index' => $post['index']]);
+				break;
+			
 			case 'get_callback_form':
 				$type = $post['type'];
 				
-				$callbackform = $this->settings->getSettings('callbackform');
-				if (!$data = (isset($callbackform[$type]) ? $callbackform[$type] : false)) exit('');
+				
+				//if (!$data = (isset($callbackform[$type]) ? $callbackform[$type] : false)) exit('');
 				
 				if (isset($post['product_id'])) {
 					$this->load->model('products_model', 'productsmodel');
@@ -1599,44 +1605,32 @@ class Admin extends MY_Controller {
 				break;
 			
 			case 'send_email':
-				$this->load->library('sendemail');
+				$type = $post['formType'];
+				$callbacksSetting = $this->settings->getSettings('callback');
+				$callbackform = arrSetKeyFromField($callbacksSetting, 'id');
+				if (!$formData = (isset($callbackform[$type]) ? $callbackform[$type] : false)) exit('');
 				
-				// промокод
-				if (isset($post['type']) && $post['type'] == 2) {
-					$settings = $this->settings->getSettings(['promocode', 'promo_desc', 'title_promo', 'subject_promo']);
-					
-					$codeMask = isset($settings['promocode']) ? $settings['promocode'] : 'promo_*##*??*'; 
-					$code = generateCode($codeMask);
-					$post['code'] = $code;
-					$promoDesc = isset($settings['promo_desc']) ? $settings['promo_desc'] : ''; 
-					$titlePromo = isset($settings['title_promo']) ? $settings['title_promo'] : ''; 
-					$subjectPromo = isset($settings['subject_promo']) ? $settings['subject_promo'] : ''; 
-					
-					$this->load->model('promo_model', 'promo');
-					
-					toLog($post);
-					
-					if ($post['email']) {
-						$sendToUser = $this->sendemail->send([
-							'to'		=> $post['email'],
-							'subject'	=> $subjectPromo,
-							'template'	=> 'promo.tpl',
-							'title'		=> $titlePromo,
-							'fields'	=> array_merge($post, ['promo_desc' => $promoDesc]),
-						]);
-						if ($sendToUser) $this->promo->add($post);
-						else toLog('Ошибка! Письмо для клиента по промокоду не отправилось!');
+				foreach ($post as $field => $data) {
+					if (isJson($data)) {
+						$decodeData = json_decode($data, true);
+						$filredData = array_filter($decodeData, function($v) {
+							return $v == 1;
+						});
+						$post[$field] = implode(', ', array_keys($filredData));
 					}
 				}
 				
+
+				$this->load->library('sendemail');
+				
 				$sendToAdmin = $this->sendemail->send([
 					'to'		=> 'deathdrumer@yandex.ru',
-					'subject'	=> $post['title'] ?? '-',
+					'subject'	=> $formData['subject'] ?? '-',
 					'template'	=> 'send.tpl',
-					'title'		=> $post['title'] ?? '-',
+					'title'		=> $formData['title'] ?? '-',
 					'fields'	=> $post,
+					'files'		=> $files,
 				]);
-				
 				
 				if ($sendToAdmin) echo '1';
 				else toLog('Ошибка! Письмо для клиента по промокоду не отправилось!');

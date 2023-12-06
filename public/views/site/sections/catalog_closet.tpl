@@ -16,13 +16,13 @@
                         <div class="modal-content content-l-v1 bcg--black-v1">
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                           <div class="col-v1__title text-center mb-24 mb-lg-50">Рассчитать стоимость</div>
-                          <form action="">
+                          <form>
                             <div class="mb-3">
                               <label class="form-label">Выберите вид изделия</label>
 
                               <div class="itc-select" id="select-closet">
                                 <!-- Кнопка для открытия выпадающего списка -->
-                                <button type="button" class="itc-select__toggle form-select form-control" name="select-closet" value="" data-select="toggle" data-index="-1">Выберите вид изделия</button>
+                                <button type="button" class="itc-select__toggle form-select form-control" name="product_type" value="" data-select="toggle" data-index="-1">Выберите вид изделия</button>
                                 <!-- Выпадающий список -->
                                 <div class="itc-select__dropdown">
                                   <ul class="itc-select__options">
@@ -35,20 +35,20 @@
                             </div>
                             <div class="mb-3">
                               <label for="price-closet" class="form-label">Стоимость</label>
-                              <input type="text" class="form-control" id="price-closet" placeholder="от 29 000 метр погонный" />
+                              <input type="text" name="price" class="form-control" id="price-closet" placeholder="от 29 000 метр погонный" disabled />
                             </div>
                             <div class="mb-3">
                               <label for="exampleFormControlTextarea1" class="form-label">Размер и пожелания</label>
-                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Угловая, размер 3 на 3 метра"></textarea>
+                              <textarea name="size_comment" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Угловая, размер 3 на 3 метра"></textarea>
                             </div>
                             <div class="mb-1">
-                              <input type="text" class="form-control" placeholder="Имя" />
+                              <input type="text" name="name" class="form-control" placeholder="Имя" />
                             </div>
                             <div class="mb-3">
-                              <input type="text" class="form-control phone" placeholder="Телефон" />
+                              <input type="text" name="phone" class="form-control phone" placeholder="Телефон" rules="phone|empty" />
                             </div>
                             <div class="row g-0 justify-content-center mb-15">
-                              <button class="button button--white">Отправить</button>
+                              <button class="button button--white" callbackform="calcCatalogForm">Отправить</button>
                             </div>
                             <div class="text-white-custom text-center corp-form">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</div>
                           </form>
@@ -95,9 +95,9 @@
                     {% endfor %}
                   </div>
 
-                  <div class="row g-0 mt-40 mt-md-100 justify-content-center">
+                  {# <div class="row g-0 mt-40 mt-md-100 justify-content-center">
                     <button class="button button--red button--all">Загрузить еще</button>
-                  </div>
+                  </div> #}
                 </div>
               </div>
             </div>

@@ -13,7 +13,7 @@ $.ddrFormSubmit = function(params = {}) {
 $.fn.ddrFormSubmit = async function(params = {}) {
 	if (!params) throw new Error('ddrFormSubmit ошибка не переданы данные!');
 	let formContainer = this,
-		formItems = $(formContainer).find('input[name]:not([name=""]), textarea[name]:not([name=""]), select[name]:not([name=""]), [contenteditable][name]:not([name=""])').not('input[type="button"], input[type="file"]'),
+		formItems = $(formContainer).find('input[name]:not([name=""]), textarea[name]:not([name=""]), select[name]:not([name=""]), button[name]:not([name=""]), [contenteditable][name]:not([name=""])').not('input[type="button"], input[type="file"]'),
 		formData = {};
 	if (formContainer == undefined || formItems.length == 0) return false;
 	
@@ -37,7 +37,7 @@ $.fn.ddrFormSubmit = async function(params = {}) {
 // files
 $.fn.ddrForm = function(params = {}) {
 	let formContainer = this,
-		formItems = $(formContainer).find('input[name]:not([name=""]), textarea[name]:not([name=""]), select[name]:not([name=""]), [contenteditable][name]:not([name=""])').not('input[type="button"], input[type="file"]'),
+		formItems = $(formContainer).find('input[name]:not([name=""]), textarea[name]:not([name=""]), select[name]:not([name=""]), button[name]:not([name=""]), [contenteditable][name]:not([name=""])').not('input[type="button"], input[type="file"]'),
 		formData = {};
 	if (formContainer == undefined || formItems.length == 0) return false;
 	
@@ -190,7 +190,7 @@ function request(params = false, formItems = false) {
 		return false;
 	} */
 	
-	if (!formData.get('_token')) {
+	if (!params?.nocsrf && !formData.get('_token')) {
 		if ($('meta[name*="csrf"]').length) {
 			formData.append('_token', $('meta[name*="csrf"]').attr('content') || null);
 		} else {
@@ -198,7 +198,7 @@ function request(params = false, formItems = false) {
 		}
 	}
 	
-	
+	console.log(axios);
 	
 	try {
 		axios({
