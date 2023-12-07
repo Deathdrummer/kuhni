@@ -16,7 +16,7 @@ class Products_model extends MY_Model {
 		$itemsPerPage = $toList ? false : ($this->settings->getSettings('count_products') ?: 12);
 
 		if ($toList) $this->db->select('pr.id, pr.catalog_id, cc.title AS category_title, pr.title, pr.price, pr.price_old, pr.seo_url, pr.link_title AS link_title_prod, pr.name, pr.main_image, pr.article, pr.model, pr.option_icon, pr.option_color, pr.option_title, pr.hashtags, '.$this->groupConcatValue('ppo.product_option_id', 'ops_prods', true));
-		else $this->db->select("pr.id, pr.catalog_id, cc.title AS category_title, pr.title, pr.price, pr.price_old, pr.seo_url, pr.link_title AS link_title_prod, pr.name, pr.article, pr.model, pr.main_image, pr.label, pr.description, pr.short_desc, pr.attributes, p.seo_url AS page_seo_url, pr.option_icon, pr.option_color, pr.option_title, pr.hashtags, ".$this->groupConcat('ppo.product_option_id', 'product_id:ppo.product_option_id, title:ppo.title, icon:ppo.icon, color:ppo.color, sort:ppo.sort', 'options', true));
+		else $this->db->select("pr.id, pr.catalog_id, cc.title AS category_title, pr.title, pr.price, pr.price_old, pr.seo_url, pr.link_title AS link_title_prod, pr.name, pr.article, pr.model, pr.main_image, pr.gallery, pr.label, pr.description, pr.short_desc, pr.attributes, p.seo_url AS page_seo_url, pr.option_icon, pr.option_color, pr.option_title, pr.hashtags, ".$this->groupConcat('ppo.product_option_id', 'product_id:ppo.product_option_id, title:ppo.title, icon:ppo.icon, color:ppo.color, sort:ppo.sort', 'options', true));
 		
 		$this->db->join('products_to_categories ctp', 'ctp.product_id = pr.id', 'LEFT OUTER');
 		$this->db->join('catalogs c', 'c.id = pr.catalog_id');

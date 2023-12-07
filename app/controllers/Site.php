@@ -55,6 +55,7 @@ class Site extends MY_Controller {
 			// Реструктурирование массива форм обратной связи
 			$settings['callback'] = arrSetKeyFromField($settings['callback'], 'id');
 			
+			// Вывод переменных для страниц
 			if ($settings['page_vars'] && is_array($settings['page_vars'])) {
 				$pagesVarsdata = [];
 				foreach ($settings['page_vars'] as $pageId => $varsData) {
@@ -66,7 +67,6 @@ class Site extends MY_Controller {
 						
 						$pagesVarsdata[$pageId][$key] = $value;
 					}
-					
 				}
 				$settings['page_vars'] = $pagesVarsdata;
 			}
