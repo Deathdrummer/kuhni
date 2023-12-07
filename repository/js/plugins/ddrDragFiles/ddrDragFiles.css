@@ -1,0 +1,68 @@
+.ddrdragfiles {
+	
+}
+	.ddrdragfiles_error {}
+	
+	.ddrdragfiles__finput {
+		display: none;
+	}
+	
+	.ddrdragfiles__dropzone {}
+		.ddrdragfiles__dropzone_hover {}
+		
+		.ddrdragfiles__dropzone_error {}
+		
+		.ddrdragfiles__dropzone_drop {}
+	
+	.ddrdragfiles__files {}
+		.ddrdragfiles__files:empty {
+			display: none;
+		}
+	
+	.ddrdragfiles__file {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+	}
+		.ddrdragfiles__file:hover .ddrdragfiles__remove {
+			pointer-events: auto;
+			opacity: 1;
+		}
+	
+	
+	.ddrdragfiles__filename {
+		align-self: flex-end;
+		word-break: break-all;
+		display: block;
+	}
+	
+		.ddrdragfiles__filename::after {
+			content: '\f040';
+			font-family: fontAwesome, sans-serif;
+			opacity: 0;
+			transition: opacity 0.16s;
+		}
+		
+		.ddrdragfiles__filename:hover::after, .ddrdragfiles__filename:focus::after {
+			opacity: 1;
+		}
+	
+	
+	.ddrdragfiles__remove {
+		position: absolute;
+		pointer-events: none;
+		opacity: 0;
+		cursor: pointer;
+		transition: opacity 0.16s;
+	}
+		
+	
+	
+	.ddrdragfiles__loading {}
+		
+	
+	.ddrdragfiles__dropitem {}	

@@ -1,0 +1,28 @@
+[ddrsort] {
+    cursor: pointer;
+    touch-callout: none;
+    user-select: none;
+}
+
+[ddrsort]:hover, [ddrsort]:hover * {
+    color: #115fff !important;
+}
+
+[ddrsort][ddrorder] {
+    position: relative;
+}
+
+[ddrsort][ddrorder]::after {
+    font: normal normal normal 14px/1 FontAwesome;
+    position: absolute;
+    margin-left: 5px;
+    color: #715e9c;
+}
+
+[ddrsort][ddrorder="asc"].ddrsortactive::after {
+    content: '\f13a';
+}
+
+[ddrsort][ddrorder="desc"].ddrsortactive::after {
+    content: '\f139';
+}

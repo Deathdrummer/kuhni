@@ -46,7 +46,7 @@
                         <li><span class="property-info">{{attr_custom.property_name}}:</span> <span>{{attr_custom.property_value}}</span></li>
                       {% endfor %}
                   </ul>
-                  <div class="property-list d-flex flex-column border-md-none pb-0 pb-md-35 pt-20">{{product.description|raw}}</div>
+                  <div class="property-list d-flex flex-column border-md-none pb-0 pb-md-35 pt-20">Доставка и установка по Москве и М.О.</div>
                 </div>
                 <div class="order-1 order-lg-2 mb-20 mb-lg-0 d-flex">
                   <button class="button button--black" data-bs-toggle="modal" data-bs-target="#modalraschet">Заказать расчет</button>
@@ -90,7 +90,7 @@
                           <div class="text-center modal-form-title mb-24 mb-lg-35">Заказать расчет</div>
                           <form class="sect-form--white-theme">
                             <input type="hidden" name="product" value="{{product.name}}">
-                            
+
                             <div class="mb-1">
                               <input type="text" name="name" class="form-control" placeholder="Имя" />
                             </div>
@@ -155,4 +155,12 @@
               </div>
             </div>
           </div>
+</section>
+
+<section class="section mb-100">
+  <div class="container-xxl g-2 g-lg-4">
+    <div class="row g-0 gx-60 border-row-card">
+      {{product.description|raw}}
+    </div>
+  </div>
 </section>
