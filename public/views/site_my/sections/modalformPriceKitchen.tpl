@@ -8,23 +8,23 @@
 
         <div class="col-12 d-flex flex-column justify-content-center bcg--white-v1 ps-10 pe-10 pt-28 pb-50 ps-md-30 pe-md-30 pt-md-28 pb-md-60" id="callbackFormPopper">
           <div class="col-12 bcg--white-v1 text-center d-block d-md-none modal-form-title pb-30 pt-0 pt-md-0">Расчёт стоимости кухни</div>
-
+          
           {# ---------------------------------------- форма мобильная --------------------------------------- #}
           <form class="sect-form--white-theme d-block d-md-none">
             <div class="row g-0 gx-12 mb-30">
-              <div class="col-12">
+              <div class="col-12 mb-24">
                 <div class="col-title-form">Выберите конфигурацию:</div>
               </div>
-              <div class="row g-10 col-12 mt-15">
+              <div class="row g-0 g-10 col-12 mt-0">
                 {% for index, item in list_form_konf_kitchen %}
                   <div class="col-6">
-                    <label class="form-check-image p-8 pt-2" for="img{{index}}">
+                    <label class="form-check-image p-8" for="img{{index}}">
                       <div class="konf-photo">
                         <img src="{{base_url('public/filemanager/'~item.img)}}" loading="lazy" alt="" />
                       </div>
 
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="configuration" value="{{item.text}}" id="img{{index}}" />
+                        <input class="form-check-input" type="checkbox" name="configuration[{{item.text}}]" id="img{{index}}" />
                         <div class="form-check-label text-white-custom">{{item.text}}</div>
                       </div>
                     </label>
@@ -34,8 +34,8 @@
             </div>
             <div class="row g-0 mb-30">
               <div class="row g-0 gap-5 col-12">
-                <div class="col-12 d-flex flex-row align-items-center justify-content-between">
-                  <label class="me-20 text-nowrap" for="">Размер сторона А</label>
+                <div class="col-12 d-flex flex-row align-items-center">
+                  <label class="me-20 text-nowrap" for="">Сторона <span class="fw-bold">A</span></label>
                   <div class="itc-select" id="select-a">
                     <!-- Кнопка для открытия выпадающего списка -->
                     <button type="button" class="itc-select__toggle" name="side_a" value="" data-select="toggle" data-index="-1">Выбрать</button>
@@ -49,8 +49,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12 d-flex flex-row align-items-center justify-content-between">
-                  <label class="me-20 text-nowrap" for="">Размер сторона Б</label>
+                <div class="col-12 d-flex flex-row align-items-center">
+                  <label class="me-20 text-nowrap" for="">Сторона <span class="fw-bold">B</span></label>
                   <div class="itc-select" id="select-b">
                     <!-- Кнопка для открытия выпадающего списка -->
                     <button type="button" class="itc-select__toggle" name="side_b" value="" data-select="toggle" data-index="-1">Выбрать</button>
@@ -64,8 +64,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-12 d-flex flex-row align-items-center justify-content-between">
-                  <label class="me-20 text-nowrap" for="">Размер сторона С</label>
+                <div class="col-12 d-flex flex-row align-items-center">
+                  <label class="me-20 text-nowrap" for="">Сторона <span class="fw-bold">C</span></label>
                   <div class="itc-select" id="select-c">
                     <!-- Кнопка для открытия выпадающего списка -->
                     <button type="button" class="itc-select__toggle" name="side_c" value="" data-select="toggle" data-index="-1">Выбрать</button>
@@ -92,7 +92,7 @@
               <button class="button button--black" callbackform="calcPriceKitchen">Отправить</button>
             </div>
           </form>
-
+          
           {# ---------------------------------------- форма десктоп --------------------------------------- #}
           <form class="sect-form--white-theme d-none d-md-block">
             <div class="row g-0 gx-26 mb-50">
@@ -108,7 +108,7 @@
                         </div>
 
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="configuration" value="{{item.text}}" id="img{{index}}" />
+                          <input class="form-check-input" type="checkbox" name="configuration[{{item.text}}]" id="img{{index}}" />
                           <div class="form-check-label text-white-custom">{{item.text}}</div>
                         </div>
                       </label>
@@ -133,7 +133,7 @@
               </div>
             </div>
             <div class="row g-0 gx-1 mb-50">
-              <div class="col col-lg-auto">
+              <div class="col">
                 <div class="col mb-24">
                   <div class="col-title-form">Укажите высоту</div>
                 </div>
@@ -146,7 +146,7 @@
                   {% endfor %}
                  </div>
               </div>
-              <div class="col col-lg-auto">
+              <div class="col">
                 <div class="col mb-24">
                   <div class="col-title-form">Техника:</div>
                 </div>
@@ -159,7 +159,7 @@
                   {% endfor %}
                 </div>
               </div>
-              <div class="col col-lg-auto">
+              <div class="col">
                 <div class="col mb-24">
                   <div class="col-title-form">Фурнитура:</div>
                 </div>

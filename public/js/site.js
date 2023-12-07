@@ -930,10 +930,6 @@ jQuery(document).ready(function($) {
 	
 	
 	
-	
-	
-	
-	
 	$('#rool').ddrFloatingBlock(120);
 	
 	//----------------------------------------------------------- Форма связи
@@ -944,7 +940,8 @@ jQuery(document).ready(function($) {
 	
 	$('[data-select="option"]').on(tapEvent, function () {
 	    let price = $(this).data('price');
-	    $('[name="price"]').val(price);
+	    price = $.number(price, 2, '.', ' ');
+	    $('[name="price"]').val(`от ${price} ₽. метр погонный`);
 	});
 	
 	$('[callbackform]').on(tapEvent, function() {
