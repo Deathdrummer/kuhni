@@ -29,19 +29,38 @@
               </div>
             </div>
             {% endif %}
-              <div class="col-12 mb-15">
-                <input type="text" name="name" class="form-control" placeholder="ФИО" />
-              </div>
-              <div class="col mb-15">
-                <input type="text" name="phone" class="form-control" placeholder="Телефон" rules="phone|empty" />
-              </div>
+             <div class="col-12 mb-15">
+               <input type="text" name="name" class="form-control" placeholder="ФИО" />
+             </div>
+             <div class="col-12 mb-15">
+               <input type="text" name="phone" class="form-control" placeholder="Телефон" rules="phone|empty" />
+             </div>
+             {% if email_boolean.email_true==1 %}
+                <div class="col-12 mb-15">
+                  <input type="text" name="email" class="form-control" placeholder="E-mail" rules="email" />
+                </div>
+              {% endif %}
+              {% if message_boolean.message_true==1 %}
+                <div class="col-12 mb-10">
+                  <textarea class="form-control" name="message" placeholder="Ваши пожелания" rows="5"></textarea>
+                </div>
+             {% endif %}
+             {% if file_boolean.file_true==1 %}
+                <div class="col-12 mb-15">
+                  <div class="mb-8 text-files text-white-custom fw-light">Прикрепить файл (если есть)</div>
+                  <label class="button button--white btn-sm button--small" role="button">
+                    Загрузить
+                    <input type="file" name="attach" class="d-none">
+                  </label>
+                </div>
+             {% endif %}
               <div class="col-12 mb-24">
                 <div class="form-check">
                   <input name="_agreement" class="form-check-input" type="checkbox" id="gridCheck1" checked  rules="empty" />
                   <label class="form-check-label text-white-custom" for="gridCheck1"> Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности </label>
                 </div>
               </div>
-            <button type="submit" class="button button--white" callbackform="questionsForm">Заказать</button>
+            <button type="submit" class="button button--white" callbackform="questionsForm">{{btn_text}}</button>
           </form>
         </div>
       </div>
