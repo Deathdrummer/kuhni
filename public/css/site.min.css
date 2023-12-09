@@ -3,7 +3,12 @@ header {
 
 span.error {
   position: absolute;
-  font-size: 13px; }
+  font-size: 13px;
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
+  text-shadow: 0 0 #dbc9c9;
+  min-width: 100%; }
 
 .notifyjs-corner {
   -webkit-transform: translateY(110px);

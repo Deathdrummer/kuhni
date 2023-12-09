@@ -173,6 +173,11 @@
 			<p style="white-space:pre-line;">{{fields.size_comment}}</p>
 		{% endif %}
 		
+		{% if fields.greeting %}
+			<strong>Пожелания:</strong>
+			<p style="white-space:pre-line;">{{fields.greeting}}</p>
+		{% endif %}
+		
 		
 		{% if fields.message %}
 			<strong>Сообщение:</strong>
