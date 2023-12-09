@@ -1607,6 +1607,7 @@ class Admin extends MY_Controller {
 			case 'send_email':
 				$type = $post['formType'];
 				$callbacksSetting = $this->settings->getSettings('callback');
+				$emailSetting = $this->settings->getSettings('email');
 				$callbackform = arrSetKeyFromField($callbacksSetting, 'id');
 				if (!$formData = (isset($callbackform[$type]) ? $callbackform[$type] : false)) exit('');
 				
@@ -1620,12 +1621,17 @@ class Admin extends MY_Controller {
 					}
 				}
 				
-
+				
+				if (!$to = ($formData['to'] ?? $emailSetting['to']) ?? false) {
+					toLog('Ошибка! Письмо не может быть отправлено, так как не указан адресат "to"!');
+					exit('');
+				}
+				
 				$this->load->library('sendemail');
 				
 				$sendToAdmin = $this->sendemail->send([
-					'to'		=> 'deathdrumer@yandex.ru',
-					'subject'	=> $formData['subject'] ?? '-',
+					'to'		=> $to,
+					'subject'	=> $formData['subject'] ?? $emailSetting['subject'],
 					'template'	=> 'send.tpl',
 					'title'		=> $formData['title'] ?? '-',
 					'fields'	=> $post,
