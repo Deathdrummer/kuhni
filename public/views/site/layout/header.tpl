@@ -67,7 +67,7 @@
 			{{header_label|raw}}
 		  </div>
 		  <div class="block-button d-flex d-md-none">
-			<a class="button button--number" href="tel:8 495 120-18-66">{{phone.city1}}</a>
+			<a class="button button--number" phone>{{phone.city1}}</a>
 			<button class="button button--red" data-bs-toggle="modal" data-bs-target="#modalraschetPrice">Расчет стоимости</button>
 		  </div>
 		</div>

@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="col-12 col-lg-5 g-0 gx-3 block-button">
-          <a class="button button--number" href="tel:8 495 120-18-66">{{phone.city1}}</a>
+          <a class="button button--number" phone>{{phone.city1}}</a>
           <button class="button button--red" data-bs-toggle="modal" data-bs-target="#modalproect">Заказать проект</button>
         </div>
       </div>

@@ -79,7 +79,8 @@
                           <div class="col-12 col-message d-flex flex-column align-items-center gap-10 gap-md-25">
                             <div class="col-message__title">Позвонить {{soc[3].link}}</div>
                             <div class="col-message__icon">
-                              <a href="tel:{{soc[3].link}}" class="sosial-link">
+                              <a phone class="sosial-link">
+                                  <p class="d-none">{{soc[3].link}}</p>
                                   <img class="icon-sosial ic-{{soc[3].title}}" src="{{base_url('public/filemanager/'~soc[3].icon)}}" alt="{{soc[3].title}}" />
                                 </a>
                              </div>
