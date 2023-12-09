@@ -155,6 +155,8 @@ class ItcCustomSelect {
 
 ItcCustomSelect.hideOpenSelect();
 
+
+
 document.querySelectorAll(".itc-select").forEach((el) => {
-  new ItcCustomSelect(el);
+   new ItcCustomSelect(el);
 });

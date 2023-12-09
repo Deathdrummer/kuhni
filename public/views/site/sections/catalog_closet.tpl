@@ -45,7 +45,7 @@
                               <input type="text" name="name" class="form-control" placeholder="Имя" />
                             </div>
                             <div class="mb-3">
-                              <input type="text" name="phone" class="form-control phone" placeholder="Телефон" rules="phone|empty" />
+                              <input type="tel" name="phone" class="form-control phone" placeholder="Телефон" rules="phone|empty" />
                             </div>
                             <div class="row g-0 justify-content-center mb-15">
                               <button class="button button--white" callbackform="calcCatalogForm">Отправить</button>
@@ -79,19 +79,17 @@
                 </div>
                 <div class="col-12 col-lg-8 col-r-v1">
                   <div class="row g-1 g-md-3 gy-20 gy-md-55">
-                  {% for product in products.items %}
-
-                        <div class="col-6">
-                            <div class="photo">
-                              <img src="{{base_url('public/filemanager/'~product.main_image.file)}}" alt="" />
+                  {% for index,  product in products.items %}
+                        <div class="col-6 gallery-closet">
+                            <div class="photo"  data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.0.file)}}" >
+                              <img src="{{base_url('public/filemanager/__mini__/'~product.gallery.0.file)}}" alt="{{gallery.0.alt}}" />
                             </div>
                           </div>
                           <div class="col-6">
-                            <div class="photo">
-                              <img src="{{base_url('public/filemanager/'~product.main_image.file)}}" alt="" />
+                            <div class="photo"  data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.1.file)}}" >
+                              <img src="{{base_url('public/filemanager/__mini__/'~product.gallery.1.file)}}" alt="{{gallery.1.alt}}" />
                             </div>
                           </div>
-
                     {% endfor %}
                   </div>
 

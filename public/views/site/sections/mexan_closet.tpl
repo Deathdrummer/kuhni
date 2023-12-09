@@ -13,7 +13,7 @@
                  {% for item in data %}
                      <div class="{% if groupId == 1 and (item.size_photo=='small' or item.size_photo=='') %}col-6 g-8 g-lg-3{% endif %}{% if item.size_photo=='horizontal' %}col-12 g-8 g-lg-3{% endif %}{% if groupId == 2 and item.size_photo=='small'  %} col-6 col-lg-12 g-8 g-lg-3 {% endif %}{% if item.size_photo=='small-big' %} col-6 col-lg-12 g-8 g-lg-3 {% endif %}{% if item.size_photo=='big' %} col-12 g-8 g-lg-3 {% endif %}">
                        <div class="photo{% if item.size_photo=='big' %} photo-big{% endif %}{% if item.size_photo=='horizontal' %} photo-horizontal{% endif %}{% if item.size_photo=='small' %} photo-small {% endif %}{% if item.size_photo=='small-big' %} photo-small-big {% endif %}">
-                         <img src="{{base_url('public/filemanager/'~item.images)}}" loading="lazy" alt="" />
+                         <img src="{{base_url('public/filemanager/__mini__/'~item.images)}}" loading="lazy" alt="" />
                        </div>
                      </div>
                    {% endfor %}

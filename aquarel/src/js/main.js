@@ -51,12 +51,22 @@ function handleRadioButtonChange() {
   const name = this.name;
   const checkboxes = document.querySelectorAll(`input[type="radio"][name="${name}"]`);
 
-  checkboxes.forEach((checkbox) => {
+  checkboxes.forEach((checkbox, index) => {
     if (checkbox.checked) {
-      checkbox.labels[0].classList.remove("inactive-label");
+      if (checkbox.labels[0]) {
+        checkbox.labels[0].classList.remove("inactive-label");
+      }
+      if (checkbox.parentElement.parentElement.classList.contains("form-check-image")) {
+        checkbox.parentElement.parentElement.classList.remove("inactive-label");
+      }
       checkbox.classList.remove("inactive-radio");
     } else {
-      checkbox.labels[0].classList.add("inactive-label");
+      if (checkbox.labels[0]) {
+        checkbox.labels[0].classList.add("inactive-label");
+      }
+      if (checkbox.parentElement.parentElement.classList.contains("form-check-image")) {
+        checkbox.parentElement.parentElement.classList.add("inactive-label");
+      }
       checkbox.classList.add("inactive-radio");
     }
   });
@@ -77,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     im.mask(item);
   });
 
-  Fancybox.bind('[data-fancybox="gallery"]', {
+  Fancybox.bind("[data-fancybox]", {
     //
   });
   var stickyEl = document.querySelector(".block--sticksyJs");

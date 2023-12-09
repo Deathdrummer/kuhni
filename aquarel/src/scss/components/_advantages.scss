@@ -19,8 +19,6 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 50px;
-    &--mod {
-    }
   }
 
   // .advantages__item-title
@@ -51,26 +49,39 @@
     @include flex-all-center;
     width: 40px;
     height: 40px;
-    &--1 {
+    &--svg {
       width: 31px;
-      height: 31px;
-    }
-    &--2 {
-      width: 26px;
-      height: 31px;
-    }
-    &--3 {
-      width: 26px;
-      height: 26px;
-    }
-    &--4 {
-      width: 30px;
-      height: 30px;
+      height: auto;
     }
   }
 
   // .advantages__item-text
 
   &__item-text {
+  }
+  &--mebelerovka {
+    .advantages {
+      &__item {
+        @include resp(
+          gap,
+          (
+            sm-down: 50px,
+            md: 70px,
+          )
+        );
+        @include resp(
+          padding-top,
+          (
+            sm-down: 80px,
+            md: 60px,
+          )
+        );
+        justify-content: flex-start;
+        align-items: center;
+      }
+      &__item-text {
+        text-align: center;
+      }
+    }
   }
 }

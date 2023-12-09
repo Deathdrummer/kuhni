@@ -14,22 +14,22 @@
              <div class="row row-cols-2 g-1">
                <div class="col">
                  <div class="photo">
-                   <img src="{{base_url('public/filemanager/'~item.img_1)}}" loading="lazy" alt="" />
+                   <img src="{{base_url('public/filemanager/__mini__/'~item.img_1)}}" loading="lazy" alt="" />
                  </div>
                </div>
                <div class="col">
                  <div class="photo">
-                   <img src="{{base_url('public/filemanager/'~item.img_2)}}" loading="lazy" alt="" />
+                   <img src="{{base_url('public/filemanager/__mini__/'~item.img_2)}}" loading="lazy" alt="" />
                  </div>
                </div>
                <div class="col">
                  <div class="photo">
-                   <img src="{{base_url('public/filemanager/'~item.img_3)}}" loading="lazy" alt="" />
+                   <img src="{{base_url('public/filemanager/__mini__/'~item.img_3)}}" loading="lazy" alt="" />
                  </div>
                </div>
                <div class="col">
                  <div class="photo">
-                 <img src="{{base_url('public/filemanager/'~item.img_4)}}" loading="lazy" alt="" />
+                 <img src="{{base_url('public/filemanager/__mini__/'~item.img_4)}}" loading="lazy" alt="" />
                  </div>
                </div>
              </div>

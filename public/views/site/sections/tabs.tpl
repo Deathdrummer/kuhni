@@ -8,7 +8,7 @@
 							<div class="advantages__item-title">
 							<span>{{tab.title}}</span>
 							<div class="advantages__item-icon">
-								<img class="advantages__item-icon--1" src="{{base_url('public/filemanager/'~tab.icon)}}" loading="lazy" alt="" />
+								<img class="advantages__item-icon--svg" src="{{base_url('public/filemanager/'~tab.icon)}}" loading="lazy" alt="" />
 							</div>
 							</div>
 							<div class="advantages__item-text">{{tab.desc}}</div>

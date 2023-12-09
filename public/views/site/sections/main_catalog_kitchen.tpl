@@ -13,7 +13,7 @@
                     {% if item.btn_cat==0 %}
                       <div class="col{% if item.position=='left' %} col-12 col-md-6{% endif %}{% if item.position=='right' %} col-12 col-md-6 offset-md-6{% endif %}{% if item.size_photo=='horizontal' %} col-12{% endif %}">
                         <a href="{{base_url('/'~item.product_kitchen.seo_url)}}" class="photo{% if item.size_photo=='big' %} photo-big photo-sm-down-big{% endif %}{% if item.size_photo=='horizontal' %} photo-horizontal photo-sm-down-small{% endif %}{% if item.size_photo=='small' %} photo-small photo-sm-down-small{% endif %}{% if item.size_photo=='small-big' %} photo-sm-down-big{% endif %}">
-                            <img src="{{base_url('public/filemanager/'~item.bg)}}" loading="lazy" />
+                            <img src="{{base_url('public/filemanager/__mini__/'~item.bg)}}" loading="lazy" />
                             <div class="matte photo-matte text-white-custom photo-text">
                               <div class="photo-text__title">{{item.title}}</div>
                               <div class="photo-text__text">{{item.subtitle}}</div>

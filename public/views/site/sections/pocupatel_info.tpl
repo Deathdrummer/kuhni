@@ -6,7 +6,7 @@
               <div class="col">
                 <div class="d-flex flex-column flex-md-row">
                   <div class="photo photo-bcg-black  photo-vertical bg-black">
-                    <img class="opacity-50" src="{{base_url('public/filemanager/'~item.images)}}" loading="lazy" alt="" />
+                    <img class="opacity-50" src="{{base_url('public/filemanager/__mini__/'~item.images)}}" loading="lazy" alt="" />
                   </div>
                   <div class="col mt-40 mt-md-0 ms-md-20">
                     <div class="col-title mb-15 mb-md-40">{{item.title}}</div>

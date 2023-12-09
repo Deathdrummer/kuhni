@@ -5,13 +5,34 @@
     position: relative;
   }
   &__block-content {
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    @include resp(
+      min-height,
+      (
+        md-down: 560px,
+        md: 690px,
+      )
+    );
+    @include resp(
+      padding,
+      (
+        md-down: 60px 0,
+        md: 90px 0,
+      )
+    );
     display: flex;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
     @include flex-all-center;
     .br-left-before:before {
       @include resp(
@@ -67,26 +88,26 @@
   }
   // .sect-form__block-photo
 
-  &__block-photo {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    min-height: 520px;
+  // &__block-photo {
+  //   height: 100vh;
+  //   position: relative;
+  //   overflow: hidden;
+  //   width: 100%;
+  //   min-height: 520px;
 
-    @include resp(
-      max-height,
-      (
-        sm-down: 520px,
-        md: 700px,
-      )
-    );
+  //   @include resp(
+  //     max-height,
+  //     (
+  //       sm-down: 520px,
+  //       md: 700px,
+  //     )
+  //   );
 
-    background: #000000;
-    img {
-      opacity: 0.3;
-    }
-  }
+  //   background: #000000;
+  //   img {
+  //     opacity: 0.3;
+  //   }
+  // }
 
   &__form {
     max-width: 500px;

@@ -20,7 +20,7 @@
                   <div class="col-6">
                     <label class="form-check-image p-8 pt-2" for="img{{index}}">
                       <div class="konf-photo">
-                        <img src="{{base_url('public/filemanager/'~item.img)}}" loading="lazy" alt="" />
+                        <img src="{{base_url('public/filemanager/__mini__/'~item.img)}}" loading="lazy" alt="" />
                       </div>
 
                       <div class="form-check">
@@ -104,7 +104,7 @@
                     <div class="col">
                       <label class="form-check-image p-8" for="img{{index}}">
                         <div class="konf-photo">
-                          <img src="{{base_url('public/filemanager/'~item.img)}}" loading="lazy" alt="" />
+                          <img src="{{base_url('public/filemanager/__mini__/'~item.img)}}" loading="lazy" alt="" />
                         </div>
 
                         <div class="form-check">

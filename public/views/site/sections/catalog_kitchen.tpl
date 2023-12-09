@@ -10,7 +10,7 @@
       <div class="col">
           <div class="catalog-card">
             <div class="photo">
-              <img src="{{base_url('public/filemanager/'~product.main_image.file)}}" loading="lazy" alt="" />
+              <img src="{{base_url('public/filemanager/__mini__/'~product.main_image.file)}}" loading="lazy" alt="" />
             </div>
 
             <div class="photo-text border-bottom">

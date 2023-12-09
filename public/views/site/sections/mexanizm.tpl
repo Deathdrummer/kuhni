@@ -17,7 +17,7 @@
             {% for slider in slider_mexanizm %}
               <div class="swiper-slide {{slider.class_photo}}">
                     <div class="photo">
-                      <img src="{{base_url('public/filemanager/'~slider.img)}}" loading="lazy" />
+                      <img src="{{base_url('public/filemanager/__mini__/'~slider.img)}}" loading="lazy" />
                     </div>
                   </div>
             {% endfor %}

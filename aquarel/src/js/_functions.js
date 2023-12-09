@@ -69,7 +69,7 @@ const swiper = new Swiper(".swiper-mexanizm-section", {
     },
   },
 });
-var swiperCardThumbs = new Swiper(".swiper-card-thumbs", {
+const swiperCardThumbs = new Swiper(".swiper-card-thumbs", {
   spaceBetween: 5,
   slidesPerView: 7,
   freeMode: true,
@@ -81,7 +81,7 @@ var swiperCardThumbs = new Swiper(".swiper-card-thumbs", {
     },
   },
 });
-var swiperCard = new Swiper(".swiper-card", {
+const swiperCard = new Swiper(".swiper-card", {
   spaceBetween: 10,
   navigation: {
     nextEl: ".swiper-next",
@@ -91,7 +91,33 @@ var swiperCard = new Swiper(".swiper-card", {
     swiper: swiperCardThumbs,
   },
 });
+// const swiperMebelerovka = new Swiper(".swiper-mebelerovka", {
+//   slidesPerView: "1",
+//   spaceBetween: 0,
+//   navigation: {
+//     nextEl: ".swiper-next",
+//     prevEl: ".swiper-prev",
+//   },
+// });
+// Function that actually builds the swiper
+const buildSwiperSlider = (sliderElm) => {
+  const sliderIdentifier = sliderElm.dataset.id;
 
+  return new Swiper(`.${sliderElm.classList[0]}[data-id="${sliderIdentifier}"]`, {
+    slidesPerView: "1",
+    spaceBetween: 0,
+    navigation: {
+      nextEl: `.swiper-button-next-${sliderIdentifier}`,
+      prevEl: `.swiper-button-prev-${sliderIdentifier}`,
+    },
+  });
+};
+
+// Get all of the swipers on the page
+const allSliders = document.querySelectorAll(".swiper-mebelerovka");
+
+// Loop over all of the fetched sliders and apply Swiper on each one.
+allSliders.forEach((slider) => buildSwiperSlider(slider));
 // var stickyElement = new Sticksy(".js-sticky-widget", { topSpacing: 110 });
 // Подключение анимаций по скроллу
 // import AOS from 'aos';

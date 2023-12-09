@@ -9,7 +9,7 @@
          {% if item.images %}
              <div class="col">
                <div class="our-advantages__item col bcg--grey-v1 photo">
-                 <img src="{{base_url('public/filemanager/'~item.images)}}" loading="lazy" alt="" />
+                 <img src="{{base_url('public/filemanager/__mini__/'~item.images)}}" loading="lazy" alt="" />
                  <div class="our-advantages__item-text text-white-custom">{{item.text}}</div>
                </div>
              </div>

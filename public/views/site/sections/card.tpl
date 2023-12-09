@@ -13,7 +13,7 @@
                   <div class="swiper-wrapper">
                   {% for img in product.gallery %}
                     <a data-fancybox="gallery" data-src="{{base_url('public/filemanager/'~img.file)}}" class="swiper-slide">
-                      <img src="{{base_url('public/filemanager/'~img.file)}}" />
+                      <img src="{{base_url('public/filemanager/__mini__/'~img.file)}}" />
                     </a>
                   {% endfor %}
                   </div>
@@ -24,7 +24,7 @@
                   <div class="swiper-wrapper">
                    {% for img in product.gallery %}
                     <div class="swiper-slide">
-                      <img src="{{base_url('public/filemanager/'~img.file)}}" />
+                      <img src="{{base_url('public/filemanager/__mini__/'~img.file)}}" />
                   </div>
                   {% endfor %}
                   </div>

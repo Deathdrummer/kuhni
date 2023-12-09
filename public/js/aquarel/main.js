@@ -3113,7 +3113,7 @@ const swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-mexan
     }
   }
 });
-var swiperCardThumbs = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-card-thumbs", {
+const swiperCardThumbs = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-card-thumbs", {
   spaceBetween: 5,
   slidesPerView: 7,
   freeMode: true,
@@ -3125,7 +3125,7 @@ var swiperCardThumbs = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swip
     }
   }
 });
-var swiperCard = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-card", {
+const swiperCard = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-card", {
   spaceBetween: 10,
   navigation: {
     nextEl: ".swiper-next",
@@ -3135,7 +3135,32 @@ var swiperCard = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-car
     swiper: swiperCardThumbs
   }
 });
+// const swiperMebelerovka = new Swiper(".swiper-mebelerovka", {
+//   slidesPerView: "1",
+//   spaceBetween: 0,
+//   navigation: {
+//     nextEl: ".swiper-next",
+//     prevEl: ".swiper-prev",
+//   },
+// });
+// Function that actually builds the swiper
+const buildSwiperSlider = sliderElm => {
+  const sliderIdentifier = sliderElm.dataset.id;
+  return new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](`.${sliderElm.classList[0]}[data-id="${sliderIdentifier}"]`, {
+    slidesPerView: "1",
+    spaceBetween: 0,
+    navigation: {
+      nextEl: `.swiper-button-next-${sliderIdentifier}`,
+      prevEl: `.swiper-button-prev-${sliderIdentifier}`
+    }
+  });
+};
 
+// Get all of the swipers on the page
+const allSliders = document.querySelectorAll(".swiper-mebelerovka");
+
+// Loop over all of the fetched sliders and apply Swiper on each one.
+allSliders.forEach(slider => buildSwiperSlider(slider));
 // var stickyElement = new Sticksy(".js-sticky-widget", { topSpacing: 110 });
 // Подключение анимаций по скроллу
 // import AOS from 'aos';
@@ -16572,12 +16597,22 @@ const radioButtons = document.querySelectorAll('input[type="radio"]');
 function handleRadioButtonChange() {
   const name = this.name;
   const checkboxes = document.querySelectorAll(`input[type="radio"][name="${name}"]`);
-  checkboxes.forEach(checkbox => {
+  checkboxes.forEach((checkbox, index) => {
     if (checkbox.checked) {
-      checkbox.labels[0].classList.remove("inactive-label");
+      if (checkbox.labels[0]) {
+        checkbox.labels[0].classList.remove("inactive-label");
+      }
+      if (checkbox.parentElement.parentElement.classList.contains("form-check-image")) {
+        checkbox.parentElement.parentElement.classList.remove("inactive-label");
+      }
       checkbox.classList.remove("inactive-radio");
     } else {
-      checkbox.labels[0].classList.add("inactive-label");
+      if (checkbox.labels[0]) {
+        checkbox.labels[0].classList.add("inactive-label");
+      }
+      if (checkbox.parentElement.parentElement.classList.contains("form-check-image")) {
+        checkbox.parentElement.parentElement.classList.add("inactive-label");
+      }
       checkbox.classList.add("inactive-radio");
     }
   });
@@ -16594,7 +16629,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const im = new Inputmask("+7 (999) 999-9999");
     im.mask(item);
   });
-  Fancybox.bind('[data-fancybox="gallery"]', {
+  Fancybox.bind("[data-fancybox]", {
     //
   });
   var stickyEl = document.querySelector(".block--sticksyJs");
