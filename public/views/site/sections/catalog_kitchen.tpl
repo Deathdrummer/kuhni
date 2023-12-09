@@ -25,9 +25,9 @@
           {% endfor %}
 
       </div>
-      <div class="row g-0 justify-content-center mt-40 mt-md-120">
+      {# <div class="row g-0 justify-content-center mt-40 mt-md-120">
         <button class="button button--red button--all">Загрузить еще</button>
-      </div>
+      </div> #}
     </div>
   </div>
 </section>
