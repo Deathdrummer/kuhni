@@ -117,7 +117,7 @@ class Categories_model extends MY_Model {
 	 * @return
 	 */
 	public function getCategoriesToNav($current = false) {
-		if (!$result = $this->_getCategoriesTree()) return false;
+		if (!$result = $this->_getCategoriesTree(true)) return false;
 		$result = arrFetchRecursive($result, 'children', function($item, $current) {
 			return [
 				'title'			=> $item['title'],
