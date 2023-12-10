@@ -8,7 +8,7 @@
 						<input type="text" name="name" class="form-control" placeholder="Имя"/>
 					</div>
 					<div class="col-12 col-md-4">
-						<input type="text" name="phone" class="form-control" placeholder="Телефон" rules="phone|empty"/>
+						<input type="tel" name="phone" class="form-control" placeholder="Телефон" rules="phone|empty"/>
 					</div>
 					<div class="col-12 col-md-4">
 						<input type="text" name="email" class="form-control" placeholder="E-mail" rules="email"/>

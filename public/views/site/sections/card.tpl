@@ -107,7 +107,7 @@
 											<input type="text" name="name" class="form-control" placeholder="Имя"/>
 										</div>
 										<div class="mb-20">
-											<input type="text" name="phone" class="form-control phone" placeholder="Телефон" rules="phone|empty"/>
+											<input type="tel" name="phone" class="form-control phone" placeholder="Телефон" rules="phone|empty"/>
 										</div>
 										<div class="row g-0 justify-content-center mb-20 mb-md-15">
 											<button class="button button--black" callbackform="orderCalcForm">Отправить</button>

@@ -23,7 +23,7 @@
 								{% endif %}
 								{% if item.btn_cat==1 %}
 									<div class="col-6 gy-2 gy-lg-3 d-none d-md-flex col-btn-pc">
-										<a href="{{base_url('/kitchen')}}" class="button">{{text_btn}}</a>
+										<a href="{{cat[0].href}}" class="button">{{text_btn}}</a>
 									</div>
 								{% endif %}
 							{% endfor %}

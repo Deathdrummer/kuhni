@@ -31,7 +31,7 @@
 							<input type="text" name="name" class="form-control" placeholder="ФИО"/>
 						</div>
 						<div class="col-12 mb-15">
-							<input type="text" name="phone" class="form-control" placeholder="Телефон" rules="phone|empty"/>
+							<input type="tel" name="phone" class="form-control" placeholder="Телефон" rules="phone|empty"/>
 						</div>
 						{% if email_boolean.email_true==1 %}
 							<div class="col-12 mb-15">
