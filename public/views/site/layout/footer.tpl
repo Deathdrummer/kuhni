@@ -29,7 +29,7 @@
             </nav>
           </div>
           <div class="menu-block__item">
-           <div class="menu-block__title">Покупателю</div>
+           <div class="menu-block__title">Меню</div>
             <nav class="nav">
               <ul>
               {% for item in navigation.pages %}
