@@ -41,12 +41,12 @@
                                     {% if index_parent == index_children %}
                                       {% if item_children %}
                                        <div class="link-komplect mt-22 mt-md-40">
-                                          <div  data-fancybox="gallery-{{index_children}}-pc" data-src="{{base_url('public/filemanager/'~item_children[0].image_pc)}}" class="d-none d-md-block">
+                                          <a href="#gallery-{{index_children}}-pc-1" rel="nofollow" class="d-none d-md-block">
                                               Посмотреть комплектацию
-                                          </div>
-                                          <div data-fancybox="gallery-{{index_children}}-mobile" data-src="{{base_url('public/filemanager/'~item_children[0].image_mobile)}}" class="d-block d-md-none">
+                                          </a>
+                                          <a href="#gallery-{{index_children}}-mobile-1" rel="nofollow" class="d-block d-md-none">
                                               Посмотреть комплектацию
-                                          </div>
+                                          </a>
                                         </div>
                                       {% endif %}
                                     {% endif %}

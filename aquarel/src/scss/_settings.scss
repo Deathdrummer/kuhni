@@ -341,10 +341,14 @@ p:not(:last-child) {
     margin: 0;
     padding: 0;
   }
+
   a {
     font-weight: 600;
     color: var(--color-light-white);
     line-height: 1.4;
+    &.active {
+      font-weight: 400;
+    }
   }
 
   a:hover {

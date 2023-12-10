@@ -23,13 +23,13 @@
 					<div class="nav__sub-menu position-absolute pt-50">
 						<ul class="matte">
 							{% for item in navigation.categories %}
-									<li><a href="{{item.href}}">{{item.title}}</a></li>
+									<li><a {% if item.active %}class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
 							{% endfor %}
 						</ul>
 			  	</div>
 				</li>
 				{% for item in navigation.pages %}
-  					<li><a href="{{item.href}}">{{item.title}}</a></li>
+  					<li><a {% if item.active %}class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
       	{% endfor %}
 		  </ul>
 		</nav>
