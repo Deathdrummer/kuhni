@@ -19,7 +19,7 @@
 		<nav class="nav nav__header d-none d-xl-block">
 		  <ul>
 				<li class="nav__menu-item">
-					<div class="nav__title-link">Каталог</div>
+					<div class="nav__title-link{{navigation.categories|hasinarr('active', 1) is not same as(false) ? ' active' : '' }}">Каталог</div>
 					<div class="nav__sub-menu position-absolute pt-50">
 						<ul class="matte">
 							{% for item in navigation.categories %}

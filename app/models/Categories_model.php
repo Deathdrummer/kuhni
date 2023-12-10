@@ -118,6 +118,7 @@ class Categories_model extends MY_Model {
 	 */
 	public function getCategoriesToNav($current = false) {
 		if (!$result = $this->_getCategoriesTree(true)) return false;
+		
 		$result = arrFetchRecursive($result, 'children', function($item, $current) {
 			return [
 				'title'			=> $item['title'],
@@ -157,8 +158,10 @@ class Categories_model extends MY_Model {
 	 */
 	private function _getCategories($parentId = 0, $nav = false) {
 		if ($nav) {
+			$this->db->group_start();
 			$this->db->where('navigation', 1);
 			$this->db->or_where('parent_id !=', 0);
+			$this->db->group_end();
 		}
 		$this->db->order_by('sort', 'ASC');
 		$this->db->where('parent_id', $parentId);
