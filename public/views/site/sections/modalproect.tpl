@@ -6,15 +6,15 @@
 				<div class="col-12 bcg--white-v1 order-0 p-20 d-none d-md-block text-center modal-title-custom">Заказать проект</div>
 				<div class="col-12 col-messages bcg--white-v1 col-md-auto order-2 order-md-1">
 					<div class="col-12 col-message d-flex flex-column align-items-center gap-10 gap-md-25">
-						<div class="col-message__title">Написать в Whatsapp</div>
+						<div class="col-message__title">Написать в Telegram</div>
 						<div class="col-message__icon">
-							<a href="{{soc[2].link}}" class="sosial-link">
-								<img class="icon-sosial ic-{{soc[2].title}}" src="{{base_url('public/filemanager/'~soc[2].icon)}}" loading="lazy" alt="{{soc[2].title}}"/>
+							<a href="{{soc[1].link}}" class="sosial-link">
+								<img class="icon-sosial ic-{{soc[1].title}}" src="{{base_url('public/filemanager/'~soc[1].icon)}}" loading="lazy" alt="{{soc[1].title}}"/>
 							</a>
 						</div>
 					</div>
 					<div class="col-12 col-message d-flex flex-column align-items-center gap-10 gap-md-25">
-						<div class="col-message__title">Написать в Telegram</div>
+						<div class="col-message__title">Написать в Whatsapp</div>
 						<div class="col-message__icon">
 							<a href="{{soc[2].link}}" class="sosial-link">
 								<img class="icon-sosial ic-{{soc[2].title}}" src="{{base_url('public/filemanager/'~soc[2].icon)}}" loading="lazy" alt="{{soc[2].title}}"/>
