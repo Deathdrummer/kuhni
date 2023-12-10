@@ -23,13 +23,13 @@
 					<div class="nav__sub-menu position-absolute pt-50">
 						<ul class="matte">
 							{% for item in navigation.categories %}
-									<li><a {% if item.active %}class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
+									<li><a{% if item.active %} class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
 							{% endfor %}
 						</ul>
 			  	</div>
 				</li>
 				{% for item in navigation.pages %}
-  					<li><a {% if item.active %}class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
+  					<li><a{% if item.active %} class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
       	{% endfor %}
 		  </ul>
 		</nav>
@@ -48,17 +48,17 @@
 		  <ul>
 				<li class="pc-none"><a href="/">Главная</a></li>
 				<li class="nav__menu-item">
-					<div class="nav__title-link">Каталог</div>
+					<div class="nav__title-link{{navigation.categories|hasinarr('active', 1) is not same as(false) ? ' active' : '' }}">Каталог</div>
 					<div class="nav__sub-menu">
 					<ul>
 						{% for item in navigation.categories %}
-								<li><a href="{{item.href}}">{{item.title}}</a></li>
+								<li><a{% if item.active %} class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
 						{% endfor %}
 					</ul>
 					</div>
 				</li>
 				{% for item in navigation.pages %}
-						<li><a href="{{item.href}}">{{item.title}}</a></li>
+						<li><a{% if item.active %} class="active"{% endif %} href="{{item.href}}">{{item.title}}</a></li>
 				{% endfor %}
 		  </ul>
 		</nav>
