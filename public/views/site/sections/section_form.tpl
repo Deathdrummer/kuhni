@@ -39,7 +39,7 @@
               {% endif %}
               {% if message_boolean.message_true==1 %}
                 <div class="col-12 mb-10">
-                  <textarea class="form-control" name="message" placeholder="Ваши пожелания" rows="5"></textarea>
+                  <textarea class="form-control" name="greeting" placeholder="Ваши пожелания" rows="5"></textarea>
                 </div>
              {% endif %}
              {% if file_boolean.file_true==1 %}
@@ -57,7 +57,7 @@
                   <label class="form-check-label text-white-custom" for="gridCheck1"> Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности </label>
                 </div>
               </div>
-            <button type="submit" class="button button--white" callbackform="questionsForm">{{btn_text}}</button>
+            <button type="submit" class="button button--white" callbackform="{{callbackform}}">{{btn_text}}</button>
           </form>
         </div>
       </div>
