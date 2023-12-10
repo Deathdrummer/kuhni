@@ -1135,6 +1135,14 @@ jQuery(document).ready(function ($) {
     price = $.number(price, 2, '.', ' ');
     $('[name="price"]').val(`от ${price} ₽. метр погонный`);
   });
+  
+  
+  $('body').on('change', '[type="file"]', function(e) {
+    if ($(e.target).closest('label').hasAttr('fileploaded') == false) {
+      $(e.target).closest('label').text('Файл загружен!');
+      $(e.target).closest('label').setAttrib('fileploaded');
+    }
+  });
 
   $('[callbackform]').on(tapEvent, function () {
     const form = $(this).closest('form'),
@@ -1181,7 +1189,8 @@ jQuery(document).ready(function ($) {
         //callbackWin.wait(false);
       },
     });
-
+    
+    
     $(close).one(tapEvent, () => {
       clearTimeout(autoCloseTOut);
       setTimeout(() => {

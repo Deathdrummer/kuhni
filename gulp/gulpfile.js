@@ -1,6 +1,6 @@
-const domain = 'kuhni', // прописать домен
+const domain = 'kuhni.loc', // прописать домен
   prodDir = '../../production/', // директория для продакшн версии
-  repoDir = '../repository/', // директория репозитория
+  repoDir = '../../repository/', // директория репозитория
   { src, dest, parallel, series, watch } = require('gulp'),
   browserSync = require('browser-sync').create(),
   order = require('gulp-order'),
