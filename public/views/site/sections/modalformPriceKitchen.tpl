@@ -12,20 +12,23 @@
 							<div class="col-12">
 								<div class="col-title-form">Выберите конфигурацию:</div>
 							</div>
-							<div class="row g-10 col-12 mt-15">
-								{% for index, item in list_form_konf_kitchen %}
-									<div class="col-6">
-										<label class="form-check-image p-8 pt-2" for="img{{index}}">
-											<div class="konf-photo">
-												<img src="{{base_url('public/filemanager/__mini__/'~item.img)}}" loading="lazy" alt=""/>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="configuration" value="{{item.text}}" id="img{{index}}"/>
-												<div class="form-check-label text-white-custom">{{item.text}}</div>
-											</div>
-										</label>
-									</div>
-								{% endfor %}
+							<div class="col-12 mt-15">
+								<div class="row g-10 ">
+									{% for index, item in list_form_konf_kitchen %}
+										<div class="col-6">
+											<label class="form-check-image p-8 pt-2" for="img{{index}}">
+												<div class="konf-photo">
+													<img src="{{base_url('public/filemanager/__mini__/'~item.img)}}" loading="lazy" alt=""/>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="configuration" value="{{item.text}}" id="img{{index}}"/>
+													<div class="form-check-label text-white-custom">{{item.text}}</div>
+												</div>
+											</label>
+										</div>
+									{% endfor %}
+								</div>
+
 							</div>
 						</div>
 						<div class="row g-0 mb-30">

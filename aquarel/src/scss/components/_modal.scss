@@ -313,6 +313,14 @@
       );
     }
   }
+  .itc-select {
+    @include resp(
+      width,
+      (
+        sm-down: 136px,
+      )
+    );
+  }
 }
 .zayavka-modal {
   textarea.form-control {
@@ -337,6 +345,13 @@
     }
     .itc-select__toggle {
       border: 1px solid rgba(38, 38, 38, 0.5);
+
+      @include resp(
+        padding,
+        (
+          lg-down: 15px 10px,
+        )
+      );
     }
     .row-pom .form-check {
       gap: 5px;
@@ -392,9 +407,7 @@
         );
       }
       .form-check-input {
-        margin-left: 0px;
-        top: -5px;
-
+        margin: 0px;
         @include resp(
           width,
           (

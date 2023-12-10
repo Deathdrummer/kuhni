@@ -180,13 +180,7 @@
             xxl-down: 5px,
           )
         );
-
-        @include resp(
-          height,
-          (
-            xxl-down: auto,
-          )
-        );
+        height: auto;
       }
       &:hover .nav__title-link {
         color: var(--color-red) !important;
@@ -322,7 +316,6 @@
       transform: translateY(20%);
       transition: all 0.2s ease-in-out;
     }
-   
   }
   &__sub-menu {
     ul > li {
