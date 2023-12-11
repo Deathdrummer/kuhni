@@ -26,3 +26,17 @@ span.error {
 
 .nav__sub-menu li:not(:first-child) {
   padding-top: 8px; }
+
+.catalog-card .photo img {
+  -webkit-transition: -webkit-filter 0.16s;
+  transition: -webkit-filter 0.16s;
+  transition: filter 0.16s;
+  transition: filter 0.16s, -webkit-filter 0.16s; }
+
+.catalog-card:hover .photo img {
+  -webkit-filter: brightness(1.05) !important;
+          filter: brightness(1.05) !important;
+  -webkit-transition: -webkit-filter 0.16s;
+  transition: -webkit-filter 0.16s;
+  transition: filter 0.16s;
+  transition: filter 0.16s, -webkit-filter 0.16s; }

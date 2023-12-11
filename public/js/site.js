@@ -1150,6 +1150,12 @@ jQuery(document).ready(function ($) {
       popper = $(this).closest('.modal').find('#callbackFormPopper'),
       close = $(this).closest('.modal').find('[callbackformclose]'),
       success = $(this).closest('.modal').find('[success]');
+    
+    if (!formType) {
+      console.error('callbackform ошибка! Не указан иднтификатор формы!');
+      $.notify('Ошибка отправки данных!', 'error');
+      return;
+    }
 
     let autoCloseTOut;
 
