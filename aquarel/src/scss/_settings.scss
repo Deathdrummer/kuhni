@@ -361,7 +361,7 @@ p:not(:last-child) {
   border: 1px solid #f6f6f650;
 
   background: rgba(246, 246, 246, 0.15);
-  font-weight: 300;
+  font-weight: 500;
   backdrop-filter: blur(10px);
   color: #fff;
 
@@ -383,13 +383,30 @@ p:not(:last-child) {
 .form-control::placeholder {
   color: #fff;
   opacity: 1;
+  font-weight: 300;
+  @include resp(
+    font-size,
+    (
+      sm-down: 14px,
+      md: 18px,
+    )
+  );
 }
 .form-control::-webkit-input-placeholder {
   color: #fff;
   opacity: 1;
+  font-weight: 300;
+  @include resp(
+    font-size,
+    (
+      sm-down: 14px,
+      md: 18px,
+    )
+  );
 }
 .form-control:focus {
   color: #fff;
+  font-weight: 300;
   background-color: transparent;
   border-color: #f6f6f650;
   outline: 0;

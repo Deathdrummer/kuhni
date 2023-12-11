@@ -72,6 +72,7 @@
     }
     .swiper-card-thumbs {
       .swiper-slide {
+        border: 1px solid transparent;
         @include resp(
           padding-bottom,
           (
@@ -94,6 +95,12 @@
           opacity: 50%;
         }
         &:hover {
+          &:before {
+            background-color: transparent;
+          }
+        }
+        &.swiper-slide-thumb-active {
+          border-color: #000000;
           &:before {
             background-color: transparent;
           }
