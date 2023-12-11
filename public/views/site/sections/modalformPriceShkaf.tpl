@@ -130,45 +130,51 @@
 						</div>
 						<div class="row g-0 gx-1 mb-50">
 							<div class="col">
-								<div class="col mb-24">
-									<div class="col-title-form">Система открывания:</div>
-								</div>
-								<div class="col">
-									{% for index, item in list_form_sistem_otkryvaem %}
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" name="open_system[{{item.variant}}]" id="d{{index}}"/>
-											<label class="form-check-label text-white-custom" for="d{{index}}">{{item.variant}}
-											</label>
-										</div>
-									{% endfor %}
-								</div>
-							</div>
-							<div class="col">
-								<div class="col mb-24">
-									<div class="col-title-form">Фурнитура:</div>
-								</div>
-								<div class="col">
-									{% for index, item in list_form_sistem_furniture %}
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" name="furniture[{{item.variant}}]" id="pom-furn{{index}}"/>
-											<label class="form-check-label text-white-custom" for="pom-furn{{index}}">{{item.variant}}
-											</label>
-										</div>
-									{% endfor %}
+								<div class="row">
+									<div class="col-12 mb-24">
+										<div class="col-title-form">Система открывания:</div>
+									</div>
+									<div class="col-12">
+										{% for index, item in list_form_sistem_otkryvaem %}
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" name="open_system[{{item.variant}}]" id="d{{index}}"/>
+												<label class="form-check-label text-white-custom" for="d{{index}}">{{item.variant}}
+												</label>
+											</div>
+										{% endfor %}
+									</div>
 								</div>
 							</div>
 							<div class="col">
-								<div class="col mb-24">
-									<div class="col-title-form">Фасады:</div>
+								<div class="row">
+									<div class="col-12 mb-24">
+										<div class="col-title-form">Фурнитура:</div>
+									</div>
+									<div class="col-12">
+										{% for index, item in list_form_sistem_furniture %}
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" name="furniture[{{item.variant}}]" id="pom-furn{{index}}"/>
+												<label class="form-check-label text-white-custom" for="pom-furn{{index}}">{{item.variant}}
+												</label>
+											</div>
+										{% endfor %}
+									</div>
 								</div>
-								<div class="col">
-									{% for index, item in list_form_sistem_fasady %}
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" name="facades[{{item.variant}}]" id="tp{{index}}"/>
-											<label class="form-check-label text-white-custom" for="tp{{index}}">{{item.variant}}
-											</label>
-										</div>
-									{% endfor %}
+							</div>
+							<div class="col">
+								<div class="row">
+									<div class="col-12 mb-24">
+										<div class="col-title-form">Фасады:</div>
+									</div>
+									<div class="col-12">
+										{% for index, item in list_form_sistem_fasady %}
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" name="facades[{{item.variant}}]" id="tp{{index}}"/>
+												<label class="form-check-label text-white-custom" for="tp{{index}}">{{item.variant}}
+												</label>
+											</div>
+										{% endfor %}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -203,15 +209,15 @@
 									<input type="file" name="attach" class="d-none">
 								</label>
 								{# <label class="form-label" for="formFileMultiple">
-																                  <button class="button button--black button--small">Загрузить</button>
-																                  <p>dfsdfsdf</p>
-																                  <input class="d-none" type="file" id="formFileMultiple">
-																                </label> #}
+																																																																                  <button class="button button--black button--small">Загрузить</button>
+																																																																                  <p>dfsdfsdf</p>
+																																																																                  <input class="d-none" type="file" id="formFileMultiple">
+																																																																                </label> #}
 							{# <div class="mb-8 text-files">Прикрепить файл <span>(если есть)</span></div>
-														                <input type="file" class="button button--black button--small" name="file" id="calcPriceClosetFile"> #}
+																																																								                <input type="file" class="button button--black button--small" name="file" id="calcPriceClosetFile"> #}
 								{# <label for="calcPriceClosetFile">
-																                  <button>Загрузить</button>
-																                </label> #}
+																																																																                  <button>Загрузить</button>
+																																																																                </label> #}
 							</div>
 						</div>
 						<div class="row g-0 justify-content-center mb-20 mb-md-15">

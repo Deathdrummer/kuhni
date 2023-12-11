@@ -48,7 +48,7 @@
   left: 0;
   z-index: 2;
   display: none;
-  max-height: 10rem;
+  max-height: 22rem;
   overflow-y: auto;
   background: #262626;
   border-radius: 3px;
@@ -99,7 +99,7 @@
 }
 
 .itc-select__option_selected,
-.itc-select__option_selected:hover {
+.itc-select__option:hover {
   background: #eaeaea;
   color: #262626;
 }

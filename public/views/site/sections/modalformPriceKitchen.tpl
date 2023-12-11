@@ -98,20 +98,22 @@
 							<div class="col-12 mb-24">
 								<div class="col-title-form">Выберите конфигурацию:</div>
 							</div>
-							<div class="col-12 row gx-24 row-cols-4 g-0">
-								{% for index, item in list_form_konf_kitchen %}
-									<div class="col">
-										<label class="form-check-image p-8" for="img{{index}}">
-											<div class="konf-photo">
-												<img src="{{base_url('public/filemanager/__mini__/'~item.img)}}" loading="lazy" alt=""/>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="radio" name="configuration" value="{{item.text}}" id="img{{index}}"/>
-												<div class="form-check-label text-white-custom">{{item.text}}</div>
-											</div>
-										</label>
-									</div>
-								{% endfor %}
+							<div class="col-12  ">
+								<div class="row gx-24 row-cols-4  g-0">
+									{% for index, item in list_form_konf_kitchen %}
+										<div class="col">
+											<label class="form-check-image p-8" for="pcimg{{index}}">
+												<div class="konf-photo">
+													<img src="{{base_url('public/filemanager/__mini__/'~item.img)}}" loading="lazy" alt=""/>
+												</div>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="configuration" value="{{item.text}}" id="pcimg{{index}}"/>
+													<div class="form-check-label text-white-custom">{{item.text}}</div>
+												</div>
+											</label>
+										</div>
+									{% endfor %}
+								</div>
 							</div>
 						</div>
 						<div class="row g-0 mb-50">
@@ -129,7 +131,7 @@
 								</div>
 								<div class="col d-flex flex-row align-items-center">
 									<label class="me-20 text-nowrap" for="">Сторона
-										<span class="fw-bold">B</span>
+										<span class="fw-bold">Б</span>
 									</label>
 									<input type="text" placeholder="" name="side_b" class="form-control h-40"/>
 								</div>
