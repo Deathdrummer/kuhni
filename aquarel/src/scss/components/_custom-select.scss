@@ -98,8 +98,12 @@
   color: #c2c2c2;
 }
 
-.itc-select__option_selected,
-.itc-select__option:hover {
+.itc-select__option:not(.itc-select__option_selected):hover {
+  background: #eaeaea40;
+  color: #c2c2c2;
+}
+.itc-select__option_selected {
   background: #eaeaea;
   color: #262626;
+  font-weight: 500;
 }
