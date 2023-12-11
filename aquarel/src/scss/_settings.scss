@@ -383,7 +383,6 @@ p:not(:last-child) {
 .form-control::placeholder {
   color: #fff;
   opacity: 1;
-  font-weight: 300;
   @include resp(
     font-size,
     (
@@ -395,7 +394,6 @@ p:not(:last-child) {
 .form-control::-webkit-input-placeholder {
   color: #fff;
   opacity: 1;
-  font-weight: 300;
   @include resp(
     font-size,
     (
@@ -406,7 +404,6 @@ p:not(:last-child) {
 }
 .form-control:focus {
   color: #fff;
-  font-weight: 300;
   background-color: transparent;
   border-color: #f6f6f650;
   outline: 0;
