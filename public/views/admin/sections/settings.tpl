@@ -24,7 +24,8 @@
 				{% include form~'file.tpl' with {'label': 'Изображения и иконки', 'data': [
 					{'name': 'setting_logo', 'label': 'Логотип', 'ext': 'images|svg', 'alt': 1},
 					{'name': 'setting_logo_footer', 'label': 'Логотип в футере', 'ext': 'images|svg', 'alt': 1},
-					{'name': 'setting_favicon', 'label': 'Фавикон', 'ext': 'images'}
+					{'name': 'setting_favicon', 'label': 'Фавикон', 'ext': 'images'},
+					{'name': 'setting_watermark', 'label': 'Водяной знак', 'ext': 'images'},
 				]} %}
 				
 				

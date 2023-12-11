@@ -270,6 +270,20 @@ class Filemanager extends MY_Controller {
 	
 	
 	
+	/**
+	 * Настройки водяного знака
+	 * @param 
+	 * @return 
+	 */
+	public function set_wm() {
+		$pData = $this->input->post();
+		echo $this->twig->render('views/admin/render/filemanager/set_wm.tpl', $pData);
+	}
+	
+	
+	
+	
+	
 	
 	/**
 	 * Загрузить файл(ы)
@@ -280,6 +294,7 @@ class Filemanager extends MY_Controller {
 		$path = $this->input->post('filemanager_path');
 		$reSize = $this->input->post('size') ?: false;
 		$reSizeVariant = $this->input->post('size_variant') ?: 'hard';
+		$wmSettings = $this->input->post('wm') ?: null;
 		$files = $this->input->files('filemanager_files');
 		if (!$files) exit('2');
 		$files = $this->_reArrayFiles($files);
@@ -336,13 +351,14 @@ class Filemanager extends MY_Controller {
         		
         		if ($uploadData['is_image'] == 1) { // если загруженный файл - изображение
 	        		$cfg['image_library'] = 'gd2';
+					$cfg['source_image'] = $uploadData['full_path'];
 		        	$cfg['maintain_ratio'] = true;
 		        	$cfg['master_dim'] = 'auto'; //auto, width, height
-					$cfg['source_image'] = $uploadData['full_path'];
 					$cfg['new_image'] = 'public/filemanager/'.$this->thumbsDir.'/'.$path.'/'.$uploadData['file_name'];
 					if (!is_dir('public/filemanager/'.$this->thumbsDir.'/'.$path.'/')) mkdir('public/filemanager/'.$this->thumbsDir.'/'.$path.'/', 0777, true);
 					$cfg['width'] = $this->thumbsWidth;
 					$cfg['height'] = $this->thumbsHeight;
+					
 					
 					$this->image_lib->initialize($cfg);
 					if (!$this->image_lib->resize()) toLog($this->image_lib->display_errors());
@@ -372,7 +388,36 @@ class Filemanager extends MY_Controller {
 						$this->image_lib->initialize($cfgr);
 						if (!$this->image_lib->resize()) toLog($this->image_lib->display_errors());
 					}
-
+					
+					
+					
+					// Watermark
+					if ($wmSettings['enable']) {
+						$wmFilePath = $this->settings->getSettings('watermark');
+						if (is_file('public/filemanager/'.$wmFilePath)) {
+							foreach (['', $this->miniDir.'/'] as $dir) {
+								$wmCfg = [];
+								$this->image_lib->clear();
+								# $wmSettings массив настроек для водяного знака
+								$wmCfg['source_image'] = 'public/filemanager/'.$dir.$path.'/'.$uploadData['file_name'];
+								$wmCfg['wm_type'] = 'overlay';
+								$wmCfg['wm_overlay_path'] = 'public/filemanager/'.$wmFilePath;
+								$wmCfg['wm_opacity'] = $wmSettings['opacity'] ?: 50; # Прозрачность (кроме PNG и GIF)
+								$wmCfg['quality'] = '90%';
+								$wmCfg['wm_padding'] = 0;
+								$wmCfg['wm_vrt_alignment'] = $wmSettings['position_y'] ?: 'bottom'; # положение по вертикали
+								$wmCfg['wm_hor_alignment'] = $wmSettings['position_x'] ?: 'right'; # положение по оризонтали
+								$wmCfg['wm_hor_offset'] = $wmSettings['offset_x'] ?: 0; # смещение по горизонтали
+								$wmCfg['wm_vrt_offset'] = $wmSettings['offset_y'] ?: 0; # смещение по вертикали
+								//$wmCfg['wm_x_transp'] = 100; # смещение по вертикали
+								//$wmCfg['wm_y_transp'] = 100; # смещение по вертикали
+								
+								$this->image_lib->initialize($wmCfg);
+								$this->image_lib->watermark();
+							}
+						}
+						
+					}
         		}
         		
         	} else {

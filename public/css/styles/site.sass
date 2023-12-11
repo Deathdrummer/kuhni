@@ -1,3 +1,5 @@
+@import "../../../repository/css/assets/mixins"
+
 header
 	width: 100vw
 
@@ -34,3 +36,6 @@ span.error
 		filter: brightness(1.05) !important
 		transition: filter 0.16s
 	
+	
+.nav__sub-menu
+	+resp(padding-left, (xs: 5px, 1250px: 0))

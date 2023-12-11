@@ -27,10 +27,18 @@
 						<input type="hidden" id="sizeSmallWidth" name="size[small][width]" value="">
 						<input type="hidden" id="sizeSmallHeight" name="size[small][height]" value="">
 						<input type="hidden" id="resizeVariant" name="size_variant" value="">
+						<input type="hidden" id="wmEnable" name="wm[enable]" value="">
+						<input type="hidden" id="wmOpacity" name="wm[opacity]" value="">
+						<input type="hidden" id="wmOffsetY" name="wm[offset_y]" value="">
+						<input type="hidden" id="wmOffsetX" name="wm[offset_x]" value="">
+						<input type="hidden" id="wmPositionY" name="wm[position_y]" value="">
+						<input type="hidden" id="wmPositionX" name="wm[position_x]" value="">
+						
 						<input type="file" name="filemanager_files[]" multiple>
 					</form>
 					<button id="fileUploadFormButton" disabled title=""><i class="fa fa-plus"></i></button>
 					<button id="setWidthHeight" disabled title=""><i class="fa fa-crop"></i></button>
+					<button id="setWoterMark" disabled title=""><i class="fa fa-picture-o"></i></button>
 					<button id="replaceFiles" disabled title=""><i class="fa fa-retweet"></i></button>
 					<button id="removeFiles" disabled title=""><i class="fa fa-trash"></i></button>
 					<p style="font-size: 14px; margin-left: 10px; display: inline-block;" id="setWidthHeightInfo"></p>
@@ -63,15 +71,27 @@ $(document).ready(function() {
 	let cacheBigWidth = lscache.get('bigWidth'),
 		cacheBigHeight = lscache.get('bigHeight'),
 		cacheSmallWidth = lscache.get('smallWidth'),
-		cacheSmallHeight = lscache.get('smallHeight');
-		cacheResizeVariant = lscache.get('resizeVariant');
+		cacheSmallHeight = lscache.get('smallHeight'),
+		cacheResizeVariant = lscache.get('resizeVariant'),
+		cacheWmEnable = lscache.get('wmEnable'),
+		cacheWmOpacity = lscache.get('wmOpacity'),
+		cacheWmOffsetY = lscache.get('wmOffsetY'),
+		cacheWmOffsetX = lscache.get('wmOffsetX'),
+		cacheWmPositionY = lscache.get('wmPositionY'),
+		cacheWmPositionX = lscache.get('wmPositionX');
 	
 	
-	if (cacheBigWidth) $('#sizeBigWidth').val(cacheBigWidth);
-	if (cacheBigHeight) $('#sizeBigHeight').val(cacheBigHeight);
-	if (cacheSmallWidth) $('#sizeSmallWidth').val(cacheSmallWidth);
-	if (cacheSmallHeight) $('#sizeSmallHeight').val(cacheSmallHeight);
-	if (cacheResizeVariant) $('#resizeVariant').val(cacheResizeVariant);
+	if (cacheBigWidth != undefined) $('#sizeBigWidth').val(cacheBigWidth);
+	if (cacheBigHeight != undefined) $('#sizeBigHeight').val(cacheBigHeight);
+	if (cacheSmallWidth != undefined) $('#sizeSmallWidth').val(cacheSmallWidth);
+	if (cacheSmallHeight != undefined) $('#sizeSmallHeight').val(cacheSmallHeight);
+	if (cacheResizeVariant != undefined) $('#resizeVariant').val(cacheResizeVariant);
+	if (cacheWmEnable != undefined) $('#wmEnable').val(cacheWmEnable);
+	if (cacheWmOpacity != undefined) $('#wmOpacity').val(cacheWmOpacity);
+	if (cacheWmOffsetY != undefined) $('#wmOffsetY').val(cacheWmOffsetY);
+	if (cacheWmOffsetX != undefined) $('#wmOffsetX').val(cacheWmOffsetX);
+	if (cacheWmPositionY != undefined) $('#wmPositionY').val(cacheWmPositionY);
+	if (cacheWmPositionX != undefined) $('#wmPositionX').val(cacheWmPositionX);
 	
 	$('#setWidthHeightInfo').html('Большие: '+(cacheBigWidth ? cacheBigWidth+'px' : 'авто')+'/'+(cacheBigHeight ? cacheBigHeight+'px' : 'авто')+' | Маленькие: '+(cacheSmallWidth ? cacheSmallWidth+'px' : 'авто')+'/'+(cacheSmallHeight ? cacheSmallHeight+'px' : 'авто')+' | Уменьшение: '+((!cacheResizeVariant || cacheResizeVariant == 'hard') ? 'Жестко' : '<span style="word-spacing:normal;">Если больше размер</span>'));
 	
@@ -89,7 +109,7 @@ $(document).ready(function() {
 		$('#filemanagerFormPath').val(thisDirectory);
 		getAjaxHtml('filemanager/files_get', {directory: thisDirectory}, function(html) {
 			$('#filemanagerContentFiles').html(html);
-			$('#fileUploadFormButton, #setWidthHeight').prop('disabled', false);
+			$('#fileUploadFormButton, #setWidthHeight, #setWoterMark').prop('disabled', false);
 		});
 	});
 	
@@ -233,7 +253,7 @@ $(document).ready(function() {
 						renderDirs(function() {
 							$('#editFolder, #removeFolder, #replaceFiles, #removeFiles').prop('disabled', true);
 							removeDirWin.close();
-							$('#fileUploadFormButton, #setWidthHeight').prop('disabled', true);
+							$('#fileUploadFormButton, #setWidthHeight, #setWoterMark').prop('disabled', true);
 							$('#filemanagerContentFiles').html('<p class="empty center">Выберите раздел</p>');
 						});
 					} else {
@@ -360,7 +380,7 @@ $(document).ready(function() {
 			$('#getReplaceFiles').on(tapEvent, function() {
 				replaceFilesWin.wait();
 				$('#filemanagerDirs').find('span').addClass('disabled');
-				$('#removeFiles, #replaceFiles, #newFolder, #editFolder, #removeFolder, #fileUploadFormButton, #setWidthHeight').prop('disabled', true);
+				$('#removeFiles, #replaceFiles, #newFolder, #editFolder, #removeFolder, #fileUploadFormButton, #setWidthHeight, #setWoterMark').prop('disabled', true);
 				$('#replaceFilesForm').formSubmit({
 					url: 'filemanager/files_replace',
 					fields: {
@@ -372,7 +392,7 @@ $(document).ready(function() {
 							var activeDirectory = $('#filemanagerDirs').find('[directory].active').attr('directory');
 							getAjaxHtml('filemanager/files_get', {directory: activeDirectory}, function(html) {
 								$('#filemanagerContentFiles').html(html);
-								$('#newFolder, #editFolder, #removeFolder, #fileUploadFormButton, #setWidthHeight').prop('disabled', false);
+								$('#newFolder, #editFolder, #removeFolder, #fileUploadFormButton, #setWidthHeight, #setWoterMark').prop('disabled', false);
 								$('#filemanagerDirs').find('span').removeClass('disabled');
 								replaceFilesWin.close();
 							});
@@ -468,6 +488,116 @@ $(document).ready(function() {
 			});
 		});	
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// Задать водяной знак
+	$('#setWoterMark').on(tapEvent, function() {
+		let wmEnable = $('#wmEnable').val() || false,
+			wmOpacity = $('#wmOpacity').val() || 0,
+			wmOffsetY = $('#wmOffsetY').val() || 0,
+			wmOffsetX = $('#wmOffsetX').val() || 0,
+			wmPositionY = $('#wmPositionY').val() || 'middle',
+			wmPositionX = $('#wmPositionX').val() || 'center';
+		
+		ddrPopUp({
+			title: 'Настройки водяного знака|5',
+			width: 600,
+			buttons: [{id: 'setWMButton', title: 'Задать'}/*, {id: 'unsetWMButton', title: 'Сбросить'}*/],
+			closeByButton: false, // Закрывать окно только по кнопкам [ddrpopupclose]
+			close: 'Отмена',
+		}, function(setWidthHeightWin) {
+			
+			setWidthHeightWin.setData('filemanager/set_wm',
+				{
+					enable: wmEnable,
+					opacity: wmOpacity,
+					offset_x: wmOffsetX,
+					offset_y: wmOffsetY,
+					position_x: wmPositionX,
+					position_y: wmPositionY,
+				}, function() {
+				$('#setWMButton').on(tapEvent, function() {
+					$('#sectionWait').addClass('visible filemanager');
+					
+					let isEnabled = $('#wmEnableCheckbox').is(':checked') ? 1 : 0,
+						opacity = $('#wmOpacityInput').val(),
+						offset_y = $('#wmOffsetYInput').val(),
+						offset_x = $('#wmOffsetXInput').val(),
+						position_y = $('#wmPositionYInput').val(),
+						position_x = $('#wmPositionXInput').val();
+					
+					
+					/*<input type="hidden" id="wmEnable" name="wm[enable]" value="">
+					<input type="hidden" id="wmOpacity" name="wm[opacity]" value="">*/
+					
+					
+					
+					
+					
+					$('#wmEnable').val(isEnabled);
+					$('#wmOpacity').val(opacity);
+					$('#wmOffsetY').val(offset_y);
+					$('#wmOffsetX').val(offset_x);
+					$('#wmPositionY').val(position_y);
+					$('#wmPositionX').val(position_x);
+					//$('#sizeBigHeight').val($('#bigHeight').val());
+					//$('#sizeSmallWidth').val($('#smallWidth').val());
+					//$('#sizeSmallHeight').val($('#smallHeight').val());
+					//$('#resizeVariant').val($('[name="resize_variant"]:checked').val());
+					
+					
+					notify('Размеры для изображений заданы!');
+					
+					
+					lscache.set('wmEnable', isEnabled);
+					lscache.set('wmOpacity', opacity);
+					lscache.set('wmOffsetY', offset_y);
+					lscache.set('wmOffsetX', offset_x);
+					lscache.set('wmPositionY', position_y);
+					lscache.set('wmPositionX', position_x);
+					//lscache.set('bigHeight', $('#bigHeight').val());
+					//lscache.set('smallWidth', $('#smallWidth').val());
+					//lscache.set('smallHeight', $('#smallHeight').val());
+					//lscache.set('resizeVariant', $('[name="resize_variant"]:checked').val());
+					
+					setWidthHeightWin.close();
+					
+					//$('#fileUploadFormButton').trigger(tapEvent);
+					//setTimeout(function() {});
+					$('#sectionWait').removeClass('visible filemanager');
+				});
+				
+				/*$('#unsetWidthHeightButton').on(tapEvent, function() {
+					$('#sizeBigWidth').val('');
+					$('#sizeBigHeight').val('');
+					$('#sizeSmallWidth').val('');
+					$('#sizeSmallHeight').val('');
+					
+					lscache.remove('bigWidth');
+					lscache.remove('bigHeight');
+					lscache.remove('smallWidth');
+					lscache.remove('smallHeight');
+					
+					notify('Размеры для изображений сброшены!');
+					$('#setWidthHeightInfo').html('Большие: авто/авто | Маленькие: авто/авто');
+					setWidthHeightWin.close();
+				});*/
+			});
+		});	
+	});
+	
+	
+	
+	
 	
 	
 	
