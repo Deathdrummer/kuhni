@@ -5,7 +5,7 @@
 			<div class="section__title">{{title}}</div>
 		</div>
 		<div class="section--pb border-light-white catalog-block">
-			<div class="row row-cols-2 row-cols-lg-3 gx-8 gx-lg-3 gy-24 gy-lg-4">
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-8 gx-lg-3 gy-24 gy-lg-4">
 				{% for product in products.items %}
 					<div class="col">
 						<a href="{{product.href}}">
@@ -16,7 +16,6 @@
 								<div class="photo-text border-bottom">
 									<div class="photo-text__title">{{product.title}}</div>
 									<div class="photo-text__text">{{product.short_desc}}</div>
-									
 								</div>
 							</div>
 						</a>
@@ -24,8 +23,8 @@
 				{% endfor %}
 			</div>
 			{# <div class="row g-0 justify-content-center mt-40 mt-md-120">
-						        <button class="button button--red button--all">Загрузить еще</button>
-						      </div> #}
+		        <button class="button button--red button--all">Загрузить еще</button>
+		      </div> #}
 		</div>
 	</div>
 </section>
