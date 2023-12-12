@@ -1121,8 +1121,23 @@ jQuery(document).ready(function ($) {
       function (materialWin) {}
     );
   });
-
-  $('#rool').ddrFloatingBlock(120);
+  
+  
+  
+  const {floatOn, floatOff} = $('#rool').ddrFloatingBlock(120);
+  let wWidth = $(window).width();
+  if (wWidth < 1024) floatOff();
+  
+  let rsTOut;
+  $(window).resize(function() {
+    clearTimeout(rsTOut);
+      rsTOut = setTimeout(function() {
+      wWidth = $(window).width();
+      if (wWidth < 1024) floatOff();
+      else floatOn();
+    }, 100);
+  });
+  
 
   //----------------------------------------------------------- Форма связи
 

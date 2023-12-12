@@ -31,7 +31,7 @@
 					</div>
 				{% endfor %}
 				<div class="col g-3 d-flex d-md-none col-btn-mobile">
-					<a href="{{base_url('/kitchen')}}" class="button">{{text_btn}}</a>
+					<a href="{{cat[0].href}}" class="button">{{text_btn}}</a>
 				</div>
 			</div>
 		</div>

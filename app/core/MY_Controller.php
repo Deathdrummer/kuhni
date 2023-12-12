@@ -94,7 +94,24 @@ class MY_Controller extends CI_Controller {
 			$size = ceil(count($arr) / $cols);
 			return array_chunk($arr, $size, $preserveKeys);
 		});
-
+		
+		
+		
+		$this->twig->addFilter('arrstrtswith', function($arr, $symbal, $arrItem = false) {
+			return array_filter($arr, function($item) use($arrItem, $symbal) {
+				if ($arrItem) return strpos($item[$arrItem], $symbal) === 0;
+				return strpos($item, $symbal) === 0;
+			});
+		});
+		
+		$this->twig->addFilter('arrnotstrtswith', function($arr, $symbal, $arrItem = false) {
+			return array_filter($arr, function($item) use($arrItem, $symbal) {
+				if ($arrItem) return strpos($item[$arrItem], $symbal) !== 0;
+				return strpos($item, $symbal) !== 0;
+			});
+		});
+		
+		
 
 
 		$this->twig->addFilter('filename', function($path, $return = 0) {

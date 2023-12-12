@@ -41,7 +41,7 @@
 				</div>
 				<div class="order-2 order-lg-1">
 					<ul class="property-list d-flex flex-column border-light-white pb-15 pb-md-30">
-						{% for attr in product.attributes %}
+						{% for attr in product.attributes|arrnotstrtswith('_', 'name') %}
 							<li>
 								<span class="property-info">{{attr.name}}:</span>
 								<span>{{attr.value}}</span>
@@ -49,10 +49,10 @@
 						{% endfor %}
 					</ul>
 					<ul class="property-list d-flex flex-column border-light-white pb-15 pb-md-10 pt-10">
-						{% for attr_custom in attributes_custom %}
+						{% for attr in product.attributes|arrstrtswith('_', 'name') %}
 							<li>
-								<span class="property-info">{{attr_custom.property_name}}:</span>
-								<span>{{attr_custom.property_value}}</span>
+								<span class="property-info">{{attr.name|slice(1)}}:</span>
+								<span>{{attr.value}}</span>
 							</li>
 						{% endfor %}
 					</ul>

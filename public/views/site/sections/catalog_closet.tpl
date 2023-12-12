@@ -40,7 +40,7 @@
 										</div>
 										<div class="mb-3">
 											<label for="exampleFormControlTextarea1" class="form-label">Размер и пожелания</label>
-											<textarea name="size_comment" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Угловая, размер 3 на 3 метра"></textarea>
+											<textarea name="size_comment" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="{{placeholder}}"></textarea>
 										</div>
 										<div class="mb-1">
 											<input type="text" name="name" class="form-control" placeholder="Имя"/>
