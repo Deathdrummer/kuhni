@@ -149,15 +149,18 @@
 			<div class="col-12 mt-0 mt-lg-10">
 				<div class="p-11 pb-15 share-card bcg--grey-v1 d-none d-lg-block">
 					<div class="mb-1 mb-lg-10 share-title">
-
 						<img class="me-10" src="{{base_url('public/filemanager/'~icon_share)}}" alt="" style="width: 27px; height: 27px"/>
 						{{text_share}}
 					</div>
 					<div class="share-text mb-25 mb-lg-17">{{text_share_desc}}</div>
 					<div class="sosials d-flex justify-content-lg-start gap-10">
 						{% for sosial in soc %}
-							{% if sosial.title != "phone" %}
-								<a href="{{sosial.link}}" class="sosial-link">
+							{% if sosial.title == "whatsapp" %}
+								<a href="https://wa.me/?text={{base_url(item_seo_url)}}%0A{{page_title}}: {{short_desc}}" target="_blank" class="sosial-link" title="Поделиться в Whatsapp">
+									<img class="icon-sosial ic-{{sosial.title}}" src="{{base_url('public/filemanager/'~sosial.icon)}}" alt="{{sosial.title}}"/>
+								</a>
+							{% elseif sosial.title == "telegram" %}
+								<a href="https://t.me/share/url?url={{base_url(item_seo_url)}}&text={{page_title}}: {{short_desc}}" target="_blank" class="sosial-link" title="Поделиться в Telegram">
 									<img class="icon-sosial ic-{{sosial.title}}" src="{{base_url('public/filemanager/'~sosial.icon)}}" alt="{{sosial.title}}"/>
 								</a>
 							{% endif %}

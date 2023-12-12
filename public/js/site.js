@@ -1306,7 +1306,6 @@ jQuery(document).ready(function ($) {
   
   let blockId = getArgs('closet');
   history.replaceState({} , '', location.pathname);
-  console.log(blockId);
   if (blockId) scrollTo(blockId, 600);
 
 
