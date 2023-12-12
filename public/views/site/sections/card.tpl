@@ -60,7 +60,9 @@
 				</div>
 				<div class="order-1 order-lg-2 mb-20 mb-lg-0 d-flex">
 					<button class="button button--black" data-bs-toggle="modal" data-bs-target="#modalraschet">Заказать расчет</button>
-					<button class="ms-5 d-block d-lg-none button-share" data-bs-toggle="modal" data-bs-target="#modalshare"><img src="./img/icon-share.svg" alt="share"/></button>
+					<button class="ms-5 d-block d-lg-none button-share" data-bs-toggle="modal" data-bs-target="#modalshare">
+						<img src="{{base_url('public/filemanager/'~icon_share)}}" alt="share"/>
+					</button>
 				</div>
 				<div class="modal fade" id="modalraschet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-w-custom modal-dialog-centered">
@@ -134,8 +136,12 @@
 								<div class="share-text mb-25 text-center">{{text_share_desc}}</div>
 								<div class="sosials d-flex justify-content-center gap-10">
 									{% for sosial in soc %}
-										{% if sosial.title != "phone" %}
-											<a href="{{sosial.link}}" class="sosial-link">
+										{% if sosial.title == "whatsapp" %}
+											<a href="https://wa.me/?text={{base_url(item_seo_url)}}%0A{{page_title}}: {{short_desc}}" target="_blank" class="sosial-link" title="Поделиться в Whatsapp">
+												<img class="icon-sosial ic-{{sosial.title}}" src="{{base_url('public/filemanager/'~sosial.icon)}}" alt="{{sosial.title}}"/>
+											</a>
+										{% elseif sosial.title == "telegram" %}
+											<a href="https://t.me/share/url?url={{base_url(item_seo_url)}}&text={{page_title}}: {{short_desc}}" target="_blank" class="sosial-link" title="Поделиться в Telegram">
 												<img class="icon-sosial ic-{{sosial.title}}" src="{{base_url('public/filemanager/'~sosial.icon)}}" alt="{{sosial.title}}"/>
 											</a>
 										{% endif %}
