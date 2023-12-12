@@ -81,9 +81,9 @@
 				</div>
 				<div class="col-12 col-lg-8 col-r-v1">
 					<div class="row g-1 g-md-3 gy-20 gy-md-55">
-						{% for index,  product in products.items %}
+						{% for index, product in products.items %}
 							<div class="col-6 gallery-closet">
-								<div class="photo" data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.0.file)}}">
+								<div class="photo" data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.0.file)}}" data-scroll-block="{{product.seo_url}}">
 									<img src="{{base_url('public/filemanager/__mini__/'~product.gallery.0.file)}}" alt="{{gallery.0.alt}}"/>
 								</div>
 							</div>

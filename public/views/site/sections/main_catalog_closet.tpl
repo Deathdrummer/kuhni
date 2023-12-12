@@ -6,9 +6,10 @@
 		</div>
 		<div class="section--pb border-light-white">
 			<div class="row g-2 g-lg-3">
-				{% for item in main_catalog_closet %}
+				{% for index, item in main_catalog_closet %}
 					<div class="col-closet col-12 col-lg-4">
-						<a href="{{item.cat_kitchen.seo_url}}" class="photo">
+						{# href = item.cat_kitchen.seo_url #}
+						<a href="{{base_url('kat2?closet='~item.product.seo_url)}}" class="photo" brightness>
 							<img src="{{base_url('public/filemanager/'~item.bg)}}" loading="lazy"/>
 							<div class="matte photo-matte photo-text">
 								<div class="photo-text__title">{{item.title}}</div>

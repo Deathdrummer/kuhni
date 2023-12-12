@@ -48,6 +48,20 @@ span.error {
   transition: filter 0.16s;
   transition: filter 0.16s, -webkit-filter 0.16s; }
 
+[brightness] img {
+  -webkit-transition: -webkit-filter 0.16s;
+  transition: -webkit-filter 0.16s;
+  transition: filter 0.16s;
+  transition: filter 0.16s, -webkit-filter 0.16s; }
+
+[brightness]:hover img {
+  -webkit-filter: brightness(1.05) !important;
+          filter: brightness(1.05) !important;
+  -webkit-transition: -webkit-filter 0.16s;
+  transition: -webkit-filter 0.16s;
+  transition: filter 0.16s;
+  transition: filter 0.16s, -webkit-filter 0.16s; }
+
 .nav__sub-menu {
   padding-left: 5px; }
   @media screen and (min-width: 1250px) {

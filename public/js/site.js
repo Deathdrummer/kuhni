@@ -1279,5 +1279,35 @@ jQuery(document).ready(function ($) {
 
 		});*/
   });
+  
+  
+  
+  
+  // скроллить до картинки шкафа
+  var clickScrollStat = false;
+    function scrollTo(blockName, animSpeed) {
+      var headerH = $('header').outerHeight(),
+        offsTop = $('[data-scroll-block='+blockName+']').offset().top - (headerH + 20);
+        clickScrollStat = true;
+      
+      $('body').off('mousewheel');
+      $('body').on('mousewheel', function() {
+          $('html, body').stop();
+      });
+      
+      if(offsTop != $(window).scrollTop()) {
+          $('html, body').stop().animate({scrollTop: offsTop}, animSpeed, 'easeInOutQuart', function() {
+              $('body').off('mousewheel');
+              clickScrollStat = false;
+          });
+      } else $('body').off('mousewheel');
+  }
+    
+  
+  let blockId = getArgs('closet');
+  history.replaceState({} , '', location.pathname);
+  console.log(blockId);
+  if (blockId) scrollTo(blockId, 600);
+
 
 });
