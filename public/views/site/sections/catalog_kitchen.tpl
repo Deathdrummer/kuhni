@@ -14,7 +14,7 @@
 									<img src="{{base_url('public/filemanager/__mini__/'~product.main_image.file)}}" loading="lazy" alt=""/>
 								</div>
 								<div class="photo-text border-bottom">
-									<div class="photo-text__title">{{product.title}}</div>
+									<div class="photo-text__title">{{product.link_title_prod}}</div>
 									<div class="photo-text__text">{{product.short_desc}}</div>
 								</div>
 							</div>

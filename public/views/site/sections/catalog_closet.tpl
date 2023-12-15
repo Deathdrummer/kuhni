@@ -19,7 +19,6 @@
 									<form>
 										<div class="mb-3">
 											<label class="form-label">Выберите вид изделия</label>
-
 											<div
 												class="itc-select" id="select-closet">
 												<!-- Кнопка для открытия выпадающего списка -->
@@ -82,12 +81,12 @@
 				<div class="col-12 col-lg-8 col-r-v1">
 					<div class="row g-1 g-md-3 gy-20 gy-md-55">
 						{% for index, product in products.items %}
-							<div class="col-6 gallery-closet">
+							<div class="col-6 gallery-closet" title="{{product.link_title_prod}}">
 								<div class="photo" data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.0.file)}}" data-scroll-block="{{product.seo_url}}">
 									<img src="{{base_url('public/filemanager/__mini__/'~product.gallery.0.file)}}" alt="{{gallery.0.alt}}"/>
 								</div>
 							</div>
-							<div class="col-6">
+							<div class="col-6" title="{{product.link_title_prod}}">
 								<div class="photo" data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.1.file)}}">
 									<img src="{{base_url('public/filemanager/__mini__/'~product.gallery.1.file)}}" alt="{{gallery.1.alt}}"/>
 								</div>
