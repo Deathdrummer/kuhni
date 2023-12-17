@@ -129,6 +129,7 @@ $(document).ready(function() {
 			newFolderWin.wait();
 			getAjaxHtml('filemanager/dirs_new', {active_dir: activeDir}, function(html) {
 				newFolderWin.setData(html, false);
+				$('[name="title"]').focus();
 				$('#addFolder').on(tapEvent, function() {
 					newFolderWin.wait();
 					$('#newFolderForm').formSubmit({
