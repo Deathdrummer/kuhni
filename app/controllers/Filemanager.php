@@ -191,10 +191,13 @@ class Filemanager extends MY_Controller {
 				
 				$filesData[] = [
 					'src'	=> $directory.'/'.$file,
-					'name'	=> decodeDirsFiles($n).'.'.$e
+					'name'	=> decodeDirsFiles($n).'.'.$e,
+					'sort'	=> is_numeric(decodeDirsFiles($n)) ? (float)decodeDirsFiles($n) : decodeDirsFiles($n),
 				];
 			}
 		}
+		
+		$filesData = arrSortByField($filesData, 'sort', 'asc');
 		
 		echo $this->twig->render('views/admin/render/filemanager/files.tpl', ['files' => $filesData, 'to_client' => $toClient]);
 	}
