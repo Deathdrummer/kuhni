@@ -15,7 +15,7 @@ class MY_Controller extends CI_Controller {
 	protected $controllerName;
 
 	public function __construct() {
-		set_time_limit(10);
+		set_time_limit(60);
 		parent::__construct();
 
 		$this->minutes = range(0, 55, 5);
