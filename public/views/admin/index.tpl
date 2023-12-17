@@ -100,7 +100,7 @@
 	</main>
 	
 	
-	<footer class="footer">
+	<footer class="footer mt-10px">
 		<div class="footer__container">
 			<p>© <a href="https://shopdevelop.ru" target="_blank" title="Перейти на сайт shopdevelop.ru">SaytotvoretsCMS</a> {{date('Y')}} г.</p>
 		</div>
