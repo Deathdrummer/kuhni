@@ -1,4 +1,4 @@
-<section class="section mmexanizm-section" {% if data_scroll_id %} id="{{data_scroll_id}}" {% endif %} {% if data_scroll_block %} data-scroll-block="{{data_scroll_block}}" {% endif %}>
+<section class="section mexanizm-section" {% if data_scroll_id %} id="{{data_scroll_id}}" {% endif %} {% if data_scroll_block %} data-scroll-block="{{data_scroll_block}}" {% endif %}>
 	<div class="container-xxl g-2 g-lg-4">
 		<div class="section__block-title row mb-25 mb-md-30">
 			<div class="col-12 col-lg-10">
@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="section--pb border-light-white">
-			<div class="swiper swiper-mexanizm-section">
+			<div class="swiper swiper-mexanizm-section  overflow-hidden">
 				<div class="swiper-wrapper">
 					{% if slider_mexanizm %}
 						{% for slider in slider_mexanizm %}
