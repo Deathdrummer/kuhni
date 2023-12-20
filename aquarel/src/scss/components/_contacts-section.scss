@@ -203,7 +203,15 @@
     );
   }
 }
-
+.map {
+  @include resp(
+    height,
+    (
+      sm-down: 300px,
+      md: 500px,
+    )
+  );
+}
 .icon-contacts {
   width: 26px;
   height: 26px;
