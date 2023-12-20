@@ -3,7 +3,7 @@
 <!--[if IE 8 ]><html dir="ltr" lang="ru" class="ie8"><![endif]-->
 <!--[if IE 9 ]><html dir="ltr" lang="ru" class="ie9"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html dir="ltr" lang="ru" prefix="og: http://ogp.me/ns#" class="page " style="overflow-x:clip;">
+<html dir="ltr" lang="ru" prefix="og: http://ogp.me/ns#" class="page ">
 <head itemscope itemtype="http://schema.org/WPHeader">
 	<meta charset="UTF-8" />
 	<meta name="author" content="Дмитрий Калюжнный" />

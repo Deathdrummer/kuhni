@@ -28,7 +28,7 @@
     @include resp(
       position,
       (
-        lg-down: static,
+        xl-down: static,
       )
     );
     &-col {
@@ -39,7 +39,8 @@
         @include resp(
           justify-content,
           (
-            lg-down: flex-end,
+            0: flex-end,
+            xll: space-between,
           )
         );
       }
@@ -49,7 +50,7 @@
           display,
           (
             lg-dowm: flex,
-            xl: none,
+            xll: none,
           )
         );
 
@@ -146,8 +147,8 @@
       @include resp(
         display,
         (
-          lg-down: block,
-          xl: none,
+          xl-down: block,
+          xll: none,
         )
       );
     }
@@ -156,14 +157,15 @@
       @include resp(
         gap,
         (
-          lg-down: 15px,
-          xl: 30px,
+          0: 15px,
+          xll: 30px,
         )
       );
       @include resp(
         flex-direction,
         (
-          lg-down: column,
+          0: column,
+          xll: row,
         )
       );
     }
@@ -199,48 +201,48 @@
       @include resp(
         opacity,
         (
-          xl: 0,
+          xll: 0,
         )
       );
 
       @include resp(
         visibility,
         (
-          xl: hidden,
+          xll: hidden,
         )
       );
 
       @include resp(
         left,
         (
-          xl: 0,
+          xll: 0,
         )
       );
       @include resp(
         width,
         (
-          xl: max-content,
+          xll: max-content,
         )
       );
       @include resp(
         transition,
         (
-          lg-down: all 0.5s linear,
-          xl: all 0.2s linear 0.1s,
+          xl-down: all 0.5s linear,
+          xll: all 0.2s linear 0.1s,
         )
       );
       @include resp(
         overflow,
         (
-          lg-down: hidden,
+          xl-down: hidden,
         )
       );
 
       @include resp(
         top,
         (
-          lg-down: 0,
-          xl: 100%,
+          xl-down: 0,
+          xll: 100%,
         )
       );
       @include resp(
@@ -254,26 +256,26 @@
         @include resp(
           padding,
           (
-            lg-down: 0,
+            xl-down: 0,
           )
         );
         @include resp(
           background,
           (
-            lg-down: transparent,
+            xl-down: transparent,
           )
         );
         @include resp(
           box-shadow,
           (
-            lg-down: 0,
+            xl-down: 0,
           )
         );
 
         @include resp(
           backdrop-filter,
           (
-            lg-down: blur(0px),
+            xl-down: blur(0px),
           )
         );
       }
@@ -281,7 +283,7 @@
         @include resp(
           padding-bottom,
           (
-            lg-down: 2px,
+            xl-down: 2px,
           )
         );
       }
@@ -289,7 +291,7 @@
         @include resp(
           font-size,
           (
-            lg-down: 14px,
+            xl-down: 14px,
           )
         );
       }

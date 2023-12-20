@@ -49,8 +49,9 @@ import { burger } from "./functions/burger";
 // });
 
 // Подключение свайпера
-import Swiper, { Navigation, Thumbs } from "swiper";
+import Swiper, { Navigation, Thumbs, Autoplay } from "swiper";
 Swiper.use([Navigation]);
+Swiper.use([Autoplay]);
 Swiper.use([Thumbs]);
 const swiper = new Swiper(".swiper-mexanizm-section", {
   slidesPerView: "auto",
@@ -91,6 +92,19 @@ const swiperCard = new Swiper(".swiper-card", {
     swiper: swiperCardThumbs,
   },
 });
+if (document.querySelector(".swiper-contacts")) {
+  var swiperContacts = new Swiper(".swiper-contacts", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+      delay: parseInt(document.querySelector(".swiper-contacts").getAttribute("data-speed")) || 300,
+
+      disableOnInteraction: false,
+    },
+  });
+}
 // const swiperMebelerovka = new Swiper(".swiper-mebelerovka", {
 //   slidesPerView: "1",
 //   spaceBetween: 0,

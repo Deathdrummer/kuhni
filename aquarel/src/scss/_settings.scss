@@ -12,6 +12,7 @@ html {
   height: 100%;
   font-family: "Manrope", sans-serif;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 .page__body {
@@ -90,6 +91,9 @@ p * {
 }
 p:not(:last-child) {
   margin-bottom: 15px;
+}
+.story {
+  white-space: pre-wrap;
 }
 .story ul {
   padding: 0;
@@ -213,6 +217,10 @@ p:not(:last-child) {
 }
 .bcg--black-v1 {
   background-color: #262626;
+}
+.bcg--red {
+  background: var(--color-red);
+  color: #f6f6f6;
 }
 
 .section {

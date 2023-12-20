@@ -549,3 +549,35 @@
 }
 @import "components/modal";
 @import "components/fancybox";
+
+// Страница контактов
+.contacts-col-text {
+  max-width: 460px;
+  padding: 0 15px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 400;
+}
+.main-swiper {
+  @include resp(
+    width,
+    (
+      sm-down: 160px,
+      md: 290px,
+    )
+  );
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .swiper-slide {
+    .photo {
+      padding-bottom: 131%;
+    }
+  }
+  img {
+    opacity: 1;
+  }
+}

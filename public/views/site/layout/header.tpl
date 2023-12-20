@@ -16,7 +16,7 @@
 		{% endif %}
 	  </div>
 	  <div class="header__block-col header__block-col--pcMenu">
-		<nav class="nav nav__header d-none d-xl-block">
+		<nav class="nav nav__header d-none d-xll-block">
 		  <ul>
 				<li class="nav__menu-item">
 					<div class="nav__title-link{{navigation.categories|hasinarr('active', 1) is not same as(false) ? ' active' : '' }}">Каталог</div>
@@ -72,7 +72,7 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="burger-block d-flex d-xl-none">
+	  <div class="burger-block d-flex d-xll-none">
 		<button class="burger d-block" aria-label="Открыть меню" aria-expanded="false" data-burger>
 		  <span class="burger__line"></span>
 		</button>

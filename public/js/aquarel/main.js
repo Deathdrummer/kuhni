@@ -3095,6 +3095,7 @@ __webpack_require__.r(__webpack_exports__);
 // Подключение свайпера
 
 swiper__WEBPACK_IMPORTED_MODULE_2__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_2__.Navigation]);
+swiper__WEBPACK_IMPORTED_MODULE_2__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_2__.Autoplay]);
 swiper__WEBPACK_IMPORTED_MODULE_2__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_2__.Thumbs]);
 const swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-mexanizm-section", {
   slidesPerView: "auto",
@@ -3135,6 +3136,18 @@ const swiperCard = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-c
     swiper: swiperCardThumbs
   }
 });
+if (document.querySelector(".swiper-contacts")) {
+  var swiperContacts = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"](".swiper-contacts", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+      delay: parseInt(document.querySelector(".swiper-contacts").getAttribute("data-speed")) || 300,
+      disableOnInteraction: false
+    }
+  });
+}
 // const swiperMebelerovka = new Swiper(".swiper-mebelerovka", {
 //   slidesPerView: "1",
 //   spaceBetween: 0,

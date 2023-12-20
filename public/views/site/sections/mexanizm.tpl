@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="section--pb border-light-white">
-			<div class="swiper swiper-mexanizm-section  overflow-hidden">
+			<div class="swiper swiper-mexanizm-section">
 				<div class="swiper-wrapper">
 					{% if slider_mexanizm %}
 						{% for slider in slider_mexanizm %}
