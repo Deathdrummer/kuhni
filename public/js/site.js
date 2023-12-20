@@ -1158,11 +1158,14 @@ jQuery(document).ready(function ($) {
       $(e.target).closest('label').setAttrib('fileploaded');
     }
   });
+  
+  
 
   $('[callbackform]').on(tapEvent, function () {
     const form = $(this).closest('form'),
       formType = $(this).attr('callbackform'),
       popper = $(this).closest('.modal').find('#callbackFormPopper'),
+      modal = $(this).closest('.modal'),
       close = $(this).closest('.modal').find('[callbackformclose]'),
       success = $(this).closest('.modal').find('[success]');
     
@@ -1172,7 +1175,7 @@ jQuery(document).ready(function ($) {
       return;
     }
 
-    let autoCloseTOut;
+    let autoCloseTOut, originW;
 
     const formData = $(form).ddrForm({ fields: { formType: formType } });
 
@@ -1189,17 +1192,21 @@ jQuery(document).ready(function ($) {
         //callbackWin.wait(false);
       },
       success: function () {
-        $(popper).find(':visible').addClass('d-none hide_success');
+        $(popper).children('*:not([class="btn-close"])').addClass('d-none hide_success');
         $(success).removeClass('d-none');
-
+        originW = $('.modal-w-custom').css('max-width');
+        $('.modal-w-custom').css('max-width', '420px');
+        
+        
         //if (yandexReachGoal) yaCounter77386018.reachGoal(yandexReachGoal);
-        autoCloseTOut = setTimeout(function () {
+        /*autoCloseTOut = setTimeout(function () {
           $(close).trigger('click');
           setTimeout(() => {
-            $(popper).find('.hide_success').removeClass('d-none hide_success');
+            $(popper).children('*:not([class="btn-close"])').removeClass('d-none hide_success');
             $(success).addClass('d-none');
+            $('.modal-w-custom').css('max-width', originW);
           }, 300);
-        }, 5000);
+        }, 5000);*/
       },
       complete: function () {
         $.notify('Заявка успешно отправлена!', 'success');
@@ -1212,13 +1219,17 @@ jQuery(document).ready(function ($) {
     });
     
     
-    $(close).one(tapEvent, () => {
+    
+    $('.modal.fade').on('hidden.bs.modal', function() {
       clearTimeout(autoCloseTOut);
       setTimeout(() => {
-        $(popper).find('.hide_success').removeClass('d-none hide_success');
+        $(popper).children('*:not([class="btn-close"])').removeClass('d-none hide_success');
         $(success).addClass('d-none');
+        $('.modal-w-custom').css('max-width', originW);
       }, 300);
     });
+    
+    
 
     /*let type = $(this).hasAttr('cbtype') ? $(this).attr('cbtype').trim() : false,
 			title = $(this).hasAttr('cbtitle') ? $(this).attr('cbtitle').trim() : false,
