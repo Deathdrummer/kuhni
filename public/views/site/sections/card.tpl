@@ -119,10 +119,12 @@
 								</div>
 							</div>
 							
-							<div class="col-12 bcg--white-v1 ps-10 pe-10 ps-md-33 pe-md-33 pt-40 pt-md-70 pb-40 pb-md-70 d-none text-center" success>
+							<div class="col-12 bcg--white-v1 ps-10 pe-10 ps-md-33 pe-md-33 pt-40 pt-md-80 pb-40 pb-md-100 d-none text-center" success>
 								<img src="{{base_url('public/images/success.svg')}}" class="w-60px mb-20px" alt="">
 								<h2 class="fs-1 fw-bold mb-10px">Спасибо, заявка принята!</h2>
-								<p class="fs-2">{{callback['orderCalcForm']['success']}}</p>
+								{% if callback['orderCalcForm']['success'] %}
+									<p class="fs-2">{{callback['orderCalcForm']['success']}}</p>
+								{% endif %}
 							</div>
 						</div>
 					</div>

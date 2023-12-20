@@ -1159,7 +1159,6 @@ jQuery(document).ready(function ($) {
     }
   });
   
-  
 
   $('[callbackform]').on(tapEvent, function () {
     const form = $(this).closest('form'),
@@ -1195,21 +1194,24 @@ jQuery(document).ready(function ($) {
         $(popper).children('*:not([class="btn-close"])').addClass('d-none hide_success');
         $(success).removeClass('d-none');
         originW = $('.modal-w-custom').css('max-width');
-        $('.modal-w-custom').css('max-width', '420px');
+        $('.modal-w-custom').css('max-width', '530px');
         
         
         //if (yandexReachGoal) yaCounter77386018.reachGoal(yandexReachGoal);
-        /*autoCloseTOut = setTimeout(function () {
+        autoCloseTOut = setTimeout(function () {
           $(close).trigger('click');
           setTimeout(() => {
             $(popper).children('*:not([class="btn-close"])').removeClass('d-none hide_success');
             $(success).addClass('d-none');
             $('.modal-w-custom').css('max-width', originW);
           }, 300);
-        }, 5000);*/
+        }, 5000);
       },
       complete: function () {
-        $.notify('Заявка успешно отправлена!', 'success');
+        //$.notify('Заявка успешно отправлена!', 'success');
+        
+        
+        
         $(form).find('[name]').val('');
         $(form).find('button[name]').attr('value', null);
 				$(form).find('button[name]').attr('data-index', null);
