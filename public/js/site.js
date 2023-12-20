@@ -1121,23 +1121,20 @@ jQuery(document).ready(function ($) {
       function (materialWin) {}
     );
   });
-  
-  
-  
-  const {floatOn, floatOff} = $('#rool').ddrFloatingBlock(120);
+
+  const { floatOn, floatOff } = $('#rool').ddrFloatingBlock(120);
   let wWidth = $(window).width();
   if (wWidth < 1024) floatOff();
-  
+
   let rsTOut;
-  $(window).resize(function() {
+  $(window).resize(function () {
     clearTimeout(rsTOut);
-      rsTOut = setTimeout(function() {
+    rsTOut = setTimeout(function () {
       wWidth = $(window).width();
       if (wWidth < 1024) floatOff();
       else floatOn();
     }, 100);
   });
-  
 
   //----------------------------------------------------------- Форма связи
 
@@ -1150,9 +1147,8 @@ jQuery(document).ready(function ($) {
     price = $.number(price, 2, '.', ' ');
     $('[name="price"]').val(`от ${price} ₽. метр погонный`);
   });
-  
-  
-  $('body').on('change', '[type="file"]', function(e) {
+
+  $('body').on('change', '[type="file"]', function (e) {
     if ($(e.target).closest('label').hasAttr('fileploaded') == false) {
       $(e.target).closest('label').text('Файл загружен!');
       $(e.target).closest('label').setAttrib('fileploaded');
@@ -1163,16 +1159,18 @@ jQuery(document).ready(function ($) {
     const form = $(this).closest('form'),
       formType = $(this).attr('callbackform'),
       popper = $(this).closest('.modal').find('#callbackFormPopper'),
+      modal = $(this).closest('.modal'),
       close = $(this).closest('.modal').find('[callbackformclose]'),
       success = $(this).closest('.modal').find('[success]');
-    
+
     if (!formType) {
       console.error('callbackform ошибка! Не указан иднтификатор формы!');
       $.notify('Ошибка отправки данных!', 'error');
+
       return;
     }
 
-    let autoCloseTOut;
+    let autoCloseTOut, originW;
 
     const formData = $(form).ddrForm({ fields: { formType: formType } });
 
@@ -1186,37 +1184,50 @@ jQuery(document).ready(function ($) {
             $.notify('Необходимо согласие на обработку данных!', 'error');
           }
         });
+
         //callbackWin.wait(false);
       },
       success: function () {
-        $(popper).find(':visible').addClass('d-none hide_success');
+        $(popper)
+          .children('*:not([class="btn-close"])')
+          .addClass('d-none hide_success');
         $(success).removeClass('d-none');
+        originW = $('.modal-w-custom').css('max-width');
+        $('.modal-w-custom').css('max-width', '530px');
 
         //if (yandexReachGoal) yaCounter77386018.reachGoal(yandexReachGoal);
         autoCloseTOut = setTimeout(function () {
           $(close).trigger('click');
           setTimeout(() => {
-            $(popper).find('.hide_success').removeClass('d-none hide_success');
+            $(popper)
+              .children('*:not([class="btn-close"])')
+              .removeClass('d-none hide_success');
             $(success).addClass('d-none');
+            $('.modal-w-custom').css('max-width', originW);
           }, 300);
         }, 5000);
       },
       complete: function () {
-        $.notify('Заявка успешно отправлена!', 'success');
+        //$.notify('Заявка успешно отправлена!', 'success');
+        setTimeout(() => {
+          $(`#modal${formType}`).modal('show');
+        }, 5000);
         $(form).find('[name]').val('');
         $(form).find('button[name]').attr('value', null);
-				$(form).find('button[name]').attr('data-index', null);
-        $(form).find('button[name]').text("Выберите вид изделия");
+        $(form).find('button[name]').attr('data-index', null);
+        $(form).find('button[name]').text('Выберите вид изделия');
         //callbackWin.wait(false);
       },
     });
-    
-    
-    $(close).one(tapEvent, () => {
+
+    $('.modal.fade').on('hidden.bs.modal', function () {
       clearTimeout(autoCloseTOut);
       setTimeout(() => {
-        $(popper).find('.hide_success').removeClass('d-none hide_success');
+        $(popper)
+          .children('*:not([class="btn-close"])')
+          .removeClass('d-none hide_success');
         $(success).addClass('d-none');
+        $('.modal-w-custom').css('max-width', originW);
       }, 300);
     });
 
@@ -1294,34 +1305,37 @@ jQuery(document).ready(function ($) {
 
 		});*/
   });
-  
-  
-  
-  
+
   // скроллить до картинки шкафа
   var clickScrollStat = false;
-    function scrollTo(blockName, animSpeed) {
-      var headerH = $('header').outerHeight(),
-        offsTop = $('[data-scroll-block='+blockName+']').offset().top - (headerH + 20);
-        clickScrollStat = true;
-      
-      $('body').off('mousewheel');
-      $('body').on('mousewheel', function() {
-          $('html, body').stop();
-      });
-      
-      if(offsTop != $(window).scrollTop()) {
-          $('html, body').stop().animate({scrollTop: offsTop}, animSpeed, 'easeInOutQuart', function() {
-              $('body').off('mousewheel');
-              clickScrollStat = false;
-          });
-      } else $('body').off('mousewheel');
+  function scrollTo(blockName, animSpeed) {
+    var headerH = $('header').outerHeight(),
+      offsTop =
+        $('[data-scroll-block=' + blockName + ']').offset().top -
+        (headerH + 20);
+    clickScrollStat = true;
+
+    $('body').off('mousewheel');
+    $('body').on('mousewheel', function () {
+      $('html, body').stop();
+    });
+
+    if (offsTop != $(window).scrollTop()) {
+      $('html, body')
+        .stop()
+        .animate(
+          { scrollTop: offsTop },
+          animSpeed,
+          'easeInOutQuart',
+          function () {
+            $('body').off('mousewheel');
+            clickScrollStat = false;
+          }
+        );
+    } else $('body').off('mousewheel');
   }
-    
-  
+
   let blockId = getArgs('closet');
-  history.replaceState({} , '', location.pathname);
+  history.replaceState({}, '', location.pathname);
   if (blockId) scrollTo(blockId, 600);
-
-
 });

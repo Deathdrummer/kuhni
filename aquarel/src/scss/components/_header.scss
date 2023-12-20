@@ -248,7 +248,7 @@
       @include resp(
         height,
         (
-          lg-down: 0,
+          xl-down: 0,
         )
       );
 
@@ -291,6 +291,7 @@
         @include resp(
           font-size,
           (
+            lg: 14px,
             xl-down: 14px,
           )
         );

@@ -55,6 +55,44 @@
 		</td>
 	</tr>
 	<tr>
+		<td class="w-40"><div><span>Применить водяной знак</span></div></td>
+		<td>
+			<div class="row">
+				<div class="col">
+					<div class="checkbox">
+						<div class="checkbox__item checkbox__item_ver1">
+							<div>
+								<input id="wmSetMiniCheckbox"
+									type="checkbox"
+									name="set_mini" 
+									 {% if set_mini %}checked{% endif %}
+									/>
+								<label for="wmSetMiniCheckbox"></label>
+							</div>
+							<label for="wmSetMiniCheckbox">Маленькая картинка</label>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="checkbox">
+						<div class="checkbox__item checkbox__item_ver1">
+							<div>
+								<input id="wmSetOrigCheckbox"
+									type="checkbox"
+									name="set_orig" 
+									 {% if set_orig %}checked{% endif %}
+									/>
+								<label for="wmSetOrigCheckbox"></label>
+							</div>
+							<label for="wmSetOrigCheckbox">Большая картинка</label>
+						</div>
+					</div>
+				</div>
+			</div>
+					
+		</td>
+	</tr>
+	<tr>
 		<td class="w-40"><div><span>Статус</span></div></td>
 		<td>
 			<div class="checkbox">

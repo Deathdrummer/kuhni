@@ -1,10 +1,10 @@
 <div class="modal fade zayavka-modal" id="formPriceShkaf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-w-custom modal-dialog-centered">
-		<div class="modal-content bg-transparent">
+		<div class="modal-content bg-transparent" id="callbackFormPopper">
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" callbackformclose></button>
 			<div class="row g-0 gap-0 gap-md-10 buttons">
 				<div class="col-12 bcg--white-v1 p-20 d-none d-md-block text-center modal-title-custom">Заявка на расчёт стоимости мебели</div>
-				<div class="col-12 d-flex flex-column justify-content-center bcg--white-v1 ps-10 pe-10 pt-25 pb-50 ps-md-30 pe-md-30 pt-md-28 pb-md-60" id="callbackFormPopper">
+				<div class="col-12 d-flex flex-column justify-content-center bcg--white-v1 ps-10 pe-10 pt-25 pb-50 ps-md-30 pe-md-30 pt-md-28 pb-md-60">
 					<div class="col-12 bcg--white-v1 text-center d-block d-md-none modal-form-title pb-30">Расчёт стоимости мебели</div>
 					{# ---------------------------------------- форма мобильная --------------------------------------- #}
 					<form class="sect-form--white-theme d-block d-md-none">
@@ -224,8 +224,15 @@
 							<button class="button button--black" callbackform="calcPriceCloset">Отправить</button>
 						</div>
 					</form>
-					<h2 class="text-center fs-1 fw-bold d-none" success>{{callback['calcPriceCloset']['success']}}</h2>
 				</div>
+			</div>
+			
+			<div class="col-12 bcg--white-v1 ps-10 pe-10 ps-md-33 pe-md-33 pt-40 pt-md-80 pb-40 pb-md-100 d-none text-center" success>
+				<img src="{{base_url('public/images/success.svg')}}" class="w-60px mb-20px" alt="">
+				<h2 class="fs-1 fw-bold mb-10px">Спасибо, заявка принята!</h2>
+				{% if callback['calcPriceCloset']['success'] %}
+					<p class="fs-2">{{callback['calcPriceCloset']['success']}}</p>
+				{% endif %}
 			</div>
 		</div>
 	</div>

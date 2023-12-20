@@ -66,9 +66,9 @@
 				</div>
 				<div class="modal fade" id="modalraschet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-w-custom modal-dialog-centered">
-						<div class="modal-content bg-transparent">
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-							<div class="row g-0 gap-10" id="callbackFormPopper">
+						<div class="modal-content bg-transparent" id="callbackFormPopper">
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" callbackformclose></button>
+							<div class="row g-0 gap-10">
 								<div class="col-12 bcg--white-v1 order-0 p-20 d-none d-md-block text-center modal-title-custom">Заказать расчет</div>
 								<div class="col-12 col-messages bcg--white-v1 col-md-auto order-2 order-md-1">
 									<div class="col-12 col-message d-flex flex-column align-items-center gap-10 gap-md-25">
@@ -118,8 +118,13 @@
 									</form>
 								</div>
 							</div>
-							<div class="col-12 bcg--white-v1 ps-10 pe-10 pb-25 ps-md-33 pe-md-33 pt-25 pt-md-0 mt-10 d-none" success>
-								<h2 class="text-center mt-25 fs-1 fw-bold">{{callback['orderCalcForm']['success']}}</h2>
+							
+							<div class="col-12 bcg--white-v1 ps-10 pe-10 ps-md-33 pe-md-33 pt-40 pt-md-80 pb-40 pb-md-100 d-none text-center" success>
+								<img src="{{base_url('public/images/success.svg')}}" class="w-60px mb-20px" alt="">
+								<h2 class="fs-1 fw-bold mb-10px">Спасибо, заявка принята!</h2>
+								{% if callback['orderCalcForm']['success'] %}
+									<p class="fs-2">{{callback['orderCalcForm']['success']}}</p>
+								{% endif %}
 							</div>
 						</div>
 					</div>

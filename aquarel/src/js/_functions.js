@@ -132,32 +132,3 @@ const allSliders = document.querySelectorAll(".swiper-mebelerovka");
 
 // Loop over all of the fetched sliders and apply Swiper on each one.
 allSliders.forEach((slider) => buildSwiperSlider(slider));
-// var stickyElement = new Sticksy(".js-sticky-widget", { topSpacing: 110 });
-// Подключение анимаций по скроллу
-// import AOS from 'aos';
-// AOS.init();
-
-// Подключение параллакса блоков при скролле
-// import Rellax from 'rellax';
-// const rellax = new Rellax('.rellax');
-
-// Подключение плавной прокрутки к якорям
-// import SmoothScroll from 'smooth-scroll';
-// const scroll = new SmoothScroll('a[href*="#"]');
-
-// Подключение событий свайпа на мобильных
-// import 'swiped-events';
-// document.addEventListener('swiped', function(e) {
-//   console.log(e.target);
-//   console.log(e.detail);
-//   console.log(e.detail.dir);
-// });
-
-// import { validateForms } from './functions/validate-forms';
-// const rules1 = [...];
-
-// const afterForm = () => {
-//   console.log('Произошла отправка, тут можно писать любые действия');
-// };
-
-// validateForms('.form-1', rules1, afterForm);
