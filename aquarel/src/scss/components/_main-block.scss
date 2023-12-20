@@ -104,5 +104,36 @@
         )
       );
     }
+    &--cols-2 {
+      @include resp(
+        min-height,
+        (
+          sm-down: 0,
+          md: 100%,
+        ),
+        max-height
+      );
+      @include resp(
+        height,
+        (
+          sm-down: 0,
+          md: 100%,
+        )
+      );
+      @include resp(
+        padding-bottom,
+        (
+          sm-down: 100%,
+        )
+      );
+      img.img-bcg-contacts {
+        @include resp(
+          position,
+          (
+            sm-down: absolute,
+          )
+        );
+      }
+    }
   }
 }
