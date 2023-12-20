@@ -304,8 +304,6 @@ class Filemanager extends MY_Controller {
 		$this->load->library(['upload', 'image_lib']);
 		
 		
-		toLog($wmSettings);
-		
         $errors = [];
         foreach ($files as $k => $file) {
 			$fileName = explode('.', $file['name']);
