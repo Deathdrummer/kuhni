@@ -303,6 +303,9 @@ class Filemanager extends MY_Controller {
 		$files = $this->_reArrayFiles($files);
 		$this->load->library(['upload', 'image_lib']);
 		
+		
+		toLog($wmSettings);
+		
         $errors = [];
         foreach ($files as $k => $file) {
 			$fileName = explode('.', $file['name']);
@@ -398,7 +401,12 @@ class Filemanager extends MY_Controller {
 					if ($wmSettings['enable']) {
 						$wmFilePath = $this->settings->getSettings('watermark');
 						if (is_file('public/filemanager/'.$wmFilePath)) {
-							foreach (['', $this->miniDir.'/'] as $dir) {
+							
+							$setWM = [];
+							if ($wmSettings['set_orig']) $setWM[] = '';
+							if ($wmSettings['set_mini']) $setWM[] = $this->miniDir.'/';
+							
+							foreach ($setWM as $dir) {
 								$wmCfg = [];
 								$this->image_lib->clear();
 								# $wmSettings массив настроек для водяного знака

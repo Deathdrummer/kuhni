@@ -33,6 +33,8 @@
 						<input type="hidden" id="wmOffsetX" name="wm[offset_x]" value="">
 						<input type="hidden" id="wmPositionY" name="wm[position_y]" value="">
 						<input type="hidden" id="wmPositionX" name="wm[position_x]" value="">
+						<input type="hidden" id="wmSetOrig" name="wm[set_orig]" value="">
+						<input type="hidden" id="wmSetMini" name="wm[set_mini]" value="">
 						
 						<input type="file" name="filemanager_files[]" multiple>
 					</form>
@@ -79,6 +81,8 @@ $(document).ready(function() {
 		cacheWmOffsetX = lscache.get('wmOffsetX'),
 		cacheWmPositionY = lscache.get('wmPositionY'),
 		cacheWmPositionX = lscache.get('wmPositionX');
+		cacheWmSetOrig = lscache.get('wmSetOrig');
+		cacheWmSetMini = lscache.get('wmSetMini');
 	
 	
 	if (cacheBigWidth != undefined) $('#sizeBigWidth').val(cacheBigWidth);
@@ -92,6 +96,8 @@ $(document).ready(function() {
 	if (cacheWmOffsetX != undefined) $('#wmOffsetX').val(cacheWmOffsetX);
 	if (cacheWmPositionY != undefined) $('#wmPositionY').val(cacheWmPositionY);
 	if (cacheWmPositionX != undefined) $('#wmPositionX').val(cacheWmPositionX);
+	if (cacheWmSetOrig != undefined) $('#wmSetOrig').val(cacheWmSetOrig);
+	if (cacheWmSetMini != undefined) $('#wmSetMini').val(cacheWmSetMini);
 	
 	$('#setWidthHeightInfo').html('Большие: '+(cacheBigWidth ? cacheBigWidth+'px' : 'авто')+'/'+(cacheBigHeight ? cacheBigHeight+'px' : 'авто')+' | Маленькие: '+(cacheSmallWidth ? cacheSmallWidth+'px' : 'авто')+'/'+(cacheSmallHeight ? cacheSmallHeight+'px' : 'авто')+' | Уменьшение: '+((!cacheResizeVariant || cacheResizeVariant == 'hard') ? 'Жестко' : '<span style="word-spacing:normal;">Если больше размер</span>'));
 	
@@ -507,7 +513,9 @@ $(document).ready(function() {
 			wmOffsetY = $('#wmOffsetY').val() || 0,
 			wmOffsetX = $('#wmOffsetX').val() || 0,
 			wmPositionY = $('#wmPositionY').val() || 'middle',
-			wmPositionX = $('#wmPositionX').val() || 'center';
+			wmPositionX = $('#wmPositionX').val() || 'center',
+			wmSetOrig = $('#wmSetOrig').val() || false,
+			wmSetMini = $('#wmSetMini').val() || false;
 		
 		ddrPopUp({
 			title: 'Настройки водяного знака|5',
@@ -525,6 +533,8 @@ $(document).ready(function() {
 					offset_y: wmOffsetY,
 					position_x: wmPositionX,
 					position_y: wmPositionY,
+					set_orig: wmSetOrig,
+					set_mini: wmSetMini,
 				}, function() {
 				$('#setWMButton').on(tapEvent, function() {
 					$('#sectionWait').addClass('visible filemanager');
@@ -534,7 +544,9 @@ $(document).ready(function() {
 						offset_y = $('#wmOffsetYInput').val(),
 						offset_x = $('#wmOffsetXInput').val(),
 						position_y = $('#wmPositionYInput').val(),
-						position_x = $('#wmPositionXInput').val();
+						position_x = $('#wmPositionXInput').val(),
+						set_orig = $('#wmSetOrigCheckbox').is(':checked') ? 1 : 0,
+						set_mini = $('#wmSetMiniCheckbox').is(':checked') ? 1 : 0;
 					
 					
 					/*<input type="hidden" id="wmEnable" name="wm[enable]" value="">
@@ -550,6 +562,8 @@ $(document).ready(function() {
 					$('#wmOffsetX').val(offset_x);
 					$('#wmPositionY').val(position_y);
 					$('#wmPositionX').val(position_x);
+					$('#wmSetOrig').val(set_orig);
+					$('#wmSetMini').val(set_mini);
 					//$('#sizeBigHeight').val($('#bigHeight').val());
 					//$('#sizeSmallWidth').val($('#smallWidth').val());
 					//$('#sizeSmallHeight').val($('#smallHeight').val());
@@ -565,6 +579,8 @@ $(document).ready(function() {
 					lscache.set('wmOffsetX', offset_x);
 					lscache.set('wmPositionY', position_y);
 					lscache.set('wmPositionX', position_x);
+					lscache.set('wmSetOrig', set_orig);
+					lscache.set('wmSetMini', set_mini);
 					//lscache.set('bigHeight', $('#bigHeight').val());
 					//lscache.set('smallWidth', $('#smallWidth').val());
 					//lscache.set('smallHeight', $('#smallHeight').val());
