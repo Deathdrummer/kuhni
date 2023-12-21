@@ -112,7 +112,7 @@ $xxl: map-get($grid-breakpoints, xxl);
         }
       }
     } @else if $b == xl-down {
-      @media screen and (max-width: $xxl - 1px) {
+      @media screen and (max-width: $xll - 1px) {
         #{$param}: $val;
         @if $dopParamMap != "" {
           @each $dpParam, $dpDiff in $dopParamMap {
