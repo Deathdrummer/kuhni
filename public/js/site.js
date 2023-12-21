@@ -1163,6 +1163,7 @@ jQuery(document).ready(function ($) {
   $('[callbackform]').on(tapEvent, function () {
     const form = $(this).closest('form'),
       formType = $(this).attr('callbackform'),
+      modalSuccess = formType ? $(`#modal${formType}`) : false,
       popper = $(this).closest('.modal').find('#callbackFormPopper'),
       modal = $(this).closest('.modal'),
       close = $(this).closest('.modal').find('[callbackformclose]'),
@@ -1199,6 +1200,7 @@ jQuery(document).ready(function ($) {
         
         //if (yandexReachGoal) yaCounter77386018.reachGoal(yandexReachGoal);
         autoCloseTOut = setTimeout(function () {
+          if (modalSuccess) $(modalSuccess).modal('hide');
           $(close).trigger('click');
           setTimeout(() => {
             $(popper).children('*:not([class="btn-close"])').removeClass('d-none hide_success');
@@ -1208,9 +1210,7 @@ jQuery(document).ready(function ($) {
         }, 5000);
       },
       complete: function () {
-        //$.notify('Заявка успешно отправлена!', 'success');
-        
-        
+        if (modalSuccess) $(modalSuccess).modal('show');
         
         $(form).find('[name]').val('');
         $(form).find('button[name]').attr('value', null);
