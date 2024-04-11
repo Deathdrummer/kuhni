@@ -10,7 +10,7 @@
 		<div class="section--pb border-light-white">
 			<div class="row g-0 gx-lg-3">
 				<div class="col-12 col-lg-4 position-relative">
-					<div class="col-l-v1" id="rool">
+					<div class="col-l-v1" >
 						<div class="col modal-custom p-0" id="formPrice">
 							<div>
 								<div class="modal-content content-l-v1 bcg--black-v1">
@@ -19,6 +19,7 @@
 									<form>
 										<div class="mb-3">
 											<label class="form-label">Выберите вид изделия</label>
+
 											<div
 												class="itc-select" id="select-closet">
 												<!-- Кнопка для открытия выпадающего списка -->
@@ -35,7 +36,7 @@
 										</div>
 										<div class="mb-3">
 											<label for="price-closet" class="form-label">Стоимость</label>
-											<input type="text" name="price" class="form-control" id="price-closet" placeholder="от 29 000 метр погонный" disabled/>
+											<input type="text" name="price" class="form-control" id="price-closet" placeholder="от 22 000 метр погонный" disabled/>
 										</div>
 										<div class="mb-3">
 											<label for="exampleFormControlTextarea1" class="form-label">Размер и пожелания</label>
@@ -81,12 +82,12 @@
 				<div class="col-12 col-lg-8 col-r-v1">
 					<div class="row g-1 g-md-3 gy-20 gy-md-55">
 						{% for index, product in products.items %}
-							<div class="col-6 gallery-closet" title="{{product.link_title_prod}}">
+							<div class="col-6 gallery-closet">
 								<div class="photo" data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.0.file)}}" data-scroll-block="{{product.seo_url}}">
 									<img src="{{base_url('public/filemanager/__mini__/'~product.gallery.0.file)}}" alt="{{gallery.0.alt}}"/>
 								</div>
 							</div>
-							<div class="col-6" title="{{product.link_title_prod}}">
+							<div class="col-6">
 								<div class="photo" data-fancybox="gallery-{{index}}" data-src="{{base_url('public/filemanager/'~product.gallery.1.file)}}">
 									<img src="{{base_url('public/filemanager/__mini__/'~product.gallery.1.file)}}" alt="{{gallery.1.alt}}"/>
 								</div>

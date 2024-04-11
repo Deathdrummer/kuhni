@@ -15,7 +15,8 @@
 								</div>
 								<div class="photo-text border-bottom">
 									<div class="photo-text__title">{{product.link_title_prod}}</div>
-									<div class="photo-text__text">{{product.short_desc}}</div>
+										{% if product.price %}<div class="photo-text__text">Стоимость от {{product.price|number_format(0, '', ' ')}}руб  М.П.</div>{% endif %}
+									{# <div class="photo-text__text">{{product.short_desc}}</div> #}
 								</div>
 							</div>
 						</a>

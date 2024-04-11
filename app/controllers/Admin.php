@@ -8,7 +8,94 @@ class Admin extends MY_Controller {
 		parent::__construct();
 	}
 	
-	
+	public function feed() {
+		$this->load->model('categories_model', 'categoriesmodel');
+		if ($categories = $this->categoriesmodel->get(true)) {
+			$categoriesList = [];
+			foreach ($categories as $item) {
+				$categoriesList[] = [
+					'value'	=> $item['id'],
+					'title'	=> $item['title']
+				];
+			}
+		}
+
+		$this->load->model('products_model', 'productsmodel');
+		$products = $this->productsmodel->get(false, true, false, false);
+
+
+		$feed = '<yml_catalog date="'.date("Y-m-d H:i").'">
+				<shop>
+				<name>Акварель</name>
+				<company>Акварель</company>
+				<url>https://ku-hni.ru/</url>
+				<currencies> 
+				<currency id="RUR" rate="1"/> 
+				</currencies>
+				<categories>';
+		foreach($categoriesList as $item) {
+			$feed .= '<category id="'.$item['value'].'">'.$item['title'].'</category>';
+			$category[$item['title']] = $item['value'];
+		}
+		$feed .= '</categories><offers>';
+		$db = new mysqli('localhost', 'a0559688_kuhni_user', 'DeatH123' ,'a0559688_kuhni_db');
+
+		foreach($products['items'][4] as $product) {
+			if (isset($product['price']) && !empty($product['price']))  {
+				$query = $db->query("SELECT * FROM `products` WHERE `id`='".$product['id']."'");
+				while ($row = $query->fetch_array(MYSQLI_ASSOC)) {
+					$descr = $row;
+				
+				}
+				$pics = '';
+				$atts = json_decode($descr['attributes'], true);
+				$description = html_entity_decode(strip_tags($descr['description']));
+				$description = 'Кухни под ключ. ';
+				foreach($atts as $attr) {
+				    $description .= $attr['name'] . ': ' . $attr['value'] .'; ' . chr(10);
+				}
+				if ($descr['gallery']) {
+					$pictures = json_decode($descr['gallery'], true);
+					$i = 0;
+					foreach ($pictures as $picture) {
+						$i++;
+						$pics .= '<picture>https://ku-hni.ru/public/filemanager/__mini__/'.urlencode($picture['file']).'</picture>';
+						if ($i > 3) {
+							break;
+						}
+					}
+
+				}
+				$feed .= '
+				<offer id="'.$product['id'].'" type="vendor.model" available="true">
+				<url>https://ku-hni.ru/'.$product['seo_url'].'</url>
+				<vendorCode>KH-'.$product['id'].'</vendorCode>
+				<price>'.$product['price'].'</price> 
+				<currencyId>RUB</currencyId>
+				<categoryId>'.$category[$product['categories'][0]].'</categoryId>				
+				<picture>https://ku-hni.ru/public/filemanager/__mini__/'.urlencode($product['main_image']['file']).'</picture>	'.$pics.'		 
+				<name>'.$product['link_title_prod'].'</name>
+				<sales_notes>Скидка 35%</sales_notes>
+				<manufacturer_warranty>true</manufacturer_warranty>
+				<typePrefix>Кухни на заказ</typePrefix>
+				<vendor>Акварель</vendor>
+				<model>'.$product['link_title_prod'].'</model>
+				<description>'.$description.'</description>
+				<country_of_origin>Россия</country_of_origin>
+				<delivery-options>
+    <option cost="1000" days="1"/>
+</delivery-options>
+				</offer>';
+			}
+		}
+		$feed .= '</offers>
+		</shop>
+		</yml_catalog>';
+		header('Content-type: application/xml'); 
+
+		echo $feed;    
+
+	}
 	
 	public function index() {
 		if (is_null($this->input->cookie('set_base_mod'))) {

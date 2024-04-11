@@ -1,4 +1,4 @@
-<section class="sect-form sect-form__block{% if page_id== 25 %} section--mb{% endif %}" {% if data_scroll_id %} id="{{data_scroll_id}}" {% endif %} {% if data_scroll_block %} data-scroll-block="{{data_scroll_block}}" {% endif %}>
+<section class="sect-form sect-form__block" {% if data_scroll_id %} id="{{data_scroll_id}}" {% endif %} {% if data_scroll_block %} data-scroll-block="{{data_scroll_block}}" {% endif %}>
 	<div class="sect-form__block-content" style="background-image: url('{{base_url('public/filemanager/'~banner)}}');">
 		<div class="container-xxl g-2 g-lg-4">
 			<div class="row">

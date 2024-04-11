@@ -7,7 +7,7 @@ class Products_model extends MY_Model {
 	
 	
 	
-	
+ 
 	/**
 	 * @param 
 	 * @return 
@@ -64,7 +64,6 @@ class Products_model extends MY_Model {
 				unset($item['option_icon'], $item['option_title'], $item['option_color']);
 			}
 			
-			
 			if ($catalogId || $categoryId) {
 				if (!isset($data[$item['id']])) {
 					$categoryTitle = arrTakeItem($item, 'category_title');
@@ -81,7 +80,7 @@ class Products_model extends MY_Model {
 				} else {
 					$data[$item['catalog_id']][$item['id']]['categories'][] = $item['category_title'];
 				}
-			} 
+			}  
 		}
 		
 		if ($toList) {

@@ -15,7 +15,18 @@
 												<div class="swiper-wrapper">
 													{% if item_children %}
 														{% for item in item_children %}
+
 															<div data-fancybox="gallery-{{index_children}}-pc" data-src="{{base_url('public/filemanager/'~item.image_pc)}}" class="swiper-slide d-none d-md-block">
+																<div class="photo">
+																	<img src="{{base_url('public/filemanager/__mini__/'~item.image_pc)}}" loading="lazy"/>
+																</div>
+															</div>
+															<div data-fancybox="gallery-{{index_children}}-mobile" data-src="{{base_url('public/filemanager/'~(item.image_mobile ? item.image_mobile : item.image_pc))}}" class="swiper-slide d-block d-md-none">
+																	<div class="photo">
+																			<img src="{{base_url('public/filemanager/__mini__/'~(item.image_mobile ? item.image_mobile : item.image_pc))}}" loading="lazy"/>
+																	</div>
+															</div>
+															{# <div data-fancybox="gallery-{{index_children}}-pc" data-src="{{base_url('public/filemanager/'~item.image_pc)}}" class="swiper-slide d-none d-md-block">
 																<div class="photo">
 																	<img src="{{base_url('public/filemanager/__mini__/'~item.image_pc)}}" loading="lazy"/>
 																</div>
@@ -24,7 +35,7 @@
 																<div class="photo">
 																	<img src="{{base_url('public/filemanager/__mini__/'~item.image_mobile)}}" loading="lazy"/>
 																</div>
-															</div>
+															</div> #}
 														{% endfor %}
 													{% endif %}
 												</div>

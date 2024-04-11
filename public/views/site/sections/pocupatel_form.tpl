@@ -23,12 +23,13 @@
 					<div class="col">
 						<div class="mb-8 text-files">Прикрепить файл</div>
 						<label class="button button--black btn-sm button--small" role="button">
-							Загрузить
+						<span replacer class="text-white-custom">Загрузить</span>
+
 							<input type="file" name="attach" class="d-none">
 						</label>
 					</div>
 				</div>
-				<button type="submit" class="button button--black m-auto" callbackform="sendToDirector">Заказать</button>
+				<button type="submit" class="button button--black m-auto" callbackform="sendToDirector">Отправить</button>
 				<div class="d-flex mt-15">
 					<label class="form-check-label text-white-custom text-center m-auto">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности
 					</label>

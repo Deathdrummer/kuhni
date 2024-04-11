@@ -3,13 +3,12 @@
 <!--[if IE 8 ]><html dir="ltr" lang="ru" class="ie8"><![endif]-->
 <!--[if IE 9 ]><html dir="ltr" lang="ru" class="ie9"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html dir="ltr" lang="ru" prefix="og: http://ogp.me/ns#" class="page ">
+<html dir="ltr" lang="ru" prefix="og: http://ogp.me/ns#" class="page">
 <head itemscope itemtype="http://schema.org/WPHeader">
 	<meta charset="UTF-8" />
 	<meta name="author" content="Дмитрий Калюжнный" />
 	<meta name="copyright" content="Deathdrumer &copy; Web разработка" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
-
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="format-detection" content="telephone=no"> <!-- отключение автоопределения номеров для Safari (iPhone / IPod / IPad) и Android браузера -->
 	<meta http-equiv="x-rim-auto-match" content="none"> <!-- отключение автоопределения номеров для BlackBerry -->
@@ -50,12 +49,12 @@
 	{% if hosting %}{% include 'views/'~controller~'/layout/hosting.tpl' %}{% endif %} <!-- Если сайт на хостинге - выполнять функции -->
 	<title itemprop="headline">{{page_title|default('Страница без заголовка')}}</title>
 </head>
-<body data-scroll-block="body" id="body" class="page__body" >
+<body data-scroll-block="body" id="body" class="page__body">
 
 	{% if svg_sprite %}{{svg_sprite|raw}}{% endif %} {# Вставляем SVG спрайт #}
 	{% if header %}{% include 'views/'~controller~'/layout/header.tpl' %}{% endif %}
 	{% if nav_mobile %}{% include 'views/'~controller~'/layout/nav_mobile.tpl' %}{% endif %}
-	<main class="main" >
+	<main class="main">
 		{% if sections %}
 			{% for section in sections %}
 				{% include 'views/'~controller~'/sections/'~section.filename|ext('tpl') with section.data %}
@@ -80,5 +79,19 @@
 	{% if scripts_head %}{{scripts_head|raw}}{% endif %}
 
 	{% if is_file('public/js/'~controller~'.js') %}<script src="{{base_url('public/js/'~controller~'.js')}}"></script>{% endif %}
+
+	<script>
+		(function($){
+			$('button[callbackform]').click(function(){
+				var form = $(this).attr('callbackform')
+				window.dataLayer = window.dataLayer || [];
+				window.dataLayer.push ({
+					'event': 'formSuccess',
+					'formName': form,
+				})
+
+			})
+		})(jQuery)
+	</script>
 </body>
 </html>

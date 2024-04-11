@@ -40,7 +40,7 @@
 				</div>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td class="w-20"><div><span>Название</span></div></td>
 			<td>
@@ -49,7 +49,7 @@
 				</div>
 			</td>
 		</tr>
-		
+
 		{% if access.categories and categories %}
 			<tr>
 				<td class="w-20"><div><span>Категория</span></div></td>
@@ -64,7 +64,7 @@
 				</td>
 			</tr>
 		{% endif %}
-		
+
 		{% if access.main_image or access.threed %}
 			<tr>
 				<td class="w-20"><div><span>{% if access.main_image and access.threed %}Главное фото и 3D{% elseif access.main_image %}Главное фото{% elseif access.threed %}3D{% endif %}</span></div></td>
@@ -111,9 +111,9 @@
 							</div>
 						{% endif %}
 					{% endif %}
-					
-					
-					
+
+
+
 					{% if access.threed %}
 						{% if new %}
 							<div class="file empty">
@@ -152,10 +152,10 @@
 						{% endif %}
 					{% endif %}
 				</td>
-			</tr>	
+			</tr>
 		{% endif %}
-		
-		
+
+
 		{% if access.gallery %}
 			<tr>
 				<td class="w-20"><div><span>Галлерея</span></div></td>
@@ -188,15 +188,15 @@
 								</div>
 							</div>
 						{% endfor %}
-						
+
 						<button class="file__add file__add_small{% if item.label %} mt-28px{% endif %}" id="addGalleryFile" title="Добавить изображение"><i class="fa fa-plus"></i></button>
 					{% endif %}
 				</td>
 			</tr>
 		{% endif %}
-		
-		
-		
+
+
+
 		{% if access.videos %}
 			<tr>
 				<td class="w-20"><div><span>Видео</span></div></td>
@@ -241,9 +241,9 @@
 				</td>
 			</tr>
 		{% endif %}
-		
-			
-		
+
+
+
 		{% if access.short_desc %}
 			<tr>
 				<td class="w-20"><div><span>Краткое описание</span></div></td>
@@ -254,19 +254,19 @@
 				</td>
 			</tr>
 		{% endif %}
-			
-		
+
+
 		{% if access.description %}
 			<tr>
 				<td class="w-20"><div><span>Полное описание</span></div></td>
 				<td>
-					<div class="textarea">
+						<div class="textarea" style="max-width: 920px">
 						<textarea name="description" editor="productEditor{{rand}}" rules="string|length:3,65000" rows="10">{% if edit %}{{description}}{% endif %}</textarea>
 					</div>
 				</td>
 			</tr>
 		{% endif %}
-		
+
 		{% if access.attributes %}
 			<tr>
 				<td class="w-20"><div><span>Характеристики</span></div></td>
@@ -317,8 +317,8 @@
 				</td>
 			</tr>
 		{% endif %}
-		
-		
+
+
 		{% if access.options %}
 			<tr>
 				<td class="w-20"><div><span>Варианты товара</span></div></td>
@@ -416,13 +416,13 @@
 						</div>
 					{% endif %}
 				</td>
-			</tr>	
+			</tr>
 		{% endif %}
-		
-		
-		
-		
-		
+
+
+
+
+
 		{% if access.icons %}
 			<tr>
 				<td class="w-20"><div><span>Значки</span></div></td>
@@ -448,10 +448,10 @@
 				</td>
 			</tr>
 		{% endif %}
-		
-		
-		
-		
+
+
+
+
 		{% if access.article %}
 			<tr>
 				<td class="w-20"><div><span>Артикль</span></div></td>
@@ -462,7 +462,7 @@
 				</td>
 			</tr>
 		{% endif %}
-		
+
 		{% if access.model %}
 			<tr>
 				<td class="w-20"><div><span>Модель</span></div></td>
@@ -473,7 +473,7 @@
 				</td>
 			</tr>
 		{% endif %}
-		
+
 		{% if access.price %}
 			<tr>
 				<td class="w-20"><div><span>Цена</span></div></td>
@@ -501,12 +501,12 @@
 							<p class="postfix postfix_bottom ml-6px">{{currency}}</p>
 						</div>
 					{% endif %}
-					
+
 				</td>
 			</tr>
 		{% endif %}
-		
-		
+
+
 		{% if access.price_label %}
 			<tr>
 				<td class="w-20"><div><span>Подпись под ценой</span></div></td>
@@ -525,7 +525,7 @@
 				</td>
 			</tr>
 		{% endif %}
-		
+
 		{% if access.label %}
 			<tr>
 				<td class="w-20"><div><span>Ярлык</span></div></td>
@@ -544,10 +544,10 @@
 				</td>
 			</tr>
 		{% endif %}
-		
-		
-		
-		
+
+
+
+
 		{% if access.files %}
 			<tr>
 				<td class="w-20"><div><span>Файлы</span></div></td>
@@ -577,16 +577,16 @@
 								<input filesrc type="hidden" name="files[{{k}}][file]" id="{{k~rand}}" value="{{item.file}}" />
 							</div>
 						{% endfor %}
-						
+
 						<button class="file__add file__add_small{% if item.label %} mt-28px{% endif %}" id="addSimpleFile" title="Добавить файл"><i class="fa fa-plus"></i></button>
 					{% endif %}
 				</td>
 			</tr>
 		{% endif %}
-		
-		
-		
-		
+
+
+
+
 		{% if access.hashtags %}
 			<tr>
 				<td class="w-20"><div><span>Хэштеги</span></div></td>
@@ -601,7 +601,7 @@
 				</td>
 			</tr>
 		{% endif %}
-		
+
 		<tr>
 			<td class="w-20"><div><span>Сортировка товара в списке</span></div></td>
 			<td>

@@ -6,7 +6,7 @@
           <div class="section__title">{{title}}</div>
         </div>
         <div class="contacts-section__list">
-          {% for item in list_contacts_section | sortby('sort_main') %}
+          {% for item in list_contacts_section|sortby('sort_main') %}
                 <div class="contacts-section__item">
                   {% if item.tel != "" %}<a href="tel:{{item.tel}}"{% endif %}
                   {% if item.mail != "" %}<a href="mailto:{{item.mail}}"{% endif %}
