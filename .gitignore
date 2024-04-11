@@ -1,5 +1,7 @@
 /gulp/node_modules
-package-lock.json
-/aquarel/app
+/gulp/package-lock.json
 /system/cache
 /system/logs
+/modifications.json
+
+/aquarel/app
