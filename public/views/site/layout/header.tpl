@@ -39,7 +39,7 @@
 		  </div>
 		  <div class="block-button d-none d-md-flex">
 			<a class="button button--number" phone>{{phone.city1}}</a>
-			<button class="button button--red" data-bs-toggle="modal" data-bs-target="#modalraschetPrice">Расчет стоимости</button>
+			<button class="button button--red" data-bs-toggle="modal" data-bs-target="#modalraschetPrice">Заказать проект</button>
 		  </div>
 		</div>
 	  </div>
@@ -68,7 +68,7 @@
 		  </div>
 		  <div class="block-button d-flex d-md-none">
 			<a class="button button--number" phone>{{phone.city1}}</a>
-			<button class="button button--red" data-bs-toggle="modal" data-bs-target="#modalraschetPrice">Расчет стоимости</button>
+			<button class="button button--red" data-bs-toggle="modal" data-bs-target="#modalraschetPrice">Заказать проект</button>
 		  </div>
 		</div>
 	  </div>

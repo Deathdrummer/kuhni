@@ -1155,7 +1155,7 @@ jQuery(document).ready(function ($) {
   });
 
   $('[callbackform]').on(tapEvent, function () {
-    const form = $(this).closest('form'),
+    const form = $(this).closest('form:visible'),
       formType = $(this).attr('callbackform'),
       popper = $(this).closest('.modal').find('#callbackFormPopper'),
       modal = $(this).closest('.modal'),
@@ -1211,7 +1211,7 @@ jQuery(document).ready(function ($) {
         // setTimeout(() => {
         $(`#modal${formType}`).modal('show');
         // }, 1000);
-        $(form).find('[name]').val('');
+        $(form).find('[type="text"][name]:not([name=""]), [type="number"][name]:not([name=""]), [type="email"][name]:not([name=""]), [type="tel"][name]:not([name=""]), [type="date"][name]:not([name=""]), textarea[name]:not([name=""]), [contenteditable][name]:not([name=""])').val('');
         $(form).find('button[name]').attr('value', null);
         $(form).find('button[name]').attr('data-index', null);
         $(form).find('button[name]').text('Выберите вид изделия');

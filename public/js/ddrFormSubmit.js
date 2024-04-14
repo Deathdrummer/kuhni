@@ -37,7 +37,7 @@ $.fn.ddrFormSubmit = async function(params = {}) {
 // files
 $.fn.ddrForm = function(params = {}) {
 	let formContainer = this,
-		formItems = $(formContainer).find('input[name]:not([name=""]), textarea[name]:not([name=""]), select[name]:not([name=""]), button[name]:not([name=""]), [contenteditable][name]:not([name=""])').not('input[type="button"], input[type="file"]'),
+		formItems = $(formContainer).find('input[hidden][name]:not([name=""]), input[name]:not([name=""]):visible, textarea[name]:not([name=""]):visible, select[name]:not([name=""]):visible, button[name]:not([name=""]):visible, [contenteditable][name]:not([name=""]):visible').not('input[type="button"], input[type="file"]'),
 		formData = {};
 	if (formContainer == undefined || formItems.length == 0) return false;
 	

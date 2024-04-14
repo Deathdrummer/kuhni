@@ -166,3 +166,26 @@ span.error
 .card
 	&__price
 		font-size: 22px
+
+
+.modal
+	&__subtitle
+		+resp(font-size, (xs: 14px, sm: 17px, md: 17px, lg: 17px, xl: 17px, xxl: 17px), (line-height: 2))
+		display: block
+		color: #C61516
+		+resp(padding-left, (md: 10rem, lg: 12rem, xl: 15rem, xxl: 15rem), (padding-right: 0))
+	
+	&__addicticon
+		img
+			object-fit: contain !important
+			height: 16px !important
+			width: auto	!important	
+			margin-top: -5px
+		
+		span
+			font-size: 12px
+			color: #807A7A
+		
+		&:hover
+			span
+				color: darken(#807A7A, 10%)

@@ -61,12 +61,12 @@
 								<span>{{attr.value}}</span>
 							</li>
 						{% endfor %}
-						<strong class="card__price">{{product.price}} {{currency}}</strong>
+						<strong class="card__price">{{product.price|number_format(0, '', ' ')}} {{currency}}</strong>
 					</ul>
 					<div class="property-list d-flex flex-column border-md-none pb-0 pb-md-35 pt-20">Доставка и установка по Москве и М.О.</div>
 				</div>
 				<div class="order-1 order-lg-2 mb-20 mb-lg-0 d-flex">
-					<button class="button button--black" data-bs-toggle="modal" data-bs-target="#modalraschet">Заказать расчет</button>
+					<button class="button button--black" data-bs-toggle="modal" data-bs-target="#modalraschet">{{buutton_calc_text}}</button>
 					<button class="ms-5 d-block d-lg-none button-share" data-bs-toggle="modal" data-bs-target="#modalshare">
 						<img src="{{base_url('public/filemanager/'~icon_share)}}" alt="share"/>
 					</button>
