@@ -49,3 +49,120 @@ span.error
 	
 .nav__sub-menu
 	+resp(padding-left, (xs: 5px, 1250px: 0))
+	
+
+
+
+
+
+
+
+.bannerddr
+	position: relative
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	+resp(height, (xs: 100vh, md: 600px, lg: 600px, xl: 650px, xxl: 685px))
+	
+	&__label
+		+resp(top, (md: 28px, lg: 32px, xl: 35px, xxl: 42px))
+		+resp(right, (md: -8px, lg: -10px, xl: -12px, xxl: -20px))
+		position: relative
+		
+	&__title
+		+resp(text-align, (md: right))
+		+resp(font-size, (xs: 18px, sm: 26px, md: 26px, lg: 30px, xl: 32px, xxl: 36px))
+		+resp(margin-left, (xs: calc(50vw - 170px), sm: calc(50vw - 185px), md: 0))
+		+resp(margin-bottom, (xs: -16px !important, md: 6px !important))
+		line-height: 1em
+		text-transform: uppercase
+		font-weight: 600
+		color: #C61516
+	
+	&__subtitle
+		+resp(font-size, (xs: 18px, sm: 26px, md: 26px, lg: 30px, xl: 32px, xxl: 36px))
+		+resp(margin-right, (xs: calc(50vw - 170px), sm: calc(50vw - 185px), md: 0))
+		+resp(margin-top, (xs: -16px !important, sm: -26px !important, md: 0px !important))
+		line-height: 1.1em
+		text-transform: uppercase
+		white-space: pre-line
+		font-weight: 500
+		color: #fff
+		text-align: right
+		
+	&__percent
+		+resp(left, (xs: 10px, sm: 10px, md: -5px))
+		position: relative
+		display: inline-block
+		
+		h3
+			+resp(font-size, (xs: 142px, sm: 160px, md: 200px, lg: 220px, xl: 240px, xxl: 288px))
+			display: inline-block
+			padding: 10px
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			line-height: 1em
+			font-weight: 500
+			font-family: Manrope, sans-serif
+			
+			&.hidden
+				opacity: 0
+				position: relative
+			
+			&::after
+				background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.6)), color-stop(35%, white), color-stop(65%, white), to(rgba(0, 0, 0, 0.6)))
+				background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, white 35%, white 65%, rgba(0, 0, 0, 0.6) 100%)
+				-webkit-background-clip: text
+				background-clip: text
+				-webkit-text-fill-color: transparent
+				content: attr(data-content)
+				position: absolute
+				top: 0
+				left: 0
+				opacity: 0.8
+			&::before
+				text-shadow: 6px 6px 10px #000b
+				content: attr(data-content)
+				position: absolute
+				top: 0
+				left: 0
+				opacity: 0.5
+				
+	
+	&__button
+		+resp(bottom, (xs: 90px, sm: 95px, md: 95px, lg: 95px, xl: 100px, xxl: 110px))
+		position: absolute
+	
+	
+	&__bg
+		-o-object-fit: cover
+		object-fit: cover
+		position: absolute
+		top: 0
+		left: 0
+	
+	&__filter
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: #000000bf
+	
+	&__centerblock
+		padding-left: 30px
+		padding-right: 30px
+	
+	
+	
+
+
+
+
+.card
+	&__price
+		font-size: 22px

@@ -2,13 +2,13 @@
 
 
 
-$config['base_url'] = 'https://ku-hni.ru';
+$config['base_url'] = 'http://kuhni.loc';
 $config['settings_table'] = 'settings';
 $config['noroutes_controllers'] = ['reviews'];
 
-$config['db_name'] = 'a0559688_kuhni_db';
-$config['db_user'] = 'a0559688_kuhni_user';
-$config['db_pass'] = 'DeatH123';
+$config['db_name'] = 'kuhni_db';
+$config['db_user'] = 'root';
+$config['db_pass'] = '';
 
 
 $config['patterns_files_names'] = [

@@ -67,10 +67,6 @@ span.error {
   @media screen and (min-width: 1250px) {
     .nav__sub-menu {
       padding-left: 0; } }
-      
-
-
-
 
 .bannerddr {
   position: relative;
@@ -109,22 +105,6 @@ span.error {
   @media screen and (min-width: xxl) {
     .bannerddr {
       height: 685px; } }
-  .bannerddr__bg {
-    -o-object-fit: cover;
-       object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0; }
-  .bannerddr__filter {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #000000bf; }
-  .bannerddr__centerblock {
-    padding-left: 30px;
-    padding-right: 30px; }
   .bannerddr__label {
     position: relative; }
     @media screen and (min-width: 768px) {
@@ -152,13 +132,13 @@ span.error {
       .bannerddr__label {
         right: -20px; } }
   .bannerddr__title {
+    font-size: 18px;
+    margin-left: calc(50vw - 170px);
+    margin-bottom: -16px !important;
+    line-height: 1em;
     text-transform: uppercase;
     font-weight: 600;
-    color: #C61516;
-    font-size: 18px;
-    line-height: 1em;
-    margin-left: calc(50vw - 170px);
-    margin-bottom: -16px !important; }
+    color: #C61516; }
     @media screen and (min-width: 768px) {
       .bannerddr__title {
         text-align: right; } }
@@ -187,15 +167,15 @@ span.error {
       .bannerddr__title {
         margin-bottom: 6px !important; } }
   .bannerddr__subtitle {
+    font-size: 18px;
+    margin-right: calc(50vw - 170px);
+    margin-top: -16px !important;
+    line-height: 1.1em;
     text-transform: uppercase;
     white-space: pre-line;
     font-weight: 500;
     color: #fff;
-    text-align: right;
-    font-size: 18px;
-    line-height: 1.1em;
-    margin-right: calc(50vw - 170px);
-    margin-top: -16px !important; }
+    text-align: right; }
     @media screen and (min-width: 576px) {
       .bannerddr__subtitle {
         font-size: 26px; } }
@@ -224,9 +204,9 @@ span.error {
       .bannerddr__subtitle {
         margin-top: 0px !important; } }
   .bannerddr__percent {
+    left: 10px;
     position: relative;
-    display: inline-block;
-    left: 10px; }
+    display: inline-block; }
     @media screen and (min-width: 576px) {
       .bannerddr__percent {
         left: 10px; } }
@@ -234,6 +214,7 @@ span.error {
       .bannerddr__percent {
         left: -5px; } }
     .bannerddr__percent h3 {
+      font-size: 142px;
       display: inline-block;
       padding: 10px;
       position: absolute;
@@ -241,7 +222,6 @@ span.error {
       left: 0;
       right: 0;
       bottom: 0;
-      font-size: 142px;
       line-height: 1em;
       font-weight: 500;
       font-family: Manrope, sans-serif; }
@@ -282,8 +262,8 @@ span.error {
         left: 0;
         opacity: 0.5; }
   .bannerddr__button {
-    position: absolute;
-    bottom: 90px; }
+    bottom: 90px;
+    position: absolute; }
     @media screen and (min-width: 576px) {
       .bannerddr__button {
         bottom: 95px; } }
@@ -299,3 +279,22 @@ span.error {
     @media screen and (min-width: xxl) {
       .bannerddr__button {
         bottom: 110px; } }
+  .bannerddr__bg {
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .bannerddr__filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000bf; }
+  .bannerddr__centerblock {
+    padding-left: 30px;
+    padding-right: 30px; }
+
+.card__price {
+  font-size: 22px; }

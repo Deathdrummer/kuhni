@@ -61,6 +61,7 @@
 								<span>{{attr.value}}</span>
 							</li>
 						{% endfor %}
+						<strong class="card__price">{{product.price}} {{currency}}</strong>
 					</ul>
 					<div class="property-list d-flex flex-column border-md-none pb-0 pb-md-35 pt-20">Доставка и установка по Москве и М.О.</div>
 				</div>
