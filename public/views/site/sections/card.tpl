@@ -86,7 +86,7 @@
 								
 								<div class="col-12 d-flex flex-column justify-content-center bcg--white-v1 ps-10 pe-10 pt-28 pb-50 ps-md-30 pe-md-30 pt-md-28 pb-md-60">
 									<div class="col-12 bcg--white-v1 text-center d-block d-md-none modal-form-title pb-30 pt-0 pt-md-0">
-										<p>Проект кухни</p>
+										<p>Расчет стоимости кухни</p>
 										<small class="modal__subtitle">Заполните форму и получите быстрый расчет стоимости по вашим размерам с учетом скидки 35%</small>
 									</div>
 									{# ---------------------------------------- форма мобильная --------------------------------------- #}
@@ -190,7 +190,7 @@
 													{% for index, item in list_form_konf_kitchen %}
 														<div class="mb-1">
 															<div class="form-check">
-																<input class="form-check-input" type="radio" name="configuration" value="{{item.text}}" id="pcimg{{index}}"/>
+																<input class="form-check-input" type="radio" name="configuration"{{item.default ? ' checked' : ''}} value="{{item.text}}" id="pcimg{{index}}"/>
 																<div class="form-check-label text-white-custom"><label for="pcimg{{index}}">{{item.text}}</label></div>
 															</div>
 														</div>
@@ -200,12 +200,18 @@
 												<div class="hidden-md-up">
 													<div class="itc-select" id="select-closet" style="width: 100%;">
 						                                <!-- Кнопка для открытия выпадающего списка -->
-						                                <button type="button" class="itc-select__toggle form-select form-control" style="padding-top: 15px; padding-bottom: 15px;" name="configuration" value="" data-select="toggle" data-index="-1">Выберите вид изделия</button>
+						                                {% set default = '' %}
+					                                	{% for index, item in list_form_konf_kitchen %}
+					                                		{% if item.default %}
+					                                  			{% set default = item.text %}
+					                                		{% endif %}
+														{% endfor %}
+						                                <button type="button" class="itc-select__toggle form-select form-control" style="padding-top: 15px; padding-bottom: 15px;" name="configuration" value="{{default}}" data-select="toggle" data-index="-1">{{default}}</button>
 						                                <!-- Выпадающий список -->
 						                                <div class="itc-select__dropdown">
 						                                  <ul class="itc-select__options">
 						                                  	{% for index, item in list_form_konf_kitchen %}
-						                                  		<li class="itc-select__option" data-select="option" data-value="{{item.text}}" data-index="{{index}}">{{item.text}}</li>
+						                                  		<li class="itc-select__option{{item.default ? ' itc-select__option_selected' : ''}}" data-select="option" data-value="{{item.text}}" data-index="{{index}}">{{item.text}}</li>
 															{% endfor %}
 						                                  </ul>
 						                                </div>

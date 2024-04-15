@@ -1220,13 +1220,15 @@ jQuery(document).ready(function ($) {
         $(`#modal${formType}`).modal('show');
         // }, 1000);
         $(form).find('[type="text"][name]:not([name=""]), [type="number"][name]:not([name=""]), [type="email"][name]:not([name=""]), [type="tel"][name]:not([name=""]), [type="date"][name]:not([name=""]), textarea[name]:not([name=""]), [contenteditable][name]:not([name=""])').val('');
-        $(form).find('button[name]').attr('value', null);
-        $(form).find('button[name]').attr('data-index', null);
-        $(form).find('button[name]').text('Выберите вид изделия');
-        $(form).find('[replacer]').text(fileInitText);
+        //$(form).find('button[name]').attr('value', null);
+        //$(form).find('button[name]').attr('data-index', null);
+        //$(form).find('button[name]').text('Выберите вид изделия');
+        if (fileInitText) {
+          $(form).find('[replacer]').text(fileInitText);
+          fileInitText = null;
+        }
         $(form).find('[type="file"]').val('');
         $(form).find('[fileploaded]').removeAttrib('fileploaded');
-
         //callbackWin.wait(false);
       },
     });
