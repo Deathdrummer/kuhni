@@ -354,3 +354,8 @@ span.error {
 
 .modal__addicticon:hover span {
   color: #666161; }
+
+.button span[replacer] {
+  color: inherit;
+  text-align: center;
+  line-height: 1em; }

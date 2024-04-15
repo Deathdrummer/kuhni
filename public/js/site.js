@@ -1146,10 +1146,18 @@ jQuery(document).ready(function ($) {
     let price = $(this).data('price');
     $('[name="price"]').val(`${price}`);
   });
-
+  
+  let fileInitText = null;
+  
   $('body').on('change', '[type="file"]', function (e) {
+    const fileName = e.target?.files[0]?.name;
+   
+    if (!fileInitText) fileInitText = $(e.target).closest('label').find('[replacer]').text();
+    const loadedFileName = fileName.length > 30 ? fileName.slice(0, 30)+'...'+getFileName(fileName, 2) : fileName;
+    
+    $(e.target).closest('label').find('[replacer]').text(`Файл ${loadedFileName} загружен!`);
+    
     if ($(e.target).closest('label').hasAttr('fileploaded') == false) {
-      $(e.target).closest('label').find('[replacer]').text('Файл загружен!');
       $(e.target).closest('label').setAttrib('fileploaded');
     }
   });
@@ -1215,7 +1223,7 @@ jQuery(document).ready(function ($) {
         $(form).find('button[name]').attr('value', null);
         $(form).find('button[name]').attr('data-index', null);
         $(form).find('button[name]').text('Выберите вид изделия');
-        $(form).find('[replacer]').text('Загрузить');
+        $(form).find('[replacer]').text(fileInitText);
         $(form).find('[type="file"]').val('');
         $(form).find('[fileploaded]').removeAttrib('fileploaded');
 
