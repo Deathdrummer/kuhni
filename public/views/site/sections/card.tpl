@@ -90,7 +90,7 @@
 										<small class="modal__subtitle">Заполните форму и получите быстрый расчет стоимости по вашим размерам с учетом скидки 35%</small>
 									</div>
 									{# ---------------------------------------- форма мобильная --------------------------------------- #}
-									<form class="sect-form--white-theme d-block d-md-none">
+									{# <form class="sect-form--white-theme d-block d-md-none">
 										<div class="row g-0 gx-12 mb-30">
 											<div class="col-12">
 												<div class="col-title-form">Выберите конфигурацию:</div>
@@ -178,7 +178,7 @@
 											<div class="form-check-label text-white-custom text-center m-auto" style="cursor: auto">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности
 											</div>
 										</div>
-									</form>
+									</form> #}
 									
 									
 									{# ---------------------------------------- форма десктоп --------------------------------------- #}
@@ -266,7 +266,7 @@
 				
 				
 				
-				<div class="modal fade" id="modalraschet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				{# <div class="modal fade" id="modalraschet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-w-custom modal-dialog-centered">
 						<div class="modal-content bg-transparent" id="callbackFormPopper">
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" callbackformclose></button>
@@ -331,7 +331,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> #}
 				
 				
 				
